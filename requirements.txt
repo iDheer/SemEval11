@@ -1,24 +1,11 @@
-# This file is configured for PyTorch with CUDA 12.1.
-# If you have a different CUDA version (e.g., 11.8), change the URL below.
---extra-index-url https://download.pytorch.org/whl/cu121
-
-# Core ML/DL Framework (GPU Version)
-torch
-torchvision
-torchaudio
-
-# For running on Hugging Face ecosystem
-transformers
-datasets
-accelerate
-
-# Parameter-Efficient Fine-Tuning (PEFT) & Training
-peft
-trl
-bitsandbytes
+# Core dependencies for Ollama-based SemEval Task 11
 
 # Ollama for local LLM interaction
 ollama
 
-# For potential future metric calculations
+# For data processing and metrics
+pandas
 scikit-learn
+
+# Optional: for potential future metric calculations or data visualization
+numpy
