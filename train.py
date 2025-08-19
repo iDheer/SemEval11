@@ -2,6 +2,7 @@ import json
 import ollama
 import argparse
 import os
+from ollama_utils import ensure_only_model_loaded
 from datetime import datetime
 
 def create_modelfile(base_model, training_data, output_name):
@@ -45,6 +46,9 @@ PARAMETER top_p 0.9"""
     return modelfile_content
 
 def main(args):
+    # Restart Ollama and ensure only the Student base model is present before fine-tuning
+    ensure_only_model_loaded(args.model_name, pull_if_missing=True, restart_if_needed=True)
+
     print(f"Creating fine-tuned model from {args.model_name}...")
     
     # Create output directory

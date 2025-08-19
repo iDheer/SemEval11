@@ -2,6 +2,7 @@ import json
 import re
 import argparse
 import ollama
+from ollama_utils import ensure_only_model_loaded
 from collections import defaultdict
 from sklearn.metrics import f1_score
 
@@ -74,6 +75,9 @@ def calculate_metrics(results, f1_scores):
     }
 
 def main(args):
+    # Restart Ollama and prepare the evaluation model to avoid concurrent residency
+    ensure_only_model_loaded(args.model_name, pull_if_missing=True, restart_if_needed=True)
+
     # Load test data (expects Subtask 2 format with relevant_premises)
     test_data = []
     with open(args.test_data_path, 'r') as f:

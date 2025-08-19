@@ -23,6 +23,10 @@ Our approach uses **Knowledge Distillation** with **Symbolic Chain-of-Thought (S
 2. **Ollama** installed and running
 3. **NVIDIA GPU** (recommended for training)
 
+Important note about automation
+- The scripts in this repository now include an automated helper that will (best-effort) restart the local Ollama server and pull the requested model before running. This means you can run `python prepare_dataset.py` or `python train.py ...` and the code will try to stop a running Ollama process, start it cleanly, and pull the specified model so only that model will be resident in GPU memory.
+- For the automation to work the `ollama` CLI must be available on your PATH and you should be on Windows PowerShell (the helper uses PowerShell / taskkill for stop/start). If you prefer to manage Ollama yourself, you can pre-pull models with `ollama pull <model>` and run `ollama serve` manually.
+
 ### Setup
 ```bash
 # 1. Clone the repository
@@ -32,8 +36,10 @@ cd SemEval11
 # 2. Install Python dependencies
 pip install -r requirements.txt
 
-# 3. Ensure Ollama models are available
-ollama list  # Should show deepseek-r1:8b and gemma3:4b-it-q4_K_M
+# 3. Ensure Ollama CLI is available (optional)
+# The scripts will attempt to restart/pull models automatically if `ollama` is on PATH. You can also pre-pull models:
+ollama pull deepseek-r1:8b
+ollama pull gemma3:4b-it-q4_K_M
 ```
 
 ### Complete Workflow
@@ -43,6 +49,7 @@ ollama list  # Should show deepseek-r1:8b and gemma3:4b-it-q4_K_M
 # Use deepseek-r1:8b to create S-CoT training data
 python prepare_dataset.py
 ```
+Note: `prepare_dataset.py` will try to restart Ollama and pull `deepseek-r1:8b` automatically if needed.
 **Output:** Creates `training_data_st1_scot.jsonl` and `training_data_st2_scot.jsonl`
 
 #### Step 2: Fine-tune Student Models
@@ -74,6 +81,7 @@ python evaluate_subtask2.py \
     --model_name "gemma3:4b-it-q4_K_M" \
     --test_data_path "training_data_st2_scot.jsonl"
 ```
+Note: evaluation scripts will restart Ollama and ensure the chosen `--model_name` is available before running.
 
 #### Step 4: Analyze Errors
 ```bash
@@ -169,6 +177,16 @@ python train.py \
 
 ### Common Issues
 1. **Ollama models not found:** Run `ollama pull deepseek-r1:8b` and `ollama pull gemma3:4b-it-q4_K_M`
+2. **Automatic Ollama restart/pull fails:** The repository's automation uses the `ollama` CLI, `taskkill`, and PowerShell Start-Process. If the helper cannot restart or pull (permission issues or missing CLI), you can manually do the following in PowerShell:
+
+```powershell
+Get-Process -Name ollama -ErrorAction SilentlyContinue | Stop-Process
+Start-Process -FilePath 'ollama' -ArgumentList 'serve' -NoNewWindow
+ollama pull deepseek-r1:8b
+ollama pull gemma3:4b-it-q4_K_M
+```
+
+If you prefer to avoid the automatic behavior, you can edit `ollama_utils.py` and change the helpers or call scripts after you start `ollama serve` manually.
 2. **CUDA out of memory:** Reduce batch size in training scripts
 3. **Training fails:** Ensure Ollama server is running (`ollama serve`)
 

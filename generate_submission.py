@@ -3,6 +3,7 @@ import json
 import ollama
 import re
 import argparse
+from ollama_utils import ensure_only_model_loaded
 
 def parse_validity_from_output(text: str) -> bool | None:
     match = re.search(r"Validity:\s*(True|False)", text, re.IGNORECASE)
@@ -16,6 +17,9 @@ def parse_validity_from_output(text: str) -> bool | None:
     return False  # Default to false if unsure
 
 def main(args):
+    # Restart Ollama and prepare the model so only the chosen model is available for inference
+    ensure_only_model_loaded(args.model_name, pull_if_missing=True, restart_if_needed=True)
+
     print(f"Generating submission using model: {args.model_name}")
 
     # Load the official test data

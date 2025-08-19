@@ -2,6 +2,7 @@ import json
 import ollama
 import random
 import os
+from ollama_utils import ensure_only_model_loaded
 
 # --- Configuration ---
 # The "Professor": A powerful local model to generate the training data.
@@ -31,6 +32,10 @@ def generate_symbolic_cot(syllogism_obj, cache):
     if item_id in cache and 'symbolic_cot' in cache[item_id]:
         print(f"Using cached S-CoT for ID: {item_id}")
         return cache[item_id]['symbolic_cot']
+
+    # Ensure Ollama server is restarted and only the Teacher model will be present.
+    # This will restart Ollama and pull the teacher model if it's missing.
+    ensure_only_model_loaded(TEACHER_MODEL, pull_if_missing=True, restart_if_needed=True)
 
     print(f"Generating S-CoT for ID: {item_id} using local teacher: {TEACHER_MODEL}...")
     syllogism_text = syllogism_obj['syllogism']
