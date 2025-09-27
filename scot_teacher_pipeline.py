@@ -13,15 +13,19 @@ class LMStudioClient:
         self.base_url = base_url
         self.headers = {"Content-Type": "application/json"}
     
-    def generate_response(self, prompt: str, max_tokens: int = 1000, temperature: float = 0.1) -> str:
-        """Generate response from LM Studio API"""
+    def generate_response(self, prompt: str, max_tokens: int = 64000, temperature: float = 0.0) -> str:
+        """Generate response from LM Studio API - optimized for speed"""
         payload = {
             "messages": [
                 {"role": "user", "content": prompt}
             ],
             "temperature": temperature,
             "max_tokens": max_tokens,
-            "stream": False
+            "stream": False,
+            # Speed optimizations
+            "top_p": 0.9,
+            "frequency_penalty": 0.0,
+            "presence_penalty": 0.0,
         }
         
         try:
@@ -44,50 +48,63 @@ class LMStudioClient:
             return None
 
 def create_scot_prompt(syllogism: str) -> str:
-    """Create the S-CoT prompt with the provided template"""
-    prompt_template = """Your task is to analyze a logical syllogism and determine its validity based purely on its structure. Follow these steps precisely:
+    prompt_template = """You are a logic expert. Analyze this syllogism and give a clear, structured response.
 
-1. **Symbolic Abstraction**: Identify the distinct categories or entities in the syllogism and assign them symbolic variables like (A, B, C etc) as required.
+SYLLOGISM: {syllogism}
 
-2. **Logical Formulation**: Translate each premise and the conclusion into its formal logical structure using quantifiers like (All, Some, No etc) and the assigned variables.
+Provide your analysis in this exact format:
 
-3. **Step-by-Step Deduction**: Analyze the relationship between the premises in the logical formulation. Explain, step-by-step, whether the conclusion necessarily follows from the premises. Reference the variables to show your reasoning. State clearly if the premises are insufficient to guarantee the conclusion.
+1. Symbolic Abstraction: [assign A, B, C to entities]
+2. Logical Formulation: [write premises with quantifiers] 
+3. Step-by-Step Deduction: [check if conclusion follows]
+4. Final Answer: VALID or INVALID
 
-4. **Final Verdict**: Conclude with a single word: "Valid" if the argument is logically sound, or "Invalid" if it is not.
-
----
-
-**Syllogism to Analyze:**
-"{syllogism}"
-
-**Analysis:**"""
+Begin your analysis now:"""
     
     return prompt_template.format(syllogism=syllogism)
 
 def extract_validity_from_scot(scot_response: str) -> bool:
-    """Extract the final validity verdict from S-CoT response"""
-    # Look for "Valid" or "Invalid" at the end of the response
+    """Extract validity from improved S-CoT response format"""
     if scot_response is None:
         return None
     
-    # Check for final verdict patterns
-    lines = scot_response.strip().split('\n')
-    for line in reversed(lines):
-        line = line.strip().lower()
-        if 'valid' in line and 'invalid' not in line:
-            return True
-        elif 'invalid' in line:
-            return False
+    # Debug: Print the response to see what we're working with
+    print(f"\n--- DEBUG: S-CoT Response ---")
+    print(f"Response: {scot_response}")
+    print(f"--- End Response ---\n")
     
-    # Fallback: look anywhere in the response for verdict
+    response_upper = scot_response.upper()
+    
+    # Look for explicit VALID/INVALID in caps (from our structured prompt)
+    if "INVALID" in response_upper:
+        print("Found 'INVALID' in response")
+        return False
+    elif "VALID" in response_upper:
+        print("Found 'VALID' in response")  
+        return True
+    
+    # Fallback to original logic
     response_lower = scot_response.lower()
-    if 'final verdict:' in response_lower:
-        verdict_section = response_lower.split('final verdict:')[-1]
-        if 'valid' in verdict_section and 'invalid' not in verdict_section:
-            return True
-        elif 'invalid' in verdict_section:
-            return False
     
+    # Look for "final answer:" section specifically
+    if "final answer:" in response_lower:
+        final_section = response_lower.split("final answer:")[-1]
+        if "invalid" in final_section:
+            print("Found 'invalid' in Final Answer section")
+            return False
+        elif "valid" in final_section:
+            print("Found 'valid' in Final Answer section")
+            return True
+    
+    # Look anywhere for invalid/valid
+    if "invalid" in response_lower:
+        print("Found 'invalid' anywhere in response")
+        return False
+    elif "valid" in response_lower:
+        print("Found 'valid' anywhere in response")
+        return True
+    
+    print("Could not extract validity from response")
     return None
 
 def process_training_data_with_teacher(input_file: str, output_file: str, client: LMStudioClient):
@@ -96,18 +113,24 @@ def process_training_data_with_teacher(input_file: str, output_file: str, client
     print(f"Loading training data from {input_file}...")
     with open(input_file, 'r') as f:
         training_data = json.load(f)
+        training_data = training_data[:10]  # Test with 10 examples
     
     print(f"Processing {len(training_data)} examples with teacher model...")
     
     enriched_data = []
     failed_count = 0
+    start_time = time.time()  # Fix: Define start_time here
     
     for i, item in enumerate(tqdm(training_data, desc="Generating S-CoT traces")):
+        print(f"\n=== Processing Example {i+1}/{len(training_data)} ===")
+        print(f"Syllogism: {item['syllogism']}")
+        print(f"Ground Truth: {item['validity']}")
+        
         # Create S-CoT prompt
         prompt = create_scot_prompt(item['syllogism'])
         
         # Generate S-CoT trace from teacher model
-        scot_trace = client.generate_response(prompt, max_tokens=1500, temperature=0.1)
+        scot_trace = client.generate_response(prompt, max_tokens=600, temperature=0.0)
         
         if scot_trace is not None:
             # Extract predicted validity from S-CoT trace
@@ -126,18 +149,15 @@ def process_training_data_with_teacher(input_file: str, output_file: str, client
             
             enriched_data.append(enriched_item)
             
-            # Progress update every 50 examples
-            if (i + 1) % 50 == 0:
-                correct_predictions = sum(1 for ex in enriched_data if ex['teacher_correct'] == True)
-                total_predictions = sum(1 for ex in enriched_data if ex['teacher_correct'] is not None)
-                accuracy = correct_predictions / total_predictions if total_predictions > 0 else 0
-                print(f"Progress: {i+1}/{len(training_data)} | Teacher accuracy so far: {accuracy:.3f}")
+            print(f"Teacher predicted: {predicted_validity}")
+            print(f"Correct: {predicted_validity == item['validity'] if predicted_validity is not None else 'Unknown'}")
+            
         else:
             failed_count += 1
             print(f"Failed to generate S-CoT for example {i+1}")
         
-        # Small delay to avoid overwhelming the API
-        time.sleep(0.5)
+        # Small delay
+        time.sleep(0.1)
     
     # Save enriched dataset
     print(f"\nSaving enriched dataset to {output_file}...")
@@ -158,31 +178,8 @@ def process_training_data_with_teacher(input_file: str, output_file: str, client
     
     print(f"Teacher model accuracy: {teacher_accuracy:.4f} ({correct_predictions}/{total_predictions})")
     
-    # Analyze teacher performance by category
-    categories = {'VP': [], 'IP': [], 'VI': [], 'II': []}
-    
-    for ex in enriched_data:
-        if ex['teacher_correct'] is not None:
-            val = ex['validity']
-            plaus = ex['plausibility']
-            
-            if val and plaus:
-                categories['VP'].append(ex['teacher_correct'])
-            elif not val and plaus:
-                categories['IP'].append(ex['teacher_correct'])
-            elif val and not plaus:
-                categories['VI'].append(ex['teacher_correct'])
-            else:
-                categories['II'].append(ex['teacher_correct'])
-    
-    print(f"\nTeacher accuracy by category:")
-    for cat_name, results in categories.items():
-        if results:
-            acc = sum(results) / len(results)
-            count = len(results)
-            valid_str = "Valid" if cat_name[0] == 'V' else "Invalid"
-            plaus_str = "Plausible" if cat_name[1] == 'P' else "Implausible"
-            print(f"{cat_name} ({valid_str}, {plaus_str}): {acc:.3f} ({count} examples)")
+    if total_predictions == 0:
+        print("⚠️  Warning: No valid predictions extracted! Check the response format.")
     
     print(f"{'='*60}")
     print(f"Enriched dataset saved! Ready for student training.")
