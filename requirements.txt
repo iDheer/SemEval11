@@ -1,11 +1,29 @@
-# Core dependencies for Ollama-based SemEval Task 11
+# Core dependencies for SemEval-2026 Task 11
+# Fine-tuning approach with RoBERTa baseline
 
-# Ollama for local LLM interaction
-ollama
+# Deep Learning Framework
+torch>=2.0.0
+torchvision
+torchaudio
 
-# For data processing and metrics
+# Transformers and ML
+transformers>=4.30.0
+datasets
+accelerate
+
+# Data processing and metrics
 pandas
 scikit-learn
+numpy
 
 # Optional: for potential future metric calculations or data visualization
-numpy
+matplotlib
+seaborn
+
+# Legacy Ollama support (for comparison/fallback)
+ollama
+
+# Utility libraries
+tqdm
+wandb  # Optional: for experiment tracking
+#pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
