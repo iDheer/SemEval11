@@ -1,0 +1,32 @@
+{
+  "total_examples": 960,
+  "original_distribution": {
+    "VP": 240,
+    "IP": 234,
+    "VI": 240,
+    "II": 246
+  },
+  "split_sizes": {
+    "train": 671,
+    "validation": 143,
+    "test": 146
+  },
+  "train_distribution": {
+    "VP": 168,
+    "IP": 163,
+    "VI": 168,
+    "II": 172
+  },
+  "val_distribution": {
+    "VP": 36,
+    "IP": 35,
+    "VI": 36,
+    "II": 36
+  },
+  "test_distribution": {
+    "VP": 36,
+    "IP": 36,
+    "VI": 36,
+    "II": 38
+  }
+}

@@ -1,0 +1,878 @@
+[
+  {
+    "id": "0a5ff024-0265-4fe8-8dd7-57dd3d61a466",
+    "syllogism": "There exist no creatures that are both fish and reptiles. There are no lizards which are fish. It is therefore the case that some lizards are reptiles.",
+    "validity": false,
+    "plausibility": true
+  },
+  {
+    "id": "31c63f8f-d490-467e-a885-4dfe4bfddc8b",
+    "syllogism": "Anything that is water is also an H2O molecule. There is no ice that is an H2O molecule. Therefore, ice cannot be water.",
+    "validity": true,
+    "plausibility": false
+  },
+  {
+    "id": "14973340-3381-49f3-9dcd-3805c7a419bc",
+    "syllogism": "It is true that every single book is invisible. Anything that is invisible is also poisonous. This means that a few poisonous things are books.",
+    "validity": true,
+    "plausibility": false
+  },
+  {
+    "id": "fe6f084b-7a46-4d5f-a2f9-5f0e80774da8",
+    "syllogism": "Everything that is a tulip is a flower. It is the case that some trees are not flowers. This necessarily means that some trees are not tulips.",
+    "validity": true,
+    "plausibility": true
+  },
+  {
+    "id": "80ba297a-c9c9-4925-851e-72eb42dafd61",
+    "syllogism": "Every person who is a politician is a mortal. All mortals are humans. Consequently, every single human is a politician.",
+    "validity": false,
+    "plausibility": false
+  },
+  {
+    "id": "264785f1-ad8f-422d-ba64-9b9f60adffcc",
+    "syllogism": "Everything that is a living thing is a creature. It is impossible for something to be an organism and a creature at the same time. It is the case that a portion of organisms are not living things.",
+    "validity": true,
+    "plausibility": false
+  },
+  {
+    "id": "07a90f4b-0f4f-4cd1-98e4-fb8d24f15662",
+    "syllogism": "Every single dog is an animal. There are no zebras which are canines. It is the case that some zebra is an animal.",
+    "validity": false,
+    "plausibility": true
+  },
+  {
+    "id": "020fa6a9-78fa-42d2-987a-7aa9c21ed5ff",
+    "syllogism": "There are some smart people that are physicists. Every physicist is a scientist. As a result, every single scientist is a smart person.",
+    "validity": false,
+    "plausibility": true
+  },
+  {
+    "id": "1d435e7a-87e9-48a6-b87b-2cf3df3b1b1f",
+    "syllogism": "Everything that is a vehicle is a magical item. A portion of vehicles are cars. It necessarily follows that some cars are magical items.",
+    "validity": true,
+    "plausibility": false
+  },
+  {
+    "id": "febb0646-5f5b-4cee-bc66-a3444c562560",
+    "syllogism": "There is no person who is both a musician and a non-artistic person. It is known that some human beings are among the non-artistic people. The consequence is that there exist human beings who are not musicians.",
+    "validity": true,
+    "plausibility": true
+  },
+  {
+    "id": "f11aecef-3e59-473a-b84d-c2cc26525774",
+    "syllogism": "Every single person is a human. Anything that is a human is a husband. Consequently, it follows that all husbands are people.",
+    "validity": false,
+    "plausibility": true
+  },
+  {
+    "id": "f365e4e6-b827-4b74-b09a-e386043f0e89",
+    "syllogism": "It is true that everything that is a dog is an animal. It is also true that no mammals are dogs. Thus, it is concluded that no mammals are animals.",
+    "validity": false,
+    "plausibility": false
+  },
+  {
+    "id": "5663e778-8153-48c2-83b3-c559449cfb13",
+    "syllogism": "Nothing that is a robot is an organic being. Every single person who is a human is an organic being. It follows from this that there are a number of humans who are not robots.",
+    "validity": true,
+    "plausibility": true
+  },
+  {
+    "id": "66becbb7-c25e-4311-9351-8ae03584a7f6",
+    "syllogism": "There are no animals that are both fish and warm-blooded. The entire group of mammals consists of animals that are warm-blooded. Fish and mammals are mutually exclusive categories.",
+    "validity": true,
+    "plausibility": true
+  },
+  {
+    "id": "8c136b17-300a-4f32-85bb-6853fcdd0a01",
+    "syllogism": "There are some cars that are not a liquid. There are no bicycles that are cars. Consequently, there are no bicycles which are liquid.",
+    "validity": false,
+    "plausibility": true
+  },
+  {
+    "id": "8fc55b1f-be82-47a2-b48a-7ee31ee1c000",
+    "syllogism": "The class of athletes and the class of non-runners have elements in common. Every single runner is an athlete. Consequently, a portion of non-runners are not athletes.",
+    "validity": false,
+    "plausibility": true
+  },
+  {
+    "id": "56dea4d9-94ad-4daf-893b-945bfe93bb7b",
+    "syllogism": "There are no chairs that can be considered musical instruments. Certain chairs exist that are also antiques. The conclusion that a portion of antiques are not musical instruments is inescapable.",
+    "validity": true,
+    "plausibility": true
+  },
+  {
+    "id": "ab8d4f5a-c4f4-4d1d-afea-b973c560be29",
+    "syllogism": "There are no creatures that are both mammals and reptiles. The class of human beings has members that are reptiles. The consequence is that some human beings are not mammals.",
+    "validity": true,
+    "plausibility": false
+  },
+  {
+    "id": "54a39670-9d4d-4f11-bbd9-29c01e27210d",
+    "syllogism": "Every single apple is a food. It is also true that every apple is a fruit. This means that all fruits are foods.",
+    "validity": false,
+    "plausibility": true
+  },
+  {
+    "id": "de7fde47-808e-40d6-9096-51fc9478b3e6",
+    "syllogism": "There are some animals that are sparrows. All things that are sparrows are birds. Consequently, every single thing that is a bird is an animal.",
+    "validity": false,
+    "plausibility": true
+  },
+  {
+    "id": "c81d6f35-5656-4c9e-8e8c-bd50cbc341e5",
+    "syllogism": "There are no plants that can be called trees. It is also true that every plant is a type of vegetable. This has led to the conclusion that every vegetable is a tree.",
+    "validity": false,
+    "plausibility": false
+  },
+  {
+    "id": "e213d351-2f05-43b4-b277-c9ecded9473b",
+    "syllogism": "Not a single item that is an instrument is a piano. There are keyboards which are also pianos. We must conclude that some keyboards are not instruments.",
+    "validity": true,
+    "plausibility": false
+  },
+  {
+    "id": "007efb0e-6d0c-40c9-8d96-a25a1fbbbf93",
+    "syllogism": "Nothing that is a vehicle is an object with wheels. Every single item that is a car is an object with wheels. This proves that a number of cars are not vehicles.",
+    "validity": true,
+    "plausibility": false
+  },
+  {
+    "id": "36fdea7c-f8c5-4b3e-9989-7ef62a3e4cec",
+    "syllogism": "There are no dogs that are cats. Everything that is a bird is a dog. Thus, every bird is a cat.",
+    "validity": false,
+    "plausibility": false
+  },
+  {
+    "id": "4c8d8de7-6547-4766-8f98-7f28dd8b4b9a",
+    "syllogism": "There are some individuals who find pleasure in reading who are librarians. Every single person who is a librarian is a student. It is the case that some of the people who are students are people who enjoy reading.",
+    "validity": true,
+    "plausibility": true
+  },
+  {
+    "id": "1b1b97d3-969d-4921-9095-42863228cbab",
+    "syllogism": "Anything that is a mammal is a creature that is warm-blooded. Some animals are, without a doubt, mammals. Therefore, every single animal is made of wood.",
+    "validity": false,
+    "plausibility": false
+  },
+  {
+    "id": "99ba63a6-3b6a-4f63-a0f7-6cef1c11818f",
+    "syllogism": "Everything that is a hut is a vehicle. A few huts are houses. Thus, a number of houses are vehicles.",
+    "validity": true,
+    "plausibility": false
+  },
+  {
+    "id": "84b624a9-4de1-40a4-a584-7d961b6d017c",
+    "syllogism": "Reptiles are a class of animal which does not contain any amphibians. All things that are frogs are amphibians. The group of frogs and the group of reptiles have no members in common.",
+    "validity": true,
+    "plausibility": true
+  },
+  {
+    "id": "604c4371-08b2-478a-85a3-273194f6153e",
+    "syllogism": "Every single liquid is a fluid. It is impossible for any water to be a fluid. It can be concluded that no water is a liquid.",
+    "validity": true,
+    "plausibility": false
+  },
+  {
+    "id": "5704ad50-0947-41ed-b7bb-385a2dc1cb52",
+    "syllogism": "There are all humans which are primates. Every human is a kind of mammal. It follows that all mammals are not primates.",
+    "validity": false,
+    "plausibility": true
+  },
+  {
+    "id": "9f914ab3-38b2-420a-a2f6-fcf43f939219",
+    "syllogism": "Anything that is a mammal is warm-blooded. Every single dog is a mammal. At least one dog is warm-blooded.",
+    "validity": true,
+    "plausibility": true
+  },
+  {
+    "id": "ed7937f5-a98e-4385-a58a-0d24b4f23651",
+    "syllogism": "Anything that is a cat is a feline. It is true that all felines are carnivores. This means that a few carnivores are cats.",
+    "validity": true,
+    "plausibility": true
+  },
+  {
+    "id": "5b14aaf3-7046-4858-8069-723378b1d76c",
+    "syllogism": "All things that are made of wood can catch on fire. There are some chairs that are wooden objects. It follows, then, that some chairs can be set on fire.",
+    "validity": true,
+    "plausibility": true
+  },
+  {
+    "id": "244cf8ba-d6bd-4acb-83db-841c05330954",
+    "syllogism": "Anything that is a feline is a mammal. There are no cats that are felines. Thus, there are no cats that are mammals.",
+    "validity": false,
+    "plausibility": false
+  },
+  {
+    "id": "d1c92c02-bd97-4456-a14d-9b82b65cd5b1",
+    "syllogism": "Anything that is a vehicle is also a machine. There is a subset of machines that are cars. Therefore, some cars are not vehicles.",
+    "validity": false,
+    "plausibility": false
+  },
+  {
+    "id": "90b5d022-b2d7-4fbe-9386-f956381db9af",
+    "syllogism": "Any fire is frozen. There are some flames that are fire. Therefore, it is implied that some flames are frozen.",
+    "validity": true,
+    "plausibility": false
+  },
+  {
+    "id": "cafd8eaf-668f-4c69-ae03-ec38709e4b9e",
+    "syllogism": "Every single human is a cloud. It is also true that every mammal is a cloud. This proves that all mammals are humans.",
+    "validity": false,
+    "plausibility": false
+  },
+  {
+    "id": "dcd52b2a-0ff8-4826-a5e1-710238698ef7",
+    "syllogism": "Anything that is a parrot is a bird. Every single bird is an animal. One must conclude that every animal is a parrot.",
+    "validity": false,
+    "plausibility": true
+  },
+  {
+    "id": "a7504ed6-5b8e-42d0-bb8b-11754ac5953a",
+    "syllogism": "Every single person who is a professor is an academic. Any academic is a knowledgeable person. Therefore, some knowledgeable people are professors.",
+    "validity": true,
+    "plausibility": true
+  },
+  {
+    "id": "ed17a05a-a553-4df8-a45b-384eadb243e1",
+    "syllogism": "There are no cars that are made of water. There are no cars that are clouds. Consequently, no clouds are made of water.",
+    "validity": false,
+    "plausibility": false
+  },
+  {
+    "id": "4174bbf2-1f54-4ae3-a5e9-cefac102ed46",
+    "syllogism": "There are no animals that do not live on land. It is the case that no fish is an animal. At least some fish live on land.",
+    "validity": false,
+    "plausibility": false
+  },
+  {
+    "id": "5f809928-5ead-4ebc-8fb0-c9eb220743f0",
+    "syllogism": "Every single human is a mammal. A subset of mammals is composed of women. It is necessarily true that some women are not humans.",
+    "validity": false,
+    "plausibility": false
+  },
+  {
+    "id": "c890f2c1-9631-4153-a60e-02a9a89ad258",
+    "syllogism": "Every single creature that is an animal with fins is a fish. It is also the case that some whales are fish. This leads to the conclusion that some whales are animals with fins.",
+    "validity": false,
+    "plausibility": true
+  },
+  {
+    "id": "094f320d-ea3a-4e4e-be55-d09692332089",
+    "syllogism": "It is a fact that every tulip is a flower. It is also true that all roses are flowers. Therefore, it is concluded that a few flowers are roses.",
+    "validity": false,
+    "plausibility": true
+  },
+  {
+    "id": "45d94787-3541-406f-af22-4fd535dee8a8",
+    "syllogism": "Every vehicle has wheels. At least one car does not have wheels. Not all cars are vehicles.",
+    "validity": false,
+    "plausibility": false
+  },
+  {
+    "id": "11bab54e-dbbb-4b2e-9d4d-2fc9b2c69d9e",
+    "syllogism": "It is a certainty that every single teacher is a human being. It is also true that a few educated people are human beings. On this basis, it has been stated that a few educated people are teachers.",
+    "validity": false,
+    "plausibility": true
+  },
+  {
+    "id": "c6a92b4e-ca9a-475c-9fec-967fbec7ab36",
+    "syllogism": "It is true that no fish live in the sea. There are fish, and some of them are salmons. Based on this, it must be the case that a certain amount of salmons do not live in the sea.",
+    "validity": true,
+    "plausibility": false
+  },
+  {
+    "id": "8078870d-5ee2-4765-a771-bd795e0a10cf",
+    "syllogism": "There are no paintings that are also works of literature. Every single novel is a work of literature. The implication is that there exist some novels which are not paintings.",
+    "validity": true,
+    "plausibility": true
+  },
+  {
+    "id": "ec3d4144-b083-43d2-a400-20da589c8627",
+    "syllogism": "It is true that everything which is a bird is a winged creature. There are no insects which are birds. A conclusion that can be drawn from this is that there are no insects which are winged creatures.",
+    "validity": false,
+    "plausibility": false
+  },
+  {
+    "id": "61ba9569-1368-4d47-9706-b54a7034bab5",
+    "syllogism": "It is true that everything which is a bird is a winged creature. There are no insects which are birds. A conclusion that can be drawn from this is that there are insects which are winged creatures.",
+    "validity": false,
+    "plausibility": true
+  },
+  {
+    "id": "6fa051ab-5673-4ce7-8234-3baf75bd1d64",
+    "syllogism": "Houses are never schools. A few schools are, in fact, buildings. There exist buildings that are not houses.",
+    "validity": true,
+    "plausibility": true
+  },
+  {
+    "id": "e1f5938b-bf0b-4cfe-8b2a-8b83c91dcbb1",
+    "syllogism": "Everything that is a spoon is a piece of cutlery. No giraffes can be considered pieces of cutlery. It can be said that some giraffes are not spoons.",
+    "validity": true,
+    "plausibility": true
+  },
+  {
+    "id": "732e20b3-c504-4115-914d-496d0c4ee6da",
+    "syllogism": "Every single mammal is a living thing. The set of animals contains no living things. Not a single mammal is an animal.",
+    "validity": false,
+    "plausibility": false
+  },
+  {
+    "id": "059182d4-4b95-4caa-9895-b79368d8c736",
+    "syllogism": "A number of chairs are people. Anything that is a person is an organism. Therefore, a portion of organisms are chairs.",
+    "validity": true,
+    "plausibility": false
+  },
+  {
+    "id": "54c5b3f8-ba16-4eaf-86a1-71d78b771192",
+    "syllogism": "All things which are numbers are animals. All things which are numbers are plants. It follows that some plants are animals.",
+    "validity": true,
+    "plausibility": false
+  },
+  {
+    "id": "7b5fba34-77db-4a14-a9f4-810833a4d47b",
+    "syllogism": "Zebras are in no way dogs. There are some dogs that are mammals. This implies that some zebras are mammals.",
+    "validity": false,
+    "plausibility": true
+  },
+  {
+    "id": "ee91ca83-4f5e-48ac-ae52-93ad7842c9fb",
+    "syllogism": "All houses are structures. There are no bridges that are houses. Therefore, no bridge is a structure.",
+    "validity": false,
+    "plausibility": false
+  },
+  {
+    "id": "5631278b-7761-4a8c-ae61-1694dd27d01a",
+    "syllogism": "Every person who is a prime minister is a politician. There are a number of people who are celebrities who are also politicians. It follows from this that there are some celebrities who are prime ministers.",
+    "validity": false,
+    "plausibility": true
+  },
+  {
+    "id": "a6cae303-c3b4-47e8-9d24-684efce69c15",
+    "syllogism": "Every single person who is an animal is a living thing. Not a single building is an animal. The conclusion that no buildings are living things is inescapable.",
+    "validity": false,
+    "plausibility": true
+  },
+  {
+    "id": "6dfa2e90-5139-4564-bb80-b6c343f867b0",
+    "syllogism": "Nothing that is a vehicle is a mode of transportation. A certain number of cars are composed of vehicles. It follows that a portion of cars are not modes of transportation.",
+    "validity": true,
+    "plausibility": false
+  },
+  {
+    "id": "ab27dbac-d446-4199-a267-16d010b7588f",
+    "syllogism": "There are some mammals which live on land. It is the case that no fish lives on land. Consequently, all fish are mammals.",
+    "validity": false,
+    "plausibility": false
+  },
+  {
+    "id": "321e05bd-2e8f-412d-beff-9ec29ac7ed43",
+    "syllogism": "It is not the case that every human is a male. Every single human is a creature with ten legs. From this, it follows that some creatures with ten legs are males.",
+    "validity": false,
+    "plausibility": false
+  },
+  {
+    "id": "8bb41f23-ab9f-4ed2-898a-f5c6f2fff389",
+    "syllogism": "Anything that is a fruit is a food that contains seeds. Some foods are, without a doubt, fruits. Therefore, every single food contains rocks.",
+    "validity": false,
+    "plausibility": false
+  },
+  {
+    "id": "832f59aa-bfee-4e92-b247-d8719f1844ae",
+    "syllogism": "Every single dog belongs to the canine family. Anything that is a chihuahua is a dog. This means that every chihuahua is a canine.",
+    "validity": true,
+    "plausibility": true
+  },
+  {
+    "id": "06689352-cd51-48f4-8767-0864666d0941",
+    "syllogism": "Anything that is a novel is a book. All books are publications. From these facts, it is clear that a few publications are novels.",
+    "validity": true,
+    "plausibility": true
+  },
+  {
+    "id": "0facfad6-abe4-4a37-bd8a-5996bd3a2254",
+    "syllogism": "Anything that is a fish is an animal. There are birds, and all of them are animals. Based on this, it must be the case that every bird is a fish.",
+    "validity": false,
+    "plausibility": false
+  },
+  {
+    "id": "c22180d9-b32d-481d-a2ed-a540c1e1853f",
+    "syllogism": "Every keyboard is a cloud. Not a single cloud is a musical instrument. From this, it follows that no musical instruments is a keyboard.",
+    "validity": true,
+    "plausibility": false
+  },
+  {
+    "id": "d7afe323-d509-4dec-a2e0-28e03a26902e",
+    "syllogism": "Not one single nonfiction book is a fictional work. All novels are fictional works. It follows from this that some novels are not nonfiction books.",
+    "validity": true,
+    "plausibility": true
+  },
+  {
+    "id": "fc477a4d-acad-4c3b-a989-ef97e9454f41",
+    "syllogism": "Every insect is an animal. All mammals are animals. Consequently, every single mammal is an insect.",
+    "validity": false,
+    "plausibility": false
+  },
+  {
+    "id": "475ce940-a63d-4940-9254-be1e35243cfa",
+    "syllogism": "There are some dogs that are cats. There are no cats that are reptiles. As a result, some reptiles are dogs.",
+    "validity": false,
+    "plausibility": false
+  },
+  {
+    "id": "9fcdef6b-4601-4603-92bc-1124b386ce5b",
+    "syllogism": "Anything that is a rose is a plant. There are no animals that are roses. Consequently, there are no animals that are plants.",
+    "validity": false,
+    "plausibility": true
+  },
+  {
+    "id": "435fcf21-2212-486d-86b2-92fe61151294",
+    "syllogism": "There are no mammals which are reptiles. Some animals are mammals. From this, it can be concluded that some animals are reptiles.",
+    "validity": false,
+    "plausibility": true
+  },
+  {
+    "id": "b2e875c8-2a19-4aab-a7d0-b5116bde9dc6",
+    "syllogism": "There are some creatures that are mammals and also animals. Among the group of creatures that are tigers, some are animals. It follows that at least some tigers are not mammals.",
+    "validity": false,
+    "plausibility": false
+  },
+  {
+    "id": "a9e0e8bb-07cb-4153-bfc7-cb4428463fc7",
+    "syllogism": "Gold is always classified as a metal. Nothing that is a plastic is a metal. Therefore, no plastic is gold.",
+    "validity": true,
+    "plausibility": true
+  },
+  {
+    "id": "8b839892-71f7-4ea5-9c5b-7aa33246451f",
+    "syllogism": "Every single thing that is a number is a letter. The set of all integers contains no letters. It is the case that there are certain integers which are not numbers.",
+    "validity": true,
+    "plausibility": false
+  },
+  {
+    "id": "6650eef5-2045-4ee2-8fe1-a3036d54c6b6",
+    "syllogism": "No person who is a doctor is also a teacher. Anything that is a teacher is a profession. Therefore, some professions are not doctors.",
+    "validity": true,
+    "plausibility": true
+  },
+  {
+    "id": "c7b40258-763b-4059-8ab3-378b76d6a0a8",
+    "syllogism": "There exist some things which are birds that are not animals. Every single thing that is a bird is a mammal. From this, it follows that some mammals are not animals.",
+    "validity": true,
+    "plausibility": false
+  },
+  {
+    "id": "c0c3e36b-70c0-4cc8-b13d-3ae4ba0424b8",
+    "syllogism": "It is true that all roses are flowers. It is also true that some plants are flowers. One can therefore conclude that some plants are roses.",
+    "validity": false,
+    "plausibility": true
+  },
+  {
+    "id": "bd43b96a-b4cd-4380-af60-6f6052586580",
+    "syllogism": "Every single rhino is a mammal. Every single lion is a mammal. It is the case that some lions are not rhinos.",
+    "validity": false,
+    "plausibility": true
+  },
+  {
+    "id": "7083216a-6754-498f-8a93-53d551efe0c7",
+    "syllogism": "There is no soda that is a juice. A portion of the items that are beverages are not juices. It follows that some beverages are not sodas.",
+    "validity": false,
+    "plausibility": true
+  },
+  {
+    "id": "e678f76a-260f-4b2f-b2c6-3d3a5a992e6d",
+    "syllogism": "There are no objects that are furniture. Each and every table is an object. It follows that no table can be an item of furniture.",
+    "validity": true,
+    "plausibility": false
+  },
+  {
+    "id": "154d3137-be50-4fff-85ad-80f687f7806a",
+    "syllogism": "There are no rivers that are oceans. Every single river is a body of water. It logically follows that some bodies of water are not oceans.",
+    "validity": true,
+    "plausibility": true
+  },
+  {
+    "id": "94961071-4c98-4f16-a4a5-a1740f7385ea",
+    "syllogism": "All things that are tigers are felines. All things that are cats are felines. It can be deduced that there are cats that are tigers.",
+    "validity": false,
+    "plausibility": true
+  },
+  {
+    "id": "ba26d7cc-4c9a-40f2-817d-73b6f91781ab",
+    "syllogism": "Some clouds are houses. A house is a building. As such, it is necessarily true that some buildings are clouds.",
+    "validity": true,
+    "plausibility": false
+  },
+  {
+    "id": "ffba71c8-04fc-496e-809f-6655735d3be8",
+    "syllogism": "Every feline is an animal. There is a subset of animals that is composed of mammals. A portion of mammals are not felines.",
+    "validity": false,
+    "plausibility": true
+  },
+  {
+    "id": "e6449020-f9d5-4bc0-b0a2-561fa0d15d30",
+    "syllogism": "The group of professionals is a subset of the group of people. Everything that is a doctor is a professional. Therefore, there are some people who are not doctors.",
+    "validity": false,
+    "plausibility": true
+  },
+  {
+    "id": "8c994dd2-d609-47b8-b002-c10f92225451",
+    "syllogism": "Every single dog is a mammal. All mammals are birds. Consequently, every single bird is a dog.",
+    "validity": false,
+    "plausibility": false
+  },
+  {
+    "id": "d8794f2a-f535-4be9-a29b-71a98af6bf08",
+    "syllogism": "Every sky is a blue thing. There is not a single car that is a sky. It can be concluded that no car is a blue thing.",
+    "validity": false,
+    "plausibility": false
+  },
+  {
+    "id": "36bba00b-4596-453f-aa17-dcf20ad0768c",
+    "syllogism": "It is the case that every teacher is a college graduate. Some professionals are also known to be college graduates. Thus, it can be concluded that some professionals are also teachers.",
+    "validity": false,
+    "plausibility": true
+  },
+  {
+    "id": "4510d170-3c4e-455b-a819-2c2e88fe1655",
+    "syllogism": "Every single reptile is a living thing. The set of animals contains no living things. Not a single reptile is an animal.",
+    "validity": false,
+    "plausibility": false
+  },
+  {
+    "id": "ac5ce699-15c3-4842-8f1e-7d70227b0787",
+    "syllogism": "A portion of buildings are dogs. Every single dog is a domestic animal. Hence, some domestic animals are buildings.",
+    "validity": true,
+    "plausibility": false
+  },
+  {
+    "id": "2cd1f13b-eb67-42b7-a345-da72e5fb4d80",
+    "syllogism": "Some mammals are dogs. There are some cats who are mammals. Cats are in no way dogs.",
+    "validity": false,
+    "plausibility": true
+  },
+  {
+    "id": "7841eb47-8f72-475c-852d-4d709ae0965e",
+    "syllogism": "There are some mammals that are primates. Every single primate is an animal. Consequently, some animals are mammals.",
+    "validity": true,
+    "plausibility": true
+  },
+  {
+    "id": "42f67665-07b1-4466-b825-8ec4367d126e",
+    "syllogism": "There are no items that are not plants that are plants. A number of items that are not plants are trees. Therefore, a portion of trees are plants.",
+    "validity": false,
+    "plausibility": true
+  },
+  {
+    "id": "68affb76-c5fc-4423-9221-1784c4509086",
+    "syllogism": "Every novel is a book. Nothing that is a magazine is a book. Therefore, a magazine cannot be a novel.",
+    "validity": true,
+    "plausibility": true
+  },
+  {
+    "id": "0a60216c-0892-42a4-9afb-f72f70ce24b9",
+    "syllogism": "A portion of fitness enthusiasts are runners. Anyone who is a runner is also an athlete. Therefore, a subset of athletes are fitness enthusiasts.",
+    "validity": true,
+    "plausibility": true
+  },
+  {
+    "id": "4c424337-e384-43c6-a130-fcc14a34f3fb",
+    "syllogism": "Everything that is a cloud is also a reptile. Everything that is a cloud is also a fish. Hence, some fish are reptiles.",
+    "validity": true,
+    "plausibility": false
+  },
+  {
+    "id": "dd82fade-0432-4f9c-a72a-d2e6ba056b77",
+    "syllogism": "Any person who is a human is a robot. The set of people contains no robots. It is the case that some people are not humans.",
+    "validity": true,
+    "plausibility": false
+  },
+  {
+    "id": "fcd92fbd-f6f8-4dee-92ae-36de10989e23",
+    "syllogism": "Every single thing that is a tool is an object. Anything that is a hammer is a tool. This means that all hammers are objects.",
+    "validity": true,
+    "plausibility": true
+  },
+  {
+    "id": "8c0b2788-b46e-45b5-bf37-d6226804536d",
+    "syllogism": "It is the case that no arachnid has eight legs. Every spider is an arachnid. It follows that no spider has eight legs.",
+    "validity": true,
+    "plausibility": false
+  },
+  {
+    "id": "894cbefc-041e-4078-8175-4d5a1b60b171",
+    "syllogism": "Every single living being is a cloud. It is true that every bird is a cloud. It follows that no bird is a living being.",
+    "validity": false,
+    "plausibility": false
+  },
+  {
+    "id": "5b8161b7-b1bf-4e16-a854-cd52cdce8a1b",
+    "syllogism": "There are no capital cities which are oceans. A select few large cities are classified as capital cities. Therefore, it is clear that some large cities are not oceans.",
+    "validity": true,
+    "plausibility": true
+  },
+  {
+    "id": "73e5dc2c-1c3a-4c0d-96ea-61002d03f225",
+    "syllogism": "It is true that all cars are vehicles. Anything that is a bicycle is also a vehicle. It's the case that some bicycles fail to be cars.",
+    "validity": false,
+    "plausibility": true
+  },
+  {
+    "id": "88f1d8e5-30a4-47e4-abda-cd1f50fa77e0",
+    "syllogism": "Anything and everything that is a satellite is a moon. There are satellites that are planets. It must follow that all planets are moons.",
+    "validity": false,
+    "plausibility": false
+  },
+  {
+    "id": "3f5f67b4-3d96-44d3-b94e-e4422a21ac05",
+    "syllogism": "There is no mammal that is a shark. Some of the sharks are fish. Therefore, some fish are not mammals.",
+    "validity": true,
+    "plausibility": true
+  },
+  {
+    "id": "864fb4b2-8a19-4767-83f4-1dbed28f27e7",
+    "syllogism": "Some of the dogs are mammals. Every mammal is a domesticated animal. From this, it can be concluded that some domesticated animals are dogs.",
+    "validity": true,
+    "plausibility": true
+  },
+  {
+    "id": "3210a16c-a687-4030-8697-bb2214492501",
+    "syllogism": "No cities are countries. All things that are a city named London are cities. It is necessarily true that some cities named London are not countries.",
+    "validity": true,
+    "plausibility": true
+  },
+  {
+    "id": "550d9d17-634f-43b0-a389-f8faaead4a7a",
+    "syllogism": "It is the case that there are no fish that are also mammals. Anything that is a whale is not a fish. It follows that some whales are mammals.",
+    "validity": false,
+    "plausibility": true
+  },
+  {
+    "id": "f78276e5-b847-4878-aba1-f920d12288f4",
+    "syllogism": "Everything that is a poodle is a dog. It is known that a portion of poodles are dogs. Consequently, some poodles are not dogs.",
+    "validity": false,
+    "plausibility": false
+  },
+  {
+    "id": "675842ed-60c4-40ab-9f9b-cf0c90280d88",
+    "syllogism": "Every single human is not a fish. There are a few fish that are also creatures that live in water. It is the case that not all creatures that live in water are humans.",
+    "validity": true,
+    "plausibility": true
+  },
+  {
+    "id": "666ff1f1-6234-4cce-be59-4b760b692996",
+    "syllogism": "The set of planets and the set of clouds are mutually exclusive. All clouds in existence are Earth. A portion of Earth is not a planet.",
+    "validity": true,
+    "plausibility": false
+  },
+  {
+    "id": "eb04a408-b062-4c93-ba18-ffc28e0e8e4d",
+    "syllogism": "Not a single liquid is a solid. There are no gases which are also liquids. It follows that some gases are solids.",
+    "validity": false,
+    "plausibility": false
+  },
+  {
+    "id": "a3fc4115-5212-451a-888d-d044c14c1678",
+    "syllogism": "Any creature that is a cat is not an animal. There are cats which are also dogs. From this, we know that there are certain dogs that are not animals.",
+    "validity": true,
+    "plausibility": false
+  },
+  {
+    "id": "42e1d763-31f6-4725-a17f-6fdcb0088fde",
+    "syllogism": "Every item that is a shirt is an article of clothing. Every single t-shirt is a type of shirt. Consequently, every t-shirt is clothing.",
+    "validity": true,
+    "plausibility": true
+  },
+  {
+    "id": "a2c6000f-14cf-4763-98a8-247ebc65773f",
+    "syllogism": "Every single thing that is a truck is a vehicle. It is the case that a number of pickups are vehicles. Consequently, some pickups are not trucks.",
+    "validity": false,
+    "plausibility": false
+  },
+  {
+    "id": "a33f2989-2d8f-40f2-9680-351c1fa406ef",
+    "syllogism": "Every single four-sided-shape is a rectangle. All four-sided-shapes are squares. It follows from this that some squares are not rectangles.",
+    "validity": false,
+    "plausibility": false
+  },
+  {
+    "id": "fa03648a-a269-4249-b481-7a12cd672f0b",
+    "syllogism": "Plants are in no way living organisms. All things that are trees are living organisms. Trees cannot be classified as plants.",
+    "validity": true,
+    "plausibility": false
+  },
+  {
+    "id": "76d43773-397f-4d6b-8304-d4f2ce89290f",
+    "syllogism": "It is the case that no cars are boats. It is also true that no bikes are cars. From these statements, one can conclude that some bikes are not boats.",
+    "validity": false,
+    "plausibility": true
+  },
+  {
+    "id": "f2deff13-a6a2-47f0-8835-89a093ad2c5d",
+    "syllogism": "Animals and tables have no overlap whatsoever. A portion of tables are birds. Some of the things that are birds are not animals.",
+    "validity": true,
+    "plausibility": false
+  },
+  {
+    "id": "70ae91e5-486a-46d0-8c37-66d67c1b5e18",
+    "syllogism": "The category of fish is a subset of the category of animals. All animals that are dogs are also animals. Nothing that is a dog is a fish.",
+    "validity": false,
+    "plausibility": true
+  },
+  {
+    "id": "6df0ab4c-8518-4efb-98d5-e1bd172b5a35",
+    "syllogism": "Some creatures that can fly are birds. It is true that some sparrows are flying creatures. For this reason, every single sparrow is a bird.",
+    "validity": false,
+    "plausibility": true
+  },
+  {
+    "id": "f91a4b0c-fc65-4d9d-9aa6-20e11f95b5a8",
+    "syllogism": "Anything with an internal combustion engine needs fuel. Some cars possess an internal combustion engine. From this, it follows that some cars need fuel.",
+    "validity": true,
+    "plausibility": true
+  },
+  {
+    "id": "9898c43c-c5d9-4c03-aa4f-46e30e136037",
+    "syllogism": "There are no fruits that are things that grow on trees. Every single apple is a thing that grows on a tree. Consequently, it can be said that some apples are not fruits.",
+    "validity": true,
+    "plausibility": false
+  },
+  {
+    "id": "18ca9b49-d0cf-44f4-83bf-eb4739bc9317",
+    "syllogism": "Nothing that is a square is a circle. There are some shapes that are circles. It must be the case that every single shape is not a square.",
+    "validity": false,
+    "plausibility": false
+  },
+  {
+    "id": "89cbc28f-fbfa-46fd-849a-14aaaf90eece",
+    "syllogism": "There is no book that is an electronic device. All electronic devices are items. This proves that some items are books.",
+    "validity": false,
+    "plausibility": true
+  },
+  {
+    "id": "5cb83caf-678a-43b8-a8d7-beedd3b39f55",
+    "syllogism": "Some of the felines in the world are lions. Every single feline is a mammal. Consequently, some mammals are found to be lions.",
+    "validity": true,
+    "plausibility": true
+  },
+  {
+    "id": "cd8078e7-ae64-45ec-bd51-3c3b06dcd739",
+    "syllogism": "Every single car is an emotion. Every single car is a musical instrument. Therefore, there are musical instruments that are emotions.",
+    "validity": true,
+    "plausibility": false
+  },
+  {
+    "id": "c4526195-4ffd-4b73-b37b-e7fcc91d6812",
+    "syllogism": "Nothing that is a liquid is a solid. It is the case that some water is not a solid. The only conclusion is that some water is not a liquid.",
+    "validity": false,
+    "plausibility": false
+  },
+  {
+    "id": "e364a21e-cecb-4050-818a-20c1195a0f9b",
+    "syllogism": "There is not a single item that is both a color and red. Of the items that are hues, a portion of them are red. It must be the case that some hues are not colors.",
+    "validity": true,
+    "plausibility": false
+  },
+  {
+    "id": "963d5e8c-7bbc-4b94-9e38-bba3f6e14854",
+    "syllogism": "None of the things that are birds are insects. Every sparrow is a bird. Therefore, it is the case that some sparrows are not insects.",
+    "validity": true,
+    "plausibility": true
+  },
+  {
+    "id": "ad3f9d03-8ff5-4351-be16-ff960693bd50",
+    "syllogism": "Every person who is a professional cook is a person who can cook. A portion of professional cooks are chefs. Thus, it is the case that some chefs are people who can cook.",
+    "validity": true,
+    "plausibility": true
+  },
+  {
+    "id": "4780354b-3991-4ce8-9981-23d4f3030141",
+    "syllogism": "There are no stones that are alive. There are no trees that are stones. Therefore, no trees are alive.",
+    "validity": false,
+    "plausibility": false
+  },
+  {
+    "id": "f2a9e4e1-a969-436f-877c-bb605fb7c62e",
+    "syllogism": "It is not the case that every huma is a man. Every single man is a human. From this, it follows that some humans are living beings.",
+    "validity": false,
+    "plausibility": true
+  },
+  {
+    "id": "93bed46d-aedf-4815-89b1-472bcdc8be3e",
+    "syllogism": "Anything that is a bird is not an animal. Of the items that are sparrows, some are animals. It must be the case that some sparrows are not birds.",
+    "validity": true,
+    "plausibility": false
+  },
+  {
+    "id": "bec15083-5e98-4b5b-87ff-39ccbd7c708c",
+    "syllogism": "Every city is a location. Anything that is a location is a capital city. Therefore, every capital city is a city.",
+    "validity": false,
+    "plausibility": true
+  },
+  {
+    "id": "9117126d-5160-40c0-81c1-3f784d8f8cef",
+    "syllogism": "Everything that is a fish is a vertebrate. A portion of vertebrates are sharks. A subset of sharks are fish.",
+    "validity": false,
+    "plausibility": false
+  },
+  {
+    "id": "dc5e8a17-f9ee-4f1c-a6e1-e55e3893609d",
+    "syllogism": "All things which are ghosts are scientific facts. All things which are ghosts are mythical beings. It follows that some mythical beings are scientific facts.",
+    "validity": true,
+    "plausibility": false
+  },
+  {
+    "id": "0cb166c1-cc61-4585-bf4b-baad5b3028a2",
+    "syllogism": "Every single liquid is a fluid. There are some water bodies which are liquid. Water is in no way a fluid.",
+    "validity": false,
+    "plausibility": false
+  },
+  {
+    "id": "a30e07d5-0fb3-4097-9892-4b145b0c54f5",
+    "syllogism": "Every cat is an invisible creature. A number of cats are animals. Consequently, a portion of animals are invisible.",
+    "validity": true,
+    "plausibility": false
+  },
+  {
+    "id": "5f1077d7-b61a-47a2-82ba-edae062acd77",
+    "syllogism": "Anything which is a rock is heavy. It is the case that some heavy things are not clouds. Therefore, this implies that all clouds are rocks.",
+    "validity": false,
+    "plausibility": false
+  },
+  {
+    "id": "dae7557a-fcc6-473b-892f-211012df55af",
+    "syllogism": "Not a single mammal is an object that can think. The entire group of objects that can think is a subset of people. It is a logical consequence that some people are not mammals.",
+    "validity": true,
+    "plausibility": false
+  },
+  {
+    "id": "ad6117fb-795b-4d97-80a3-1f17c770ee50",
+    "syllogism": "Any and all reptiles are lizards. There are reptiles that are mammals. It must follow that all mammals are lizards.",
+    "validity": false,
+    "plausibility": false
+  },
+  {
+    "id": "0c04a1b5-b1bc-4e24-bac7-ae6083b0b922",
+    "syllogism": "Anything that is a solid is also an animal. There exist some rocks that are not animals. This logically entails that some rocks are not solid.",
+    "validity": true,
+    "plausibility": false
+  },
+  {
+    "id": "077078f3-93b5-4e7d-8376-66acd052c2c0",
+    "syllogism": "Every doctor is a professional. The set of children does not contain professionals. At least one child is not a doctor.",
+    "validity": true,
+    "plausibility": true
+  },
+  {
+    "id": "0bafb494-84dd-4bab-9e35-4ee2c22d7f73",
+    "syllogism": "Any golden retriever is a mammal. It is the case that some golden retrievers are dogs. This means that a few dogs are mammals.",
+    "validity": true,
+    "plausibility": true
+  },
+  {
+    "id": "fbff2acc-3c75-4e1e-9ee6-57534e7b958b",
+    "syllogism": "Not a single human is a tree. The entire set of trees is composed of women. It logically follows that some women are not human.",
+    "validity": true,
+    "plausibility": false
+  }
+]
