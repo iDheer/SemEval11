@@ -23,12 +23,13 @@ class LMStudioClient:
             "temperature": temperature,
             "max_tokens": max_tokens,
             "stream": False,
-            # More generous parameters
-            "top_p": 1.0,
-            "top_k": 0,
-            "repeat_penalty": 1.0,
-            "frequency_penalty": 0.0,
-            "presence_penalty": 0.0,
+            # More optimized parameters for speed
+            "top_p": 0.95,  # Slightly more focused
+            "top_k": 40,    # Limit choices for faster sampling
+            "repeat_penalty": 1.05,  # Small penalty to avoid loops
+            "frequency_penalty": 0.1,
+            "presence_penalty": 0.1,
+            "stop": ["</think>", "\n\n\n"]  # Stop on think tags or excessive newlines
         }
         
         try:
@@ -36,7 +37,7 @@ class LMStudioClient:
                 f"{self.base_url}/v1/chat/completions", 
                 json=payload, 
                 headers=self.headers,
-                timeout=300  # 5 minute timeout
+                timeout=300  # Back to 5 minute timeout for generation
             )
             response.raise_for_status()
             
@@ -85,6 +86,28 @@ After completing your analysis, provide a JSON summary:
 Replace "VALID" with either "VALID" or "INVALID" based on your analysis. Begin your analysis now:"""
     
     return prompt_template.format(syllogism=syllogism)
+
+def create_training_prompt_format(syllogism: str, scot_trace: str) -> str:
+    """
+    Format syllogism and S-CoT trace for supervised fine-tuning
+    Args:
+        syllogism (str): The syllogism to analyze
+        scot_trace (str): The teacher model's S-CoT reasoning trace
+    Returns:
+        str: Formatted training prompt for student model
+    """
+    instruction = "Analyze the following syllogism and determine its validity based purely on its logical structure. Provide your reasoning in the exact format shown."
+    
+    formatted_prompt = f"""### Instruction:
+{instruction}
+
+### Input:
+{syllogism}
+
+### Response:
+{scot_trace}"""
+    
+    return formatted_prompt
 
 def extract_validity_from_json_response(response: str) -> bool:
     """Extract validity from response - look for JSON at the end after analysis"""
@@ -220,10 +243,13 @@ def extract_validity_simple(response: str) -> bool:
 def process_training_data_with_teacher(input_file: str, output_file: str, client: LMStudioClient, use_json=True):
     """Process training data through teacher model to generate S-CoT traces"""
     
+    global timeout_count  # Declare as global variable
+    timeout_count = 0     # Initialize the global variable
+    
     print(f"Loading training data from {input_file}...")
     with open(input_file, 'r') as f:
         training_data = json.load(f)
-        training_data = training_data[:5]  # Test with 5 examples first
+        training_data = training_data[:150]  # Test with 5 examples first
     
     print(f"Processing {len(training_data)} examples with teacher model...")
     print(f"Using {'JSON' if use_json else 'simple'} prompt format")
@@ -241,18 +267,32 @@ def process_training_data_with_teacher(input_file: str, output_file: str, client
         if use_json:
             prompt = create_scot_prompt(item['syllogism'])
             extract_func = extract_validity_from_json_response
-            max_tokens = 16000  # Much more generous for detailed reasoning
+            max_tokens = 16000  # Back to generous limit for complete reasoning
         else:
             prompt = create_simple_prompt(item['syllogism'])
             extract_func = extract_validity_simple
-            max_tokens = 8000   # Still plenty for simple format
+            max_tokens = 8000   # Sufficient for simple format
         
         # Generate S-CoT trace from teacher model
         scot_trace = client.generate_response(prompt, max_tokens=max_tokens, temperature=0.0)
+        if scot_trace and "<think>" in scot_trace:
+            import re
+            scot_trace = re.sub(r'<think>.*?</think>', '', scot_trace, flags=re.DOTALL).strip()
         
         if scot_trace is not None:
-            # Extract predicted validity
-            predicted_validity = extract_func(scot_trace)
+            # Ensure think tags are removed from the trace we'll use for training
+            cleaned_trace = scot_trace
+            if "<think>" in scot_trace and "</think>" in scot_trace:
+                import re
+                cleaned_trace = re.sub(r'<think>.*?</think>', '', scot_trace, flags=re.DOTALL)
+                cleaned_trace = cleaned_trace.strip()
+                print(f"Cleaned think tags from trace. Original: {len(scot_trace)} chars, Cleaned: {len(cleaned_trace)} chars")
+            
+            # Extract predicted validity from the cleaned trace
+            predicted_validity = extract_func(cleaned_trace)
+            
+            # Create training-ready prompt format using cleaned trace
+            training_prompt = create_training_prompt_format(item['syllogism'], cleaned_trace)
             
             # Create enriched training example
             enriched_item = {
@@ -260,7 +300,8 @@ def process_training_data_with_teacher(input_file: str, output_file: str, client
                 'syllogism': item['syllogism'],
                 'validity': item['validity'],
                 'plausibility': item['plausibility'],
-                'scot_trace': scot_trace,
+                'scot_trace': cleaned_trace,  # Store the cleaned version
+                'training_prompt': training_prompt,  # Ready for fine-tuning
                 'teacher_prediction': predicted_validity,
                 'teacher_correct': predicted_validity == item['validity'] if predicted_validity is not None else None,
                 'prompt_format': 'json' if use_json else 'simple'
@@ -283,12 +324,38 @@ def process_training_data_with_teacher(input_file: str, output_file: str, client
     with open(output_file, 'w') as f:
         json.dump(enriched_data, f, indent=2)
     
+    # Save training-ready prompts separately
+    training_file = output_file.replace('.json', '_training_prompts.json')
+    training_prompts = [
+        {
+            'id': item['id'],
+            'training_prompt': item['training_prompt'],
+            'validity': item['validity'],
+            'plausibility': item['plausibility']
+        }
+        for item in enriched_data if item.get('training_prompt')
+    ]
+    
+    print(f"Saving training prompts to {training_file}...")
+    with open(training_file, 'w') as f:
+        json.dump(training_prompts, f, indent=2)
+    
+    # Also save as plain text format for easy fine-tuning
+    training_text_file = output_file.replace('.json', '_training.txt')
+    print(f"Saving training text to {training_text_file}...")
+    with open(training_text_file, 'w', encoding='utf-8') as f:
+        for item in enriched_data:
+            if item.get('training_prompt'):
+                f.write(item['training_prompt'])
+                f.write('\n\n' + '='*80 + '\n\n')  # Separator between examples
+    
     # Print summary statistics
     print(f"\n{'='*60}")
     print("TEACHER MODEL S-COT GENERATION SUMMARY")
     print(f"{'='*60}")
     print(f"Total examples processed: {len(enriched_data)}")
     print(f"Failed generations: {failed_count}")
+    print(f"Timeout failures: {timeout_count}")
     
     # Teacher model accuracy
     correct_predictions = sum(1 for ex in enriched_data if ex['teacher_correct'] == True)
@@ -296,6 +363,7 @@ def process_training_data_with_teacher(input_file: str, output_file: str, client
     teacher_accuracy = correct_predictions / total_predictions if total_predictions > 0 else 0
     
     print(f"Teacher model accuracy: {teacher_accuracy:.4f} ({correct_predictions}/{total_predictions})")
+    print(f"Success rate: {len(enriched_data)}/{len(training_data)} ({len(enriched_data)/len(training_data)*100:.1f}%)")
     
     if total_predictions == 0:
         print("⚠️  Warning: No valid predictions extracted! Trying alternative format...")
@@ -325,7 +393,31 @@ def main():
     print("Connecting to LM Studio...")
     client = LMStudioClient()
     
-    # Test connection with the same format as online model
+    # First, test basic server connectivity
+    print("Testing basic server connection...")
+    try:
+        import requests
+        response = requests.get("http://localhost:1234/v1/models", timeout=10)
+        if response.status_code == 200:
+            print("✓ LM Studio server is responding")
+        else:
+            print(f"⚠️ Server responded with status {response.status_code}")
+    except Exception as e:
+        print(f"❌ Cannot connect to LM Studio server: {e}")
+        print("Make sure LM Studio is running and server is started")
+        return
+    
+    # Test with a very simple prompt first
+    print("Testing with simple prompt...")
+    simple_test = client.generate_response("Say hello", max_tokens=50, temperature=0.0)
+    
+    if simple_test is None or simple_test.strip() == "":
+        print("❌ Simple test failed!")
+        return
+    
+    print(f"✓ Simple test passed: {simple_test[:100]}...")
+    
+    # Now test with the structured analysis format
     print("Testing connection with structured analysis format...")
     test_prompt = """SYLLOGISM: All cats are mammals. All mammals are animals. Therefore, all cats are animals.
 
