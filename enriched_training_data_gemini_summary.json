@@ -1,0 +1,8 @@
+{
+  "total_examples": 247,
+  "failed_generations": 424,
+  "teacher_accuracy": 0.8704453441295547,
+  "correct_predictions": 215,
+  "total_predictions": 247,
+  "processing_time_seconds": 3932.4750878810883
+}

@@ -249,7 +249,7 @@ def process_training_data_with_teacher(input_file: str, output_file: str, client
     print(f"Loading training data from {input_file}...")
     with open(input_file, 'r') as f:
         training_data = json.load(f)
-        training_data = training_data[:150]  # Test with 5 examples first
+        training_data = training_data[:150]  
     
     print(f"Processing {len(training_data)} examples with teacher model...")
     print(f"Using {'JSON' if use_json else 'simple'} prompt format")
