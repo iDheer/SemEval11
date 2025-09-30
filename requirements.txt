@@ -1,7 +1,8 @@
 # Core dependencies for SemEval-2026 Task 11
-# Fine-tuning approach with RoBERTa baseline
+# Fine-tuning approach with RoBERTa baseline + Student model distillation
 
-# Deep Learning Framework
+# Deep Learning Framework (GPU-specific - CUDA 11.8)
+--extra-index-url https://download.pytorch.org/whl/cu118
 torch>=2.0.0
 torchvision
 torchaudio
@@ -10,20 +11,29 @@ torchaudio
 transformers>=4.30.0
 datasets
 accelerate
+sentencepiece  # Required for Gemma tokenizer
+
+# Fine-tuning libraries (for student model)
+peft>=0.7.0  # LoRA adapters
+trl>=0.7.0  # Supervised fine-tuning
+bitsandbytes>=0.41.0  # 4-bit quantization
 
 # Data processing and metrics
 pandas
 scikit-learn
 numpy
 
-# Optional: for potential future metric calculations or data visualization
+# API libraries (for teacher model)
+google-generativeai  # Gemini API
+
+# Visualization and tracking
 matplotlib
 seaborn
+tqdm
+
+einops
+# Optional: for experiment tracking
+# wandb
 
 # Legacy Ollama support (for comparison/fallback)
-ollama
-
-# Utility libraries
-tqdm
-wandb  # Optional: for experiment tracking
-#pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
+# ollama
