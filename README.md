@@ -60,6 +60,3 @@ See `requirements.txt`
 - RAM: 16GB+
 - Storage: ~20GB for models
 
-## Contact
-[Your Name]
-[Your Email]
