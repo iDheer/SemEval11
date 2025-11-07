@@ -41,13 +41,13 @@ python train_sdu_stage2_fixed.py
 
 ### Baseline Evaluation
 ```bash
-python evaluate_scot_baseline_expanded.py
+python evaluate_scot_baseline.py
 ```
 **Output**: `scot_baseline_results_expanded.json`
 
 ### SDU Evaluation
 ```bash
-python evaluate_final_expanded.py
+python evaluate_final.py
 ```
 **Output**: `sdu_final_results_expanded.json`
 
