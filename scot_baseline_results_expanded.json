@@ -1,0 +1,2619 @@
+{
+  "model": "S-CoT Baseline (Expanded Test Set)",
+  "timestamp": "2025-11-06 21:31:31",
+  "evaluation_time_minutes": 32.90358180999756,
+  "test_set_composition": {
+    "official_test": 146,
+    "unused_train": 140,
+    "total": 286
+  },
+  "metrics": {
+    "overall_accuracy": 0.8146853146853147,
+    "official_test_accuracy": 0.9315068493150684,
+    "unused_train_accuracy": 0.6928571428571428,
+    "plausible_acc": 0.7985611510791367,
+    "implausible_acc": 0.8299319727891157,
+    "content_effect": -0.03137082170997896,
+    "vp_vi_gap": -0.07328385899814471,
+    "unparseable_count": 0,
+    "unparseable_rate": 0.0
+  },
+  "category_breakdown": {
+    "VP": {
+      "accuracy": 0.7448979591836735,
+      "count": 98,
+      "correct": 73
+    },
+    "IP": {
+      "accuracy": 0.926829268292683,
+      "count": 41,
+      "correct": 38
+    },
+    "VI": {
+      "accuracy": 0.8181818181818182,
+      "count": 99,
+      "correct": 81
+    },
+    "II": {
+      "accuracy": 0.8541666666666666,
+      "count": 48,
+      "correct": 41
+    }
+  },
+  "predictions": [
+    {
+      "id": "0a5ff024-0265-4fe8-8dd7-57dd3d61a466",
+      "syllogism": "There exist no creatures that are both fish and reptiles. There are no lizards which are fish. It is therefore the case that some lizards are reptiles.",
+      "true": false,
+      "pred": false,
+      "plaus": true,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: There exist no creatures that are both fish and reptiles.\n        *   \u2200x (F(x) \u2192 \u00acR(x))\n    *   Premise 2: There are no lizards which are fish.\n\nFinal Answer: INVALID",
+      "source": "official_test"
+    },
+    {
+      "id": "31c63f8f-d490-467e-a885-4dfe4bfddc8b",
+      "syllogism": "Anything that is water is also an H2O molecule. There is no ice that is an H2O molecule. Therefore, ice cannot be water.",
+      "true": true,
+      "pred": true,
+      "plaus": false,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (W(x) \u2192 H(x))\n    *   Premise 2: \u2200x (I(x) \u2192 \u00acH(x))\n    *   Conclusion: \u2200x (I(x) \u2192 \u00acW(x))\n\nFinal Answer: VALID",
+      "source": "official_test"
+    },
+    {
+      "id": "14973340-3381-49f3-9dcd-3805c7a419bc",
+      "syllogism": "It is true that every single book is invisible. Anything that is invisible is also poisonous. This means that a few poisonous things are books.",
+      "true": true,
+      "pred": true,
+      "plaus": false,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (B(x) \u2192 I(x))\n    *   Premise 2: \u2200x (I(x) \u2192 P(x))\n    *   Conclusion: \u2203x (P(x) \u2227 B(x))\n\nFinal Answer: VALID",
+      "source": "official_test"
+    },
+    {
+      "id": "fe6f084b-7a46-4d5f-a2f9-5f0e80774da8",
+      "syllogism": "Everything that is a tulip is a flower. It is the case that some trees are not flowers. This necessarily means that some trees are not tulips.",
+      "true": true,
+      "pred": false,
+      "plaus": true,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (T(x) \u2192 F(x))\n    *   Premise 2: \u2203x (T(x) \u2227 \u00acF(x))\n    *   Conclusion: \u2203x (T(x) \u2227 \u00acT(x))\n\nFinal Answer: INVALID",
+      "source": "official_test"
+    },
+    {
+      "id": "80ba297a-c9c9-4925-851e-72eb42dafd61",
+      "syllogism": "Every person who is a politician is a mortal. All mortals are humans. Consequently, every single human is a politician.",
+      "true": false,
+      "pred": false,
+      "plaus": false,
+      "response": "<think>\n\n</think>\n\n2.  **Logical Formulation:** Premise 1: \u2200x (P(x) \u2192 M(x)). Premise 2: \u2200x (M(x) \u2192 H(x)). Conclusion: \u2200x (H(x) \u2192 P(x))\n\nFinal Answer: INVALID",
+      "source": "official_test"
+    },
+    {
+      "id": "264785f1-ad8f-422d-ba64-9b9f60adffcc",
+      "syllogism": "Everything that is a living thing is a creature. It is impossible for something to be an organism and a creature at the same time. It is the case that a portion of organisms are not living things.",
+      "true": true,
+      "pred": true,
+      "plaus": false,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (L(x) \u2192 C(x))\n    *   Premise 2: \u2200x (O(x) \u2192 \u00acC(x))\n    *   Conclusion: \u2203x (O(x) \u2227 \u00acL(x))\n\nFinal Answer: VALID",
+      "source": "official_test"
+    },
+    {
+      "id": "07a90f4b-0f4f-4cd1-98e4-fb8d24f15662",
+      "syllogism": "Every single dog is an animal. There are no zebras which are canines. It is the case that some zebra is an animal.",
+      "true": false,
+      "pred": false,
+      "plaus": true,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (D(x) \u2192 A(x))\n    *   Premise 2: \u2200x (Z(x) \u2192 \u00acC(x))\n    *   Conclusion: \u2203x (Z(x) \u2227 A(x))\n\nFinal Answer: INVALID",
+      "source": "official_test"
+    },
+    {
+      "id": "020fa6a9-78fa-42d2-987a-7aa9c21ed5ff",
+      "syllogism": "There are some smart people that are physicists. Every physicist is a scientist. As a result, every single scientist is a smart person.",
+      "true": false,
+      "pred": false,
+      "plaus": true,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2203x (S(x) \u2227 P(x))\n    *   Premise 2: \u2200x (P(x) \u2192 R(x))\n    *   Conclusion: \u2200x (R(x) \u2192 S(x))\n\nFinal Answer: INVALID",
+      "source": "official_test"
+    },
+    {
+      "id": "1d435e7a-87e9-48a6-b87b-2cf3df3b1b1f",
+      "syllogism": "Everything that is a vehicle is a magical item. A portion of vehicles are cars. It necessarily follows that some cars are magical items.",
+      "true": true,
+      "pred": true,
+      "plaus": false,
+      "response": "<think>\n\n</think>\n\n2. Logical Formulation: Premise 1: \u2200x (V(x) \u2192 M(x)). Premise 2: \u2203x (V(x) \u2227 C(x)). Conclusion: \u2203x (C(x) \u2227 M(x))\n\nFinal Answer: VALID",
+      "source": "official_test"
+    },
+    {
+      "id": "febb0646-5f5b-4cee-bc66-a3444c562560",
+      "syllogism": "There is no person who is both a musician and a non-artistic person. It is known that some human beings are among the non-artistic people. The consequence is that there exist human beings who are not musicians.",
+      "true": true,
+      "pred": true,
+      "plaus": true,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (M(x) \u2192 \u00acA(x)) (or equivalently, \u00ac\u2203x (M(x) \u2227 A(x)))\n    *   Premise 2: \u2203x (H(x) \u2227 \u00acA(x))\n    *   Conclusion: \u2203x (H(x) \u2227 \u00acM(x))\n\nFinal Answer: VALID",
+      "source": "official_test"
+    },
+    {
+      "id": "f11aecef-3e59-473a-b84d-c2cc26525774",
+      "syllogism": "Every single person is a human. Anything that is a human is a husband. Consequently, it follows that all husbands are people.",
+      "true": false,
+      "pred": false,
+      "plaus": true,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (P(x) \u2192 H(x))\n    *   Premise 2: \u2200x (H(x) \u2192 M(x))\n    *   Conclusion: \u2200x (M(x) \u2192 P(x))\n\nFinal Answer: INVALID",
+      "source": "official_test"
+    },
+    {
+      "id": "f365e4e6-b827-4b74-b09a-e386043f0e89",
+      "syllogism": "It is true that everything that is a dog is an animal. It is also true that no mammals are dogs. Thus, it is concluded that no mammals are animals.",
+      "true": false,
+      "pred": false,
+      "plaus": false,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (D(x) \u2192 A(x))\n    *   Premise 2: \u2200x (M(x) \u2192 \u00acD(x))\n    *   Conclusion: \u2200x (M(x) \u2192 \u00acA(x))\n\nFinal Answer: INVALID",
+      "source": "official_test"
+    },
+    {
+      "id": "5663e778-8153-48c2-83b3-c559449cfb13",
+      "syllogism": "Nothing that is a robot is an organic being. Every single person who is a human is an organic being. It follows from this that there are a number of humans who are not robots.",
+      "true": true,
+      "pred": true,
+      "plaus": true,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (R(x) \u2192 \u00acO(x))\n    *   Premise 2: \u2200x (H(x) \u2192 O(x))\n    *   Conclusion: \u2203x (H(x) \u2227 \u00acR(x))\n\nFinal Answer: VALID",
+      "source": "official_test"
+    },
+    {
+      "id": "66becbb7-c25e-4311-9351-8ae03584a7f6",
+      "syllogism": "There are no animals that are both fish and warm-blooded. The entire group of mammals consists of animals that are warm-blooded. Fish and mammals are mutually exclusive categories.",
+      "true": true,
+      "pred": true,
+      "plaus": true,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (A(x) \u2192 \u00acB(x)) (No animals are both fish and warm-blooded)\n    *   Premise 2: \u2200x (C(x) \u2192 B(x)) (All mammals are warm-blooded)\n    *   Conclusion: \u2200x (A(x) \u2192 \u00acC(x)) (No fish are mammals)\n\nFinal Answer: VALID",
+      "source": "official_test"
+    },
+    {
+      "id": "8c136b17-300a-4f32-85bb-6853fcdd0a01",
+      "syllogism": "There are some cars that are not a liquid. There are no bicycles that are cars. Consequently, there are no bicycles which are liquid.",
+      "true": false,
+      "pred": false,
+      "plaus": true,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2203x (C(x) \u2227 \u00acL(x))\n    *   Premise 2: \u2200x (B(x) \u2192 \u00acC(x))\n    *   Conclusion: \u2200x (B(x) \u2192 \u00acL(x))\n\nFinal Answer: INVALID",
+      "source": "official_test"
+    },
+    {
+      "id": "8fc55b1f-be82-47a2-b48a-7ee31ee1c000",
+      "syllogism": "The class of athletes and the class of non-runners have elements in common. Every single runner is an athlete. Consequently, a portion of non-runners are not athletes.",
+      "true": false,
+      "pred": false,
+      "plaus": true,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2203x (A(x) \u2227 B(x))\n    *   Premise 2: \u2200x (C(x) \u2192 A(x))\n    *   Conclusion: \u2203x (B(x) \u2227 \u00acA(x))\n\nFinal Answer: INVALID",
+      "source": "official_test"
+    },
+    {
+      "id": "56dea4d9-94ad-4daf-893b-945bfe93bb7b",
+      "syllogism": "There are no chairs that can be considered musical instruments. Certain chairs exist that are also antiques. The conclusion that a portion of antiques are not musical instruments is inescapable.",
+      "true": true,
+      "pred": true,
+      "plaus": true,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (C(x) \u2192 \u00acM(x))\n    *   Premise 2: \u2203x (C(x) \u2227 A(x))\n    *   Conclusion: \u2203x (A(x) \u2227 \u00acM(x))\n\nFinal Answer: VALID",
+      "source": "official_test"
+    },
+    {
+      "id": "ab8d4f5a-c4f4-4d1d-afea-b973c560be29",
+      "syllogism": "There are no creatures that are both mammals and reptiles. The class of human beings has members that are reptiles. The consequence is that some human beings are not mammals.",
+      "true": true,
+      "pred": true,
+      "plaus": false,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (M(x) \u2192 \u00acR(x)) (or equivalently, \u00ac\u2203x (M(x) \u2227 R(x)))\n    *   Premise 2: \u2203x (H(x) \u2227 R(x))\n    *   Conclusion: \u2203x (H(x) \u2227 \u00acM(x))\n\nFinal Answer: VALID",
+      "source": "official_test"
+    },
+    {
+      "id": "54a39670-9d4d-4f11-bbd9-29c01e27210d",
+      "syllogism": "Every single apple is a food. It is also true that every apple is a fruit. This means that all fruits are foods.",
+      "true": false,
+      "pred": false,
+      "plaus": true,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (A(x) \u2192 F(x))\n    *   Premise 2: \u2200x (A(x) \u2192 R(x))\n    *   Conclusion: \u2200x (R(x) \u2192 F(x))\n\nFinal Answer: INVALID",
+      "source": "official_test"
+    },
+    {
+      "id": "de7fde47-808e-40d6-9096-51fc9478b3e6",
+      "syllogism": "There are some animals that are sparrows. All things that are sparrows are birds. Consequently, every single thing that is a bird is an animal.",
+      "true": false,
+      "pred": false,
+      "plaus": true,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2203x (A(x) \u2227 B(x))\n    *   Premise 2: \u2200x (B(x) \u2192 C(x))\n    *   Conclusion: \u2200x (C(x) \u2192 A(x))\n\nFinal Answer: INVALID",
+      "source": "official_test"
+    },
+    {
+      "id": "c81d6f35-5656-4c9e-8e8c-bd50cbc341e5",
+      "syllogism": "There are no plants that can be called trees. It is also true that every plant is a type of vegetable. This has led to the conclusion that every vegetable is a tree.",
+      "true": false,
+      "pred": false,
+      "plaus": false,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (P(x) \u2192 \u00acT(x)) (No plants are trees)\n    *   Premise 2: \u2200x (P(x) \u2192 V(x)) (All plants are vegetables)\n    *   Conclusion: \u2200x (V(x) \u2192 T(x)) (All vegetables are trees)\n\nFinal Answer: INVALID",
+      "source": "official_test"
+    },
+    {
+      "id": "e213d351-2f05-43b4-b277-c9ecded9473b",
+      "syllogism": "Not a single item that is an instrument is a piano. There are keyboards which are also pianos. We must conclude that some keyboards are not instruments.",
+      "true": true,
+      "pred": true,
+      "plaus": false,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (I(x) \u2192 \u00acP(x)) (or equivalently, \u00ac\u2203x (I(x) \u2227 P(x)))\n    *   Premise 2: \u2203x (K(x) \u2227 P(x))\n    *   Conclusion: \u2203x (K(x) \u2227 \u00acI(x))\n\nFinal Answer: VALID",
+      "source": "official_test"
+    },
+    {
+      "id": "007efb0e-6d0c-40c9-8d96-a25a1fbbbf93",
+      "syllogism": "Nothing that is a vehicle is an object with wheels. Every single item that is a car is an object with wheels. This proves that a number of cars are not vehicles.",
+      "true": true,
+      "pred": true,
+      "plaus": false,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (V(x) \u2192 \u00acW(x))\n    *   Premise 2: \u2200x (C(x) \u2192 W(x))\n    *   Conclusion: \u2203x (C(x) \u2227 \u00acV(x))\n\nFinal Answer: VALID",
+      "source": "official_test"
+    },
+    {
+      "id": "36fdea7c-f8c5-4b3e-9989-7ef62a3e4cec",
+      "syllogism": "There are no dogs that are cats. Everything that is a bird is a dog. Thus, every bird is a cat.",
+      "true": false,
+      "pred": false,
+      "plaus": false,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: There are no dogs that are cats. (Equivalent to: For all x, if x is a dog, then x is not a cat.)\n        \u2200x (D(x) \u2192 \u00acC(x))\n    *   Premise 2: Everything that is a bird is a dog. (Equivalent to: For all x, if x is a bird, then x is a dog.)\n\nFinal Answer: INVALID",
+      "source": "official_test"
+    },
+    {
+      "id": "4c8d8de7-6547-4766-8f98-7f28dd8b4b9a",
+      "syllogism": "There are some individuals who find pleasure in reading who are librarians. Every single person who is a librarian is a student. It is the case that some of the people who are students are people who enjoy reading.",
+      "true": true,
+      "pred": true,
+      "plaus": true,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2203x (R(x) \u2227 L(x))\n    *   Premise 2: \u2200x (L(x) \u2192 S(x))\n    *   Conclusion: \u2203x (S(x) \u2227 R(x))\n\nFinal Answer: VALID",
+      "source": "official_test"
+    },
+    {
+      "id": "1b1b97d3-969d-4921-9095-42863228cbab",
+      "syllogism": "Anything that is a mammal is a creature that is warm-blooded. Some animals are, without a doubt, mammals. Therefore, every single animal is made of wood.",
+      "true": false,
+      "pred": false,
+      "plaus": false,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (M(x) \u2192 W(x))\n    *   Premise 2: \u2203x (A(x) \u2227 M(x))\n    *   Conclusion: \u2200x (A(x) \u2192 B(x))\n\nFinal Answer: INVALID",
+      "source": "official_test"
+    },
+    {
+      "id": "99ba63a6-3b6a-4f63-a0f7-6cef1c11818f",
+      "syllogism": "Everything that is a hut is a vehicle. A few huts are houses. Thus, a number of houses are vehicles.",
+      "true": true,
+      "pred": true,
+      "plaus": false,
+      "response": "<think>\n\n</think>\n\n2.  **Logical Formulation:** Premise 1: \u2200x (H(x) \u2192 V(x)). Premise 2: \u2203x (H(x) \u2227 D(x)). Conclusion: \u2203x (D(x) \u2227 V(x))\n\nFinal Answer: VALID",
+      "source": "official_test"
+    },
+    {
+      "id": "84b624a9-4de1-40a4-a584-7d961b6d017c",
+      "syllogism": "Reptiles are a class of animal which does not contain any amphibians. All things that are frogs are amphibians. The group of frogs and the group of reptiles have no members in common.",
+      "true": true,
+      "pred": true,
+      "plaus": true,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (R(x) \u2192 \u00acA(x))\n    *   Premise 2: \u2200x (F(x) \u2192 A(x))\n    *   Conclusion: \u2200x (F(x) \u2192 \u00acR(x))\n\nFinal Answer: VALID",
+      "source": "official_test"
+    },
+    {
+      "id": "604c4371-08b2-478a-85a3-273194f6153e",
+      "syllogism": "Every single liquid is a fluid. It is impossible for any water to be a fluid. It can be concluded that no water is a liquid.",
+      "true": true,
+      "pred": true,
+      "plaus": false,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (L(x) \u2192 F(x))\n    *   Premise 2: \u2200x (W(x) \u2192 \u00acF(x))\n    *   Conclusion: \u2200x (W(x) \u2192 \u00acL(x))\n\nFinal Answer: VALID",
+      "source": "official_test"
+    },
+    {
+      "id": "5704ad50-0947-41ed-b7bb-385a2dc1cb52",
+      "syllogism": "There are all humans which are primates. Every human is a kind of mammal. It follows that all mammals are not primates.",
+      "true": false,
+      "pred": false,
+      "plaus": true,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (H(x) \u2192 P(x))\n    *   Premise 2: \u2200x (H(x) \u2192 M(x))\n    *   Conclusion: \u2200x (M(x) \u2192 \u00acP(x))\n\nFinal Answer: INVALID",
+      "source": "official_test"
+    },
+    {
+      "id": "9f914ab3-38b2-420a-a2f6-fcf43f939219",
+      "syllogism": "Anything that is a mammal is warm-blooded. Every single dog is a mammal. At least one dog is warm-blooded.",
+      "true": true,
+      "pred": true,
+      "plaus": true,
+      "response": "<think>\n\n</think>\n\n2.  **Logical Formulation:** Premise 1: \u2200x (M(x) \u2192 W(x)). Premise 2: \u2200x (D(x) \u2192 M(x)). Conclusion: \u2203x (D(x) \u2227 W(x))\n\nFinal Answer: VALID",
+      "source": "official_test"
+    },
+    {
+      "id": "ed7937f5-a98e-4385-a58a-0d24b4f23651",
+      "syllogism": "Anything that is a cat is a feline. It is true that all felines are carnivores. This means that a few carnivores are cats.",
+      "true": true,
+      "pred": true,
+      "plaus": true,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (C(x) \u2192 F(x))\n    *   Premise 2: \u2200x (F(x) \u2192 K(x))\n    *   Conclusion: \u2203x (K(x) \u2227 C(x))\n\nFinal Answer: VALID",
+      "source": "official_test"
+    },
+    {
+      "id": "5b14aaf3-7046-4858-8069-723378b1d76c",
+      "syllogism": "All things that are made of wood can catch on fire. There are some chairs that are wooden objects. It follows, then, that some chairs can be set on fire.",
+      "true": true,
+      "pred": true,
+      "plaus": true,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (W(x) \u2192 F(x))\n    *   Premise 2: \u2203x (C(x) \u2227 W(x))\n    *   Conclusion: \u2203x (C(x) \u2227 F(x))\n\nFinal Answer: VALID",
+      "source": "official_test"
+    },
+    {
+      "id": "244cf8ba-d6bd-4acb-83db-841c05330954",
+      "syllogism": "Anything that is a feline is a mammal. There are no cats that are felines. Thus, there are no cats that are mammals.",
+      "true": false,
+      "pred": false,
+      "plaus": false,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (C(x) \u2192 M(x))\n    *   Premise 2: \u2200x (\u00acF(x) \u2192 \u00acC(x)) (or equivalently, \u2200x (C(x) \u2192 \u00acF(x)))\n    *   Conclusion: \u2200x (C(x) \u2192 \u00acM(x))\n\nFinal Answer: INVALID",
+      "source": "official_test"
+    },
+    {
+      "id": "d1c92c02-bd97-4456-a14d-9b82b65cd5b1",
+      "syllogism": "Anything that is a vehicle is also a machine. There is a subset of machines that are cars. Therefore, some cars are not vehicles.",
+      "true": false,
+      "pred": false,
+      "plaus": false,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (V(x) \u2192 M(x))\n    *   Premise 2: \u2203x (M(x) \u2227 C(x))\n    *   Conclusion: \u2203x (C(x) \u2227 \u00acV(x))\n\nFinal Answer: INVALID",
+      "source": "official_test"
+    },
+    {
+      "id": "90b5d022-b2d7-4fbe-9386-f956381db9af",
+      "syllogism": "Any fire is frozen. There are some flames that are fire. Therefore, it is implied that some flames are frozen.",
+      "true": true,
+      "pred": true,
+      "plaus": false,
+      "response": "<think>\n\n</think>\n\n2.  **Logical Formulation:** Premise 1: \u2200x (F(x) \u2192 G(x)). Premise 2: \u2203x (H(x) \u2227 F(x)). Conclusion: \u2203x (H(x) \u2227 G(x))\n\nFinal Answer: VALID",
+      "source": "official_test"
+    },
+    {
+      "id": "cafd8eaf-668f-4c69-ae03-ec38709e4b9e",
+      "syllogism": "Every single human is a cloud. It is also true that every mammal is a cloud. This proves that all mammals are humans.",
+      "true": false,
+      "pred": false,
+      "plaus": false,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (H(x) \u2192 C(x))\n    *   Premise 2: \u2200x (M(x) \u2192 C(x))\n    *   Conclusion: \u2200x (M(x) \u2192 H(x))\n\nFinal Answer: INVALID",
+      "source": "official_test"
+    },
+    {
+      "id": "dcd52b2a-0ff8-4826-a5e1-710238698ef7",
+      "syllogism": "Anything that is a parrot is a bird. Every single bird is an animal. One must conclude that every animal is a parrot.",
+      "true": false,
+      "pred": false,
+      "plaus": true,
+      "response": "<think>\n\n</think>\n\n2. Logical Formulation: Premise 1: \u2200x (P(x) \u2192 B(x)). Premise 2: \u2200x (B(x) \u2192 A(x)). Conclusion: \u2200x (A(x) \u2192 P(x))\n\nFinal Answer: INVALID",
+      "source": "official_test"
+    },
+    {
+      "id": "a7504ed6-5b8e-42d0-bb8b-11754ac5953a",
+      "syllogism": "Every single person who is a professor is an academic. Any academic is a knowledgeable person. Therefore, some knowledgeable people are professors.",
+      "true": true,
+      "pred": true,
+      "plaus": true,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (P(x) \u2192 A(x))\n    *   Premise 2: \u2200x (A(x) \u2192 K(x))\n    *   Conclusion: \u2203x (K(x) \u2227 P(x))\n\nFinal Answer: VALID",
+      "source": "official_test"
+    },
+    {
+      "id": "ed17a05a-a553-4df8-a45b-384eadb243e1",
+      "syllogism": "There are no cars that are made of water. There are no cars that are clouds. Consequently, no clouds are made of water.",
+      "true": false,
+      "pred": false,
+      "plaus": false,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (C(x) \u2192 \u00acW(x))\n    *   Premise 2: \u2200x (C(x) \u2192 \u00acK(x))\n    *   Conclusion: \u2200x (K(x) \u2192 \u00acW(x))\n\nFinal Answer: INVALID",
+      "source": "official_test"
+    },
+    {
+      "id": "4174bbf2-1f54-4ae3-a5e9-cefac102ed46",
+      "syllogism": "There are no animals that do not live on land. It is the case that no fish is an animal. At least some fish live on land.",
+      "true": false,
+      "pred": false,
+      "plaus": false,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: There are no animals that do not live on land.\n        *   \u2200x (\u00acL(x) \u2192 \u00acA(x))\n        *   (This is equivalent to: \u2200x (A(x) \u2192 L(x)))\n\nFinal Answer: INVALID",
+      "source": "official_test"
+    },
+    {
+      "id": "5f809928-5ead-4ebc-8fb0-c9eb220743f0",
+      "syllogism": "Every single human is a mammal. A subset of mammals is composed of women. It is necessarily true that some women are not humans.",
+      "true": false,
+      "pred": false,
+      "plaus": false,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (H(x) \u2192 M(x))\n    *   Premise 2: \u2203x (M(x) \u2227 W(x))\n    *   Conclusion: \u2203x (W(x) \u2227 \u00acH(x))\n\nFinal Answer: INVALID",
+      "source": "official_test"
+    },
+    {
+      "id": "c890f2c1-9631-4153-a60e-02a9a89ad258",
+      "syllogism": "Every single creature that is an animal with fins is a fish. It is also the case that some whales are fish. This leads to the conclusion that some whales are animals with fins.",
+      "true": false,
+      "pred": false,
+      "plaus": true,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (F(x) \u2192 A(x))\n    *   Premise 2: \u2203x (W(x) \u2227 A(x))\n    *   Conclusion: \u2203x (W(x) \u2227 F(x))\n\nFinal Answer: INVALID",
+      "source": "official_test"
+    },
+    {
+      "id": "094f320d-ea3a-4e4e-be55-d09692332089",
+      "syllogism": "It is a fact that every tulip is a flower. It is also true that all roses are flowers. Therefore, it is concluded that a few flowers are roses.",
+      "true": false,
+      "pred": false,
+      "plaus": true,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (T(x) \u2192 F(x))\n    *   Premise 2: \u2200x (R(x) \u2192 F(x))\n    *   Conclusion: \u2203x (F(x) \u2227 R(x))\n\nFinal Answer: INVALID",
+      "source": "official_test"
+    },
+    {
+      "id": "45d94787-3541-406f-af22-4fd535dee8a8",
+      "syllogism": "Every vehicle has wheels. At least one car does not have wheels. Not all cars are vehicles.",
+      "true": false,
+      "pred": true,
+      "plaus": false,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (V(x) \u2192 W(x))\n    *   Premise 2: \u2203x (C(x) \u2227 \u00acW(x))\n    *   Conclusion: \u2203x (C(x) \u2227 \u00acV(x))\n\nFinal Answer: VALID",
+      "source": "official_test"
+    },
+    {
+      "id": "11bab54e-dbbb-4b2e-9d4d-2fc9b2c69d9e",
+      "syllogism": "It is a certainty that every single teacher is a human being. It is also true that a few educated people are human beings. On this basis, it has been stated that a few educated people are teachers.",
+      "true": false,
+      "pred": false,
+      "plaus": true,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (T(x) \u2192 H(x))\n    *   Premise 2: \u2203x (E(x) \u2227 H(x))\n    *   Conclusion: \u2203x (E(x) \u2227 T(x))\n\nFinal Answer: INVALID",
+      "source": "official_test"
+    },
+    {
+      "id": "c6a92b4e-ca9a-475c-9fec-967fbec7ab36",
+      "syllogism": "It is true that no fish live in the sea. There are fish, and some of them are salmons. Based on this, it must be the case that a certain amount of salmons do not live in the sea.",
+      "true": true,
+      "pred": true,
+      "plaus": false,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (F(x) \u2192 \u00acS(x))\n    *   Premise 2: \u2203x (F(x) \u2227 A(x))\n    *   Conclusion: \u2203x (A(x) \u2227 \u00acS(x))\n\nFinal Answer: VALID",
+      "source": "official_test"
+    },
+    {
+      "id": "8078870d-5ee2-4765-a771-bd795e0a10cf",
+      "syllogism": "There are no paintings that are also works of literature. Every single novel is a work of literature. The implication is that there exist some novels which are not paintings.",
+      "true": true,
+      "pred": true,
+      "plaus": true,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: There are no paintings that are also works of literature.\n        *   \u2200x (P(x) \u2192 \u00acL(x))\n    *   Premise 2: Every single novel is a work of literature.\n\nFinal Answer: VALID",
+      "source": "official_test"
+    },
+    {
+      "id": "ec3d4144-b083-43d2-a400-20da589c8627",
+      "syllogism": "It is true that everything which is a bird is a winged creature. There are no insects which are birds. A conclusion that can be drawn from this is that there are no insects which are winged creatures.",
+      "true": false,
+      "pred": false,
+      "plaus": false,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (B(x) \u2192 W(x))\n    *   Premise 2: \u2200x (I(x) \u2192 \u00acB(x))\n    *   Conclusion: \u2200x (I(x) \u2192 \u00acW(x))\n\nFinal Answer: INVALID",
+      "source": "official_test"
+    },
+    {
+      "id": "61ba9569-1368-4d47-9706-b54a7034bab5",
+      "syllogism": "It is true that everything which is a bird is a winged creature. There are no insects which are birds. A conclusion that can be drawn from this is that there are insects which are winged creatures.",
+      "true": false,
+      "pred": false,
+      "plaus": true,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (B(x) \u2192 W(x))\n    *   Premise 2: \u2200x (I(x) \u2192 \u00acB(x))\n    *   Conclusion: \u2203x (I(x) \u2227 W(x))\n\nFinal Answer: INVALID",
+      "source": "official_test"
+    },
+    {
+      "id": "6fa051ab-5673-4ce7-8234-3baf75bd1d64",
+      "syllogism": "Houses are never schools. A few schools are, in fact, buildings. There exist buildings that are not houses.",
+      "true": true,
+      "pred": true,
+      "plaus": true,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (H(x) \u2192 \u00acS(x)) (Houses are never schools)\n    *   Premise 2: \u2203x (B(x) \u2227 S(x)) (A few schools are buildings)\n    *   Conclusion: \u2203x (B(x) \u2227 \u00acH(x)) (There exist buildings that are not houses)\n\nFinal Answer: VALID",
+      "source": "official_test"
+    },
+    {
+      "id": "e1f5938b-bf0b-4cfe-8b2a-8b83c91dcbb1",
+      "syllogism": "Everything that is a spoon is a piece of cutlery. No giraffes can be considered pieces of cutlery. It can be said that some giraffes are not spoons.",
+      "true": true,
+      "pred": true,
+      "plaus": true,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (S(x) \u2192 C(x))\n    *   Premise 2: \u2200x (G(x) \u2192 \u00acC(x))\n    *   Conclusion: \u2203x (G(x) \u2227 \u00acS(x))\n\nFinal Answer: VALID",
+      "source": "official_test"
+    },
+    {
+      "id": "732e20b3-c504-4115-914d-496d0c4ee6da",
+      "syllogism": "Every single mammal is a living thing. The set of animals contains no living things. Not a single mammal is an animal.",
+      "true": false,
+      "pred": true,
+      "plaus": false,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (M(x) \u2192 L(x))\n    *   Premise 2: \u2200x (A(x) \u2192 \u00acL(x))\n    *   Conclusion: \u2200x (M(x) \u2192 \u00acA(x))\n\nFinal Answer: VALID",
+      "source": "official_test"
+    },
+    {
+      "id": "059182d4-4b95-4caa-9895-b79368d8c736",
+      "syllogism": "A number of chairs are people. Anything that is a person is an organism. Therefore, a portion of organisms are chairs.",
+      "true": true,
+      "pred": true,
+      "plaus": false,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2203x (C(x) \u2227 P(x))\n    *   Premise 2: \u2200x (P(x) \u2192 O(x))\n    *   Conclusion: \u2203x (O(x) \u2227 C(x))\n\nFinal Answer: VALID",
+      "source": "official_test"
+    },
+    {
+      "id": "54c5b3f8-ba16-4eaf-86a1-71d78b771192",
+      "syllogism": "All things which are numbers are animals. All things which are numbers are plants. It follows that some plants are animals.",
+      "true": true,
+      "pred": false,
+      "plaus": false,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (N(x) \u2192 A(x))\n    *   Premise 2: \u2200x (N(x) \u2192 P(x))\n    *   Conclusion: \u2203x (P(x) \u2227 A(x))\n\nFinal Answer: INVALID",
+      "source": "official_test"
+    },
+    {
+      "id": "7b5fba34-77db-4a14-a9f4-810833a4d47b",
+      "syllogism": "Zebras are in no way dogs. There are some dogs that are mammals. This implies that some zebras are mammals.",
+      "true": false,
+      "pred": false,
+      "plaus": true,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (Z(x) \u2192 \u00acD(x))\n    *   Premise 2: \u2203x (D(x) \u2227 M(x))\n    *   Conclusion: \u2203x (Z(x) \u2227 M(x))\n\nFinal Answer: INVALID",
+      "source": "official_test"
+    },
+    {
+      "id": "ee91ca83-4f5e-48ac-ae52-93ad7842c9fb",
+      "syllogism": "All houses are structures. There are no bridges that are houses. Therefore, no bridge is a structure.",
+      "true": false,
+      "pred": false,
+      "plaus": false,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (H(x) \u2192 S(x))\n    *   Premise 2: \u2200x (B(x) \u2192 \u00acH(x))\n    *   Conclusion: \u2200x (B(x) \u2192 \u00acS(x))\n\nFinal Answer: INVALID",
+      "source": "official_test"
+    },
+    {
+      "id": "5631278b-7761-4a8c-ae61-1694dd27d01a",
+      "syllogism": "Every person who is a prime minister is a politician. There are a number of people who are celebrities who are also politicians. It follows from this that there are some celebrities who are prime ministers.",
+      "true": false,
+      "pred": false,
+      "plaus": true,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (P(x) \u2192 Q(x))\n    *   Premise 2: \u2203x (R(x) \u2227 Q(x))\n    *   Conclusion: \u2203x (R(x) \u2227 P(x))\n\nFinal Answer: INVALID",
+      "source": "official_test"
+    },
+    {
+      "id": "a6cae303-c3b4-47e8-9d24-684efce69c15",
+      "syllogism": "Every single person who is an animal is a living thing. Not a single building is an animal. The conclusion that no buildings are living things is inescapable.",
+      "true": false,
+      "pred": false,
+      "plaus": true,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (A(x) \u2192 B(x))\n    *   Premise 2: \u2200x (C(x) \u2192 \u00acA(x))\n    *   Conclusion: \u2200x (C(x) \u2192 \u00acB(x))\n\nFinal Answer: INVALID",
+      "source": "official_test"
+    },
+    {
+      "id": "6dfa2e90-5139-4564-bb80-b6c343f867b0",
+      "syllogism": "Nothing that is a vehicle is a mode of transportation. A certain number of cars are composed of vehicles. It follows that a portion of cars are not modes of transportation.",
+      "true": true,
+      "pred": true,
+      "plaus": false,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (V(x) \u2192 \u00acM(x))\n    *   Premise 2: \u2203x (C(x) \u2227 V(x))\n    *   Conclusion: \u2203x (C(x) \u2227 \u00acM(x))\n\nFinal Answer: VALID",
+      "source": "official_test"
+    },
+    {
+      "id": "ab27dbac-d446-4199-a267-16d010b7588f",
+      "syllogism": "There are some mammals which live on land. It is the case that no fish lives on land. Consequently, all fish are mammals.",
+      "true": false,
+      "pred": false,
+      "plaus": false,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2203x (M(x) \u2227 L(x))\n    *   Premise 2: \u2200x (F(x) \u2192 \u00acL(x))\n    *   Conclusion: \u2200x (F(x) \u2192 M(x))\n\nFinal Answer: INVALID",
+      "source": "official_test"
+    },
+    {
+      "id": "321e05bd-2e8f-412d-beff-9ec29ac7ed43",
+      "syllogism": "It is not the case that every human is a male. Every single human is a creature with ten legs. From this, it follows that some creatures with ten legs are males.",
+      "true": false,
+      "pred": false,
+      "plaus": false,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u00ac\u2200x (H(x) \u2192 M(x))  (It is not the case that every human is a male)\n        *   \u00ac\u2200x (H(x) \u2192 M(x)) is equivalent to \u2203x (H(x) \u2227 \u00acM(x))\n    *   Premise 2: \u2200x (H(x) \u2192 T(x)) (Every single human is a creature with ten legs)\n\nFinal Answer: INVALID",
+      "source": "official_test"
+    },
+    {
+      "id": "8bb41f23-ab9f-4ed2-898a-f5c6f2fff389",
+      "syllogism": "Anything that is a fruit is a food that contains seeds. Some foods are, without a doubt, fruits. Therefore, every single food contains rocks.",
+      "true": false,
+      "pred": false,
+      "plaus": false,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (F(x) \u2192 S(x))\n    *   Premise 2: \u2203x (F(x) \u2227 D(x))\n    *   Conclusion: \u2200x (D(x) \u2192 R(x))\n\nFinal Answer: INVALID",
+      "source": "official_test"
+    },
+    {
+      "id": "832f59aa-bfee-4e92-b247-d8719f1844ae",
+      "syllogism": "Every single dog belongs to the canine family. Anything that is a chihuahua is a dog. This means that every chihuahua is a canine.",
+      "true": true,
+      "pred": true,
+      "plaus": true,
+      "response": "<think>\n\n</think>\n\n2.  **Logical Formulation:** Premise 1: \u2200x (D(x) \u2192 C(x)). Premise 2: \u2200x (H(x) \u2192 D(x)). Conclusion: \u2200x (H(x) \u2192 C(x))\n\nFinal Answer: VALID",
+      "source": "official_test"
+    },
+    {
+      "id": "06689352-cd51-48f4-8767-0864666d0941",
+      "syllogism": "Anything that is a novel is a book. All books are publications. From these facts, it is clear that a few publications are novels.",
+      "true": true,
+      "pred": false,
+      "plaus": true,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (N(x) \u2192 B(x))\n    *   Premise 2: \u2200x (B(x) \u2192 P(x))\n    *   Conclusion: \u2203x (P(x) \u2227 N(x))\n\nFinal Answer: INVALID",
+      "source": "official_test"
+    },
+    {
+      "id": "0facfad6-abe4-4a37-bd8a-5996bd3a2254",
+      "syllogism": "Anything that is a fish is an animal. There are birds, and all of them are animals. Based on this, it must be the case that every bird is a fish.",
+      "true": false,
+      "pred": false,
+      "plaus": false,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (F(x) \u2192 A(x))\n    *   Premise 2: \u2200x (B(x) \u2192 A(x))\n    *   Conclusion: \u2200x (B(x) \u2192 F(x))\n\nFinal Answer: INVALID",
+      "source": "official_test"
+    },
+    {
+      "id": "c22180d9-b32d-481d-a2ed-a540c1e1853f",
+      "syllogism": "Every keyboard is a cloud. Not a single cloud is a musical instrument. From this, it follows that no musical instruments is a keyboard.",
+      "true": true,
+      "pred": true,
+      "plaus": false,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (K(x) \u2192 C(x))\n    *   Premise 2: \u2200x (C(x) \u2192 \u00acM(x))\n    *   Conclusion: \u2200x (M(x) \u2192 \u00acK(x))\n\nFinal Answer: VALID",
+      "source": "official_test"
+    },
+    {
+      "id": "d7afe323-d509-4dec-a2e0-28e03a26902e",
+      "syllogism": "Not one single nonfiction book is a fictional work. All novels are fictional works. It follows from this that some novels are not nonfiction books.",
+      "true": true,
+      "pred": false,
+      "plaus": true,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (\u00acN(x) \u2192 \u00acF(x)) (or equivalently, \u2200x (\u00acN(x) \u2192 \u00acF(x)))\n    *   Premise 2: \u2200x (A(x) \u2192 F(x))\n    *   Conclusion: \u2203x (A(x) \u2227 \u00acN(x))\n\nFinal Answer: INVALID",
+      "source": "official_test"
+    },
+    {
+      "id": "fc477a4d-acad-4c3b-a989-ef97e9454f41",
+      "syllogism": "Every insect is an animal. All mammals are animals. Consequently, every single mammal is an insect.",
+      "true": false,
+      "pred": false,
+      "plaus": false,
+      "response": "<think>\n\n</think>\n\n2.  **Logical Formulation:** Premise 1: \u2200x (I(x) \u2192 A(x)). Premise 2: \u2200x (M(x) \u2192 A(x)). Conclusion: \u2200x (M(x) \u2192 I(x))\n\nFinal Answer: INVALID",
+      "source": "official_test"
+    },
+    {
+      "id": "475ce940-a63d-4940-9254-be1e35243cfa",
+      "syllogism": "There are some dogs that are cats. There are no cats that are reptiles. As a result, some reptiles are dogs.",
+      "true": false,
+      "pred": false,
+      "plaus": false,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2203x (D(x) \u2227 C(x))\n    *   Premise 2: \u2200x (C(x) \u2192 \u00acR(x))\n    *   Conclusion: \u2203x (R(x) \u2227 D(x))\n\nFinal Answer: INVALID",
+      "source": "official_test"
+    },
+    {
+      "id": "9fcdef6b-4601-4603-92bc-1124b386ce5b",
+      "syllogism": "Anything that is a rose is a plant. There are no animals that are roses. Consequently, there are no animals that are plants.",
+      "true": false,
+      "pred": false,
+      "plaus": true,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (R(x) \u2192 P(x))\n    *   Premise 2: \u2200x (A(x) \u2192 \u00acR(x))\n    *   Conclusion: \u2200x (A(x) \u2192 \u00acP(x))\n\nFinal Answer: INVALID",
+      "source": "official_test"
+    },
+    {
+      "id": "435fcf21-2212-486d-86b2-92fe61151294",
+      "syllogism": "There are no mammals which are reptiles. Some animals are mammals. From this, it can be concluded that some animals are reptiles.",
+      "true": false,
+      "pred": false,
+      "plaus": true,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (M(x) \u2192 \u00acR(x)) (or equivalently, \u00ac\u2203x (M(x) \u2227 R(x)))\n    *   Premise 2: \u2203x (A(x) \u2227 M(x))\n    *   Conclusion: \u2203x (A(x) \u2227 R(x))\n\nFinal Answer: INVALID",
+      "source": "official_test"
+    },
+    {
+      "id": "b2e875c8-2a19-4aab-a7d0-b5116bde9dc6",
+      "syllogism": "There are some creatures that are mammals and also animals. Among the group of creatures that are tigers, some are animals. It follows that at least some tigers are not mammals.",
+      "true": false,
+      "pred": false,
+      "plaus": false,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2203x (M(x) \u2227 A(x))\n    *   Premise 2: \u2203x (T(x) \u2227 A(x))\n    *   Conclusion: \u2203x (T(x) \u2227 \u00acM(x))\n\nFinal Answer: INVALID",
+      "source": "official_test"
+    },
+    {
+      "id": "a9e0e8bb-07cb-4153-bfc7-cb4428463fc7",
+      "syllogism": "Gold is always classified as a metal. Nothing that is a plastic is a metal. Therefore, no plastic is gold.",
+      "true": true,
+      "pred": true,
+      "plaus": true,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (G(x) \u2192 M(x))\n    *   Premise 2: \u2200x (P(x) \u2192 \u00acM(x))\n    *   Conclusion: \u2200x (P(x) \u2192 \u00acG(x))\n\nFinal Answer: VALID",
+      "source": "official_test"
+    },
+    {
+      "id": "8b839892-71f7-4ea5-9c5b-7aa33246451f",
+      "syllogism": "Every single thing that is a number is a letter. The set of all integers contains no letters. It is the case that there are certain integers which are not numbers.",
+      "true": true,
+      "pred": true,
+      "plaus": false,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (N(x) \u2192 L(x))\n    *   Premise 2: \u2200x (I(x) \u2192 \u00acL(x))\n    *   Conclusion: \u2203x (I(x) \u2227 \u00acN(x))\n\nFinal Answer: VALID",
+      "source": "official_test"
+    },
+    {
+      "id": "6650eef5-2045-4ee2-8fe1-a3036d54c6b6",
+      "syllogism": "No person who is a doctor is also a teacher. Anything that is a teacher is a profession. Therefore, some professions are not doctors.",
+      "true": true,
+      "pred": true,
+      "plaus": true,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (D(x) \u2192 \u00acT(x)) (or equivalently, \u00ac\u2203x (D(x) \u2227 T(x)))\n    *   Premise 2: \u2200x (T(x) \u2192 P(x))\n    *   Conclusion: \u2203x (P(x) \u2227 \u00acD(x))\n\nFinal Answer: VALID",
+      "source": "official_test"
+    },
+    {
+      "id": "c7b40258-763b-4059-8ab3-378b76d6a0a8",
+      "syllogism": "There exist some things which are birds that are not animals. Every single thing that is a bird is a mammal. From this, it follows that some mammals are not animals.",
+      "true": true,
+      "pred": true,
+      "plaus": false,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2203x (B(x) \u2227 \u00acA(x))\n    *   Premise 2: \u2200x (B(x) \u2192 M(x))\n    *   Conclusion: \u2203x (M(x) \u2227 \u00acA(x))\n\nFinal Answer: VALID",
+      "source": "official_test"
+    },
+    {
+      "id": "c0c3e36b-70c0-4cc8-b13d-3ae4ba0424b8",
+      "syllogism": "It is true that all roses are flowers. It is also true that some plants are flowers. One can therefore conclude that some plants are roses.",
+      "true": false,
+      "pred": false,
+      "plaus": true,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (R(x) \u2192 F(x))\n    *   Premise 2: \u2203x (P(x) \u2227 F(x))\n    *   Conclusion: \u2203x (P(x) \u2227 R(x))\n\nFinal Answer: INVALID",
+      "source": "official_test"
+    },
+    {
+      "id": "bd43b96a-b4cd-4380-af60-6f6052586580",
+      "syllogism": "Every single rhino is a mammal. Every single lion is a mammal. It is the case that some lions are not rhinos.",
+      "true": false,
+      "pred": false,
+      "plaus": true,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (R(x) \u2192 M(x))\n    *   Premise 2: \u2200x (L(x) \u2192 M(x))\n    *   Conclusion: \u2203x (L(x) \u2227 \u00acR(x))\n\nFinal Answer: INVALID",
+      "source": "official_test"
+    },
+    {
+      "id": "7083216a-6754-498f-8a93-53d551efe0c7",
+      "syllogism": "There is no soda that is a juice. A portion of the items that are beverages are not juices. It follows that some beverages are not sodas.",
+      "true": false,
+      "pred": false,
+      "plaus": true,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (S(x) \u2192 \u00acJ(x)) (No soda is a juice)\n    *   Premise 2: \u2203x (B(x) \u2227 \u00acJ(x)) (Some beverages are not juices)\n    *   Conclusion: \u2203x (B(x) \u2227 \u00acS(x)) (Some beverages are not sodas)\n\nFinal Answer: INVALID",
+      "source": "official_test"
+    },
+    {
+      "id": "e678f76a-260f-4b2f-b2c6-3d3a5a992e6d",
+      "syllogism": "There are no objects that are furniture. Each and every table is an object. It follows that no table can be an item of furniture.",
+      "true": true,
+      "pred": true,
+      "plaus": false,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: There are no objects that are furniture. (This means if something is an object, it is not a furniture.)\n        *   \u2200x (O(x) \u2192 \u00acF(x))\n    *   Premise 2: Each and every table is an object.\n\nFinal Answer: VALID",
+      "source": "official_test"
+    },
+    {
+      "id": "154d3137-be50-4fff-85ad-80f687f7806a",
+      "syllogism": "There are no rivers that are oceans. Every single river is a body of water. It logically follows that some bodies of water are not oceans.",
+      "true": true,
+      "pred": false,
+      "plaus": true,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: There are no rivers that are oceans. (Equivalent to: For all x, if x is a river, then x is not an ocean.)\n        \u2200x (R(x) \u2192 \u00acO(x))\n    *   Premise 2: Every single river is a body of water. (Equivalent to: For all x, if x is a river, then x is a body of water.)\n\nFinal Answer: INVALID",
+      "source": "official_test"
+    },
+    {
+      "id": "94961071-4c98-4f16-a4a5-a1740f7385ea",
+      "syllogism": "All things that are tigers are felines. All things that are cats are felines. It can be deduced that there are cats that are tigers.",
+      "true": false,
+      "pred": false,
+      "plaus": true,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (T(x) \u2192 F(x))\n    *   Premise 2: \u2200x (C(x) \u2192 F(x))\n    *   Conclusion: \u2203x (C(x) \u2227 T(x))\n\nFinal Answer: INVALID",
+      "source": "official_test"
+    },
+    {
+      "id": "ba26d7cc-4c9a-40f2-817d-73b6f91781ab",
+      "syllogism": "Some clouds are houses. A house is a building. As such, it is necessarily true that some buildings are clouds.",
+      "true": true,
+      "pred": true,
+      "plaus": false,
+      "response": "<think>\n\n</think>\n\n2.  **Logical Formulation:** Premise 1: \u2203x (C(x) \u2227 H(x)). Premise 2: \u2200x (H(x) \u2192 B(x)). Conclusion: \u2203x (B(x) \u2227 C(x))\n\nFinal Answer: VALID",
+      "source": "official_test"
+    },
+    {
+      "id": "ffba71c8-04fc-496e-809f-6655735d3be8",
+      "syllogism": "Every feline is an animal. There is a subset of animals that is composed of mammals. A portion of mammals are not felines.",
+      "true": false,
+      "pred": false,
+      "plaus": true,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (C(x) \u2192 A(x))\n    *   Premise 2: \u2203x (A(x) \u2227 M(x))\n    *   Conclusion: \u2203x (M(x) \u2227 \u00acC(x))\n\nFinal Answer: INVALID",
+      "source": "official_test"
+    },
+    {
+      "id": "e6449020-f9d5-4bc0-b0a2-561fa0d15d30",
+      "syllogism": "The group of professionals is a subset of the group of people. Everything that is a doctor is a professional. Therefore, there are some people who are not doctors.",
+      "true": false,
+      "pred": false,
+      "plaus": true,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (P(x) \u2192 Q(x))\n    *   Premise 2: \u2200x (R(x) \u2192 P(x))\n    *   Conclusion: \u2203x (Q(x) \u2227 \u00acR(x))\n\nFinal Answer: INVALID",
+      "source": "official_test"
+    },
+    {
+      "id": "8c994dd2-d609-47b8-b002-c10f92225451",
+      "syllogism": "Every single dog is a mammal. All mammals are birds. Consequently, every single bird is a dog.",
+      "true": false,
+      "pred": false,
+      "plaus": false,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (D(x) \u2192 M(x))\n    *   Premise 2: \u2200x (M(x) \u2192 B(x))\n    *   Conclusion: \u2200x (B(x) \u2192 D(x))\n\nFinal Answer: INVALID",
+      "source": "official_test"
+    },
+    {
+      "id": "d8794f2a-f535-4be9-a29b-71a98af6bf08",
+      "syllogism": "Every sky is a blue thing. There is not a single car that is a sky. It can be concluded that no car is a blue thing.",
+      "true": false,
+      "pred": false,
+      "plaus": false,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (S(x) \u2192 B(x))\n    *   Premise 2: \u2200x (C(x) \u2192 \u00acS(x))\n    *   Conclusion: \u2200x (C(x) \u2192 \u00acB(x))\n\nFinal Answer: INVALID",
+      "source": "official_test"
+    },
+    {
+      "id": "36bba00b-4596-453f-aa17-dcf20ad0768c",
+      "syllogism": "It is the case that every teacher is a college graduate. Some professionals are also known to be college graduates. Thus, it can be concluded that some professionals are also teachers.",
+      "true": false,
+      "pred": false,
+      "plaus": true,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (T(x) \u2192 C(x))\n    *   Premise 2: \u2203x (P(x) \u2227 C(x))\n    *   Conclusion: \u2203x (P(x) \u2227 T(x))\n\nFinal Answer: INVALID",
+      "source": "official_test"
+    },
+    {
+      "id": "4510d170-3c4e-455b-a819-2c2e88fe1655",
+      "syllogism": "Every single reptile is a living thing. The set of animals contains no living things. Not a single reptile is an animal.",
+      "true": false,
+      "pred": true,
+      "plaus": false,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (R(x) \u2192 L(x))\n    *   Premise 2: \u2200x (A(x) \u2192 \u00acL(x))\n    *   Conclusion: \u2200x (R(x) \u2192 \u00acA(x))\n\nFinal Answer: VALID",
+      "source": "official_test"
+    },
+    {
+      "id": "ac5ce699-15c3-4842-8f1e-7d70227b0787",
+      "syllogism": "A portion of buildings are dogs. Every single dog is a domestic animal. Hence, some domestic animals are buildings.",
+      "true": true,
+      "pred": true,
+      "plaus": false,
+      "response": "<think>\n\n</think>\n\n2.  **Logical Formulation:** Premise 1: \u2203x (B(x) \u2227 D(x)). Premise 2: \u2200x (D(x) \u2192 A(x)). Conclusion: \u2203x (A(x) \u2227 B(x))\n\nFinal Answer: VALID",
+      "source": "official_test"
+    },
+    {
+      "id": "2cd1f13b-eb67-42b7-a345-da72e5fb4d80",
+      "syllogism": "Some mammals are dogs. There are some cats who are mammals. Cats are in no way dogs.",
+      "true": false,
+      "pred": false,
+      "plaus": true,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2203x (M(x) \u2227 D(x))\n    *   Premise 2: \u2203x (C(x) \u2227 M(x))\n    *   Conclusion: \u2200x (C(x) \u2192 \u00acD(x))\n\nFinal Answer: INVALID",
+      "source": "official_test"
+    },
+    {
+      "id": "7841eb47-8f72-475c-852d-4d709ae0965e",
+      "syllogism": "There are some mammals that are primates. Every single primate is an animal. Consequently, some animals are mammals.",
+      "true": true,
+      "pred": true,
+      "plaus": true,
+      "response": "<think>\n\n</think>\n\n2.  **Logical Formulation:** Premise 1: \u2203x (M(x) \u2227 P(x)). Premise 2: \u2200x (P(x) \u2192 A(x)). Conclusion: \u2203x (A(x) \u2227 M(x))\n\nFinal Answer: VALID",
+      "source": "official_test"
+    },
+    {
+      "id": "42f67665-07b1-4466-b825-8ec4367d126e",
+      "syllogism": "There are no items that are not plants that are plants. A number of items that are not plants are trees. Therefore, a portion of trees are plants.",
+      "true": false,
+      "pred": true,
+      "plaus": true,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \"There are no items that are not plants that are plants.\"\n        *   \u2200x (\u00acP(x) \u2192 \u00acP(x)) (This is a logical tautology, meaning it is always true.)\n\nFinal Answer: VALID",
+      "source": "official_test"
+    },
+    {
+      "id": "68affb76-c5fc-4423-9221-1784c4509086",
+      "syllogism": "Every novel is a book. Nothing that is a magazine is a book. Therefore, a magazine cannot be a novel.",
+      "true": true,
+      "pred": true,
+      "plaus": true,
+      "response": "<think>\n\n</think>\n\n2.  **Logical Formulation:** Premise 1: \u2200x (N(x) \u2192 B(x)). Premise 2: \u2200x (M(x) \u2192 \u00acB(x)). Conclusion: \u2200x (M(x) \u2192 \u00acN(x))\n\nFinal Answer: VALID",
+      "source": "official_test"
+    },
+    {
+      "id": "0a60216c-0892-42a4-9afb-f72f70ce24b9",
+      "syllogism": "A portion of fitness enthusiasts are runners. Anyone who is a runner is also an athlete. Therefore, a subset of athletes are fitness enthusiasts.",
+      "true": true,
+      "pred": true,
+      "plaus": true,
+      "response": "<think>\n\n</think>\n\n2.  **Logical Formulation:** Premise 1: \u2203x (F(x) \u2227 R(x)). Premise 2: \u2200x (R(x) \u2192 A(x)). Conclusion: \u2203x (A(x) \u2227 F(x))\n\nFinal Answer: VALID",
+      "source": "official_test"
+    },
+    {
+      "id": "4c424337-e384-43c6-a130-fcc14a34f3fb",
+      "syllogism": "Everything that is a cloud is also a reptile. Everything that is a cloud is also a fish. Hence, some fish are reptiles.",
+      "true": true,
+      "pred": true,
+      "plaus": false,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (C(x) \u2192 R(x))\n    *   Premise 2: \u2200x (C(x) \u2192 F(x))\n    *   Conclusion: \u2203x (F(x) \u2227 R(x))\n\nFinal Answer: VALID",
+      "source": "official_test"
+    },
+    {
+      "id": "dd82fade-0432-4f9c-a72a-d2e6ba056b77",
+      "syllogism": "Any person who is a human is a robot. The set of people contains no robots. It is the case that some people are not humans.",
+      "true": true,
+      "pred": true,
+      "plaus": false,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (H(x) \u2192 R(x))\n    *   Premise 2: \u2200x (P(x) \u2192 \u00acR(x))\n    *   Conclusion: \u2203x (P(x) \u2227 \u00acH(x))\n\nFinal Answer: VALID",
+      "source": "official_test"
+    },
+    {
+      "id": "fcd92fbd-f6f8-4dee-92ae-36de10989e23",
+      "syllogism": "Every single thing that is a tool is an object. Anything that is a hammer is a tool. This means that all hammers are objects.",
+      "true": true,
+      "pred": true,
+      "plaus": true,
+      "response": "<think>\n\n</think>\n\n2. Logical Formulation: Premise 1: \u2200x (T(x) \u2192 O(x)). Premise 2: \u2200x (H(x) \u2192 T(x)). Conclusion: \u2200x (H(x) \u2192 O(x))\n\nFinal Answer: VALID",
+      "source": "official_test"
+    },
+    {
+      "id": "8c0b2788-b46e-45b5-bf37-d6226804536d",
+      "syllogism": "It is the case that no arachnid has eight legs. Every spider is an arachnid. It follows that no spider has eight legs.",
+      "true": true,
+      "pred": true,
+      "plaus": false,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (A(x) \u2192 \u00acB(x))\n    *   Premise 2: \u2200x (C(x) \u2192 A(x))\n    *   Conclusion: \u2200x (C(x) \u2192 \u00acB(x))\n\nFinal Answer: VALID",
+      "source": "official_test"
+    },
+    {
+      "id": "894cbefc-041e-4078-8175-4d5a1b60b171",
+      "syllogism": "Every single living being is a cloud. It is true that every bird is a cloud. It follows that no bird is a living being.",
+      "true": false,
+      "pred": false,
+      "plaus": false,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (A(x) \u2192 B(x))\n    *   Premise 2: \u2200x (C(x) \u2192 B(x))\n    *   Conclusion: \u2200x (C(x) \u2192 \u00acA(x))\n\nFinal Answer: INVALID",
+      "source": "official_test"
+    },
+    {
+      "id": "5b8161b7-b1bf-4e16-a854-cd52cdce8a1b",
+      "syllogism": "There are no capital cities which are oceans. A select few large cities are classified as capital cities. Therefore, it is clear that some large cities are not oceans.",
+      "true": true,
+      "pred": true,
+      "plaus": true,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (C(x) \u2192 \u00acO(x))\n    *   Premise 2: \u2203x (L(x) \u2227 C(x))\n    *   Conclusion: \u2203x (L(x) \u2227 \u00acO(x))\n\nFinal Answer: VALID",
+      "source": "official_test"
+    },
+    {
+      "id": "73e5dc2c-1c3a-4c0d-96ea-61002d03f225",
+      "syllogism": "It is true that all cars are vehicles. Anything that is a bicycle is also a vehicle. It's the case that some bicycles fail to be cars.",
+      "true": false,
+      "pred": false,
+      "plaus": true,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (C(x) \u2192 V(x))\n    *   Premise 2: \u2200x (B(x) \u2192 V(x))\n    *   Conclusion: \u2203x (B(x) \u2227 \u00acC(x))\n\nFinal Answer: INVALID",
+      "source": "official_test"
+    },
+    {
+      "id": "88f1d8e5-30a4-47e4-abda-cd1f50fa77e0",
+      "syllogism": "Anything and everything that is a satellite is a moon. There are satellites that are planets. It must follow that all planets are moons.",
+      "true": false,
+      "pred": false,
+      "plaus": false,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (S(x) \u2192 M(x))\n    *   Premise 2: \u2203x (S(x) \u2227 P(x))\n    *   Conclusion: \u2200x (P(x) \u2192 M(x))\n\nFinal Answer: INVALID",
+      "source": "official_test"
+    },
+    {
+      "id": "3f5f67b4-3d96-44d3-b94e-e4422a21ac05",
+      "syllogism": "There is no mammal that is a shark. Some of the sharks are fish. Therefore, some fish are not mammals.",
+      "true": true,
+      "pred": true,
+      "plaus": true,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: There is no mammal that is a shark. (Equivalent to: For all x, if x is a shark, then x is not a mammal.)\n        \u2200x (S(x) \u2192 \u00acM(x))\n    *   Premise 2: Some of the sharks are fish. (Equivalent to: There exists an x such that x is a shark and x is a fish.)\n\nFinal Answer: VALID",
+      "source": "official_test"
+    },
+    {
+      "id": "864fb4b2-8a19-4767-83f4-1dbed28f27e7",
+      "syllogism": "Some of the dogs are mammals. Every mammal is a domesticated animal. From this, it can be concluded that some domesticated animals are dogs.",
+      "true": true,
+      "pred": true,
+      "plaus": true,
+      "response": "<think>\n\n</think>\n\n2.  **Logical Formulation:** Premise 1: \u2203x (D(x) \u2227 M(x)). Premise 2: \u2200x (M(x) \u2192 A(x)). Conclusion: \u2203x (A(x) \u2227 D(x))\n\nFinal Answer: VALID",
+      "source": "official_test"
+    },
+    {
+      "id": "3210a16c-a687-4030-8697-bb2214492501",
+      "syllogism": "No cities are countries. All things that are a city named London are cities. It is necessarily true that some cities named London are not countries.",
+      "true": true,
+      "pred": true,
+      "plaus": true,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: No cities are countries. (Equivalent to: For all x, if x is a city, then x is not a country.)\n        \u2200x (C(x) \u2192 \u00acK(x))\n    *   Premise 2: All things that are a city named London are cities. (Equivalent to: For all x, if x is a city named London, then x is a city.)\n\nFinal Answer: VALID",
+      "source": "official_test"
+    },
+    {
+      "id": "550d9d17-634f-43b0-a389-f8faaead4a7a",
+      "syllogism": "It is the case that there are no fish that are also mammals. Anything that is a whale is not a fish. It follows that some whales are mammals.",
+      "true": false,
+      "pred": false,
+      "plaus": true,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (F(x) \u2192 \u00acM(x)) (No fish are mammals)\n    *   Premise 2: \u2200x (W(x) \u2192 \u00acF(x)) (No whales are fish)\n    *   Conclusion: \u2203x (W(x) \u2227 M(x)) (Some whales are mammals)\n\nFinal Answer: INVALID",
+      "source": "official_test"
+    },
+    {
+      "id": "f78276e5-b847-4878-aba1-f920d12288f4",
+      "syllogism": "Everything that is a poodle is a dog. It is known that a portion of poodles are dogs. Consequently, some poodles are not dogs.",
+      "true": false,
+      "pred": false,
+      "plaus": false,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (P(x) \u2192 D(x))\n    *   Premise 2: \u2203x (P(x) \u2227 D(x))\n    *   Conclusion: \u2203x (P(x) \u2227 \u00acD(x))\n\nFinal Answer: INVALID",
+      "source": "official_test"
+    },
+    {
+      "id": "675842ed-60c4-40ab-9f9b-cf0c90280d88",
+      "syllogism": "Every single human is not a fish. There are a few fish that are also creatures that live in water. It is the case that not all creatures that live in water are humans.",
+      "true": true,
+      "pred": true,
+      "plaus": true,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (H(x) \u2192 \u00acF(x))\n    *   Premise 2: \u2203x (F(x) \u2227 W(x))\n    *   Conclusion: \u2203x (W(x) \u2227 \u00acH(x))\n\nFinal Answer: VALID",
+      "source": "official_test"
+    },
+    {
+      "id": "666ff1f1-6234-4cce-be59-4b760b692996",
+      "syllogism": "The set of planets and the set of clouds are mutually exclusive. All clouds in existence are Earth. A portion of Earth is not a planet.",
+      "true": true,
+      "pred": true,
+      "plaus": false,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (P(x) \u2192 \u00acC(x))\n    *   Premise 2: \u2200x (C(x) \u2192 E(x))\n    *   Conclusion: \u2203x (E(x) \u2227 \u00acP(x))\n\nFinal Answer: VALID",
+      "source": "official_test"
+    },
+    {
+      "id": "eb04a408-b062-4c93-ba18-ffc28e0e8e4d",
+      "syllogism": "Not a single liquid is a solid. There are no gases which are also liquids. It follows that some gases are solids.",
+      "true": false,
+      "pred": false,
+      "plaus": false,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (L(x) \u2192 \u00acS(x)) (or equivalently, \u00ac\u2203x (L(x) \u2227 S(x)))\n    *   Premise 2: \u2200x (G(x) \u2192 \u00acL(x)) (or equivalently, \u00ac\u2203x (G(x) \u2227 L(x)))\n    *   Conclusion: \u2203x (G(x) \u2227 S(x))\n\nFinal Answer: INVALID",
+      "source": "official_test"
+    },
+    {
+      "id": "a3fc4115-5212-451a-888d-d044c14c1678",
+      "syllogism": "Any creature that is a cat is not an animal. There are cats which are also dogs. From this, we know that there are certain dogs that are not animals.",
+      "true": true,
+      "pred": true,
+      "plaus": false,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (C(x) \u2192 \u00acA(x))\n    *   Premise 2: \u2203x (C(x) \u2227 D(x))\n    *   Conclusion: \u2203x (D(x) \u2227 \u00acA(x))\n\nFinal Answer: VALID",
+      "source": "official_test"
+    },
+    {
+      "id": "42e1d763-31f6-4725-a17f-6fdcb0088fde",
+      "syllogism": "Every item that is a shirt is an article of clothing. Every single t-shirt is a type of shirt. Consequently, every t-shirt is clothing.",
+      "true": true,
+      "pred": true,
+      "plaus": true,
+      "response": "<think>\n\n</think>\n\n2.  **Logical Formulation:** Premise 1: \u2200x (S(x) \u2192 C(x)). Premise 2: \u2200x (T(x) \u2192 S(x)). Conclusion: \u2200x (T(x) \u2192 C(x))\n\nFinal Answer: VALID",
+      "source": "official_test"
+    },
+    {
+      "id": "a2c6000f-14cf-4763-98a8-247ebc65773f",
+      "syllogism": "Every single thing that is a truck is a vehicle. It is the case that a number of pickups are vehicles. Consequently, some pickups are not trucks.",
+      "true": false,
+      "pred": false,
+      "plaus": false,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (T(x) \u2192 V(x))\n    *   Premise 2: \u2203x (P(x) \u2227 V(x))\n    *   Conclusion: \u2203x (P(x) \u2227 \u00acT(x))\n\nFinal Answer: INVALID",
+      "source": "official_test"
+    },
+    {
+      "id": "a33f2989-2d8f-40f2-9680-351c1fa406ef",
+      "syllogism": "Every single four-sided-shape is a rectangle. All four-sided-shapes are squares. It follows from this that some squares are not rectangles.",
+      "true": false,
+      "pred": false,
+      "plaus": false,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (A(x) \u2192 B(x))\n    *   Premise 2: \u2200x (A(x) \u2192 C(x))\n    *   Conclusion: \u2203x (C(x) \u2227 \u00acB(x))\n\nFinal Answer: INVALID",
+      "source": "official_test"
+    },
+    {
+      "id": "fa03648a-a269-4249-b481-7a12cd672f0b",
+      "syllogism": "Plants are in no way living organisms. All things that are trees are living organisms. Trees cannot be classified as plants.",
+      "true": true,
+      "pred": true,
+      "plaus": false,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (P(x) \u2192 \u00acL(x))\n    *   Premise 2: \u2200x (T(x) \u2192 L(x))\n    *   Conclusion: \u2200x (T(x) \u2192 \u00acP(x))\n\nFinal Answer: VALID",
+      "source": "official_test"
+    },
+    {
+      "id": "76d43773-397f-4d6b-8304-d4f2ce89290f",
+      "syllogism": "It is the case that no cars are boats. It is also true that no bikes are cars. From these statements, one can conclude that some bikes are not boats.",
+      "true": false,
+      "pred": false,
+      "plaus": true,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (C(x) \u2192 \u00acB(x))  (No cars are boats)\n    *   Premise 2: \u2200x (K(x) \u2192 \u00acC(x))  (No bikes are cars)\n    *   Conclusion: \u2203x (K(x) \u2227 \u00acB(x))  (Some bikes are not boats)\n\nFinal Answer: INVALID",
+      "source": "official_test"
+    },
+    {
+      "id": "f2deff13-a6a2-47f0-8835-89a093ad2c5d",
+      "syllogism": "Animals and tables have no overlap whatsoever. A portion of tables are birds. Some of the things that are birds are not animals.",
+      "true": true,
+      "pred": true,
+      "plaus": false,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (A(x) \u2192 \u00acT(x)) (or equivalently, \u00ac\u2203x (A(x) \u2227 T(x)))\n    *   Premise 2: \u2203x (T(x) \u2227 B(x))\n    *   Conclusion: \u2203x (B(x) \u2227 \u00acA(x))\n\nFinal Answer: VALID",
+      "source": "official_test"
+    },
+    {
+      "id": "70ae91e5-486a-46d0-8c37-66d67c1b5e18",
+      "syllogism": "The category of fish is a subset of the category of animals. All animals that are dogs are also animals. Nothing that is a dog is a fish.",
+      "true": false,
+      "pred": false,
+      "plaus": true,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (F(x) \u2192 A(x))\n    *   Premise 2: \u2200x (D(x) \u2192 A(x))\n    *   Conclusion: \u2200x (D(x) \u2192 \u00acF(x))\n\nFinal Answer: INVALID",
+      "source": "official_test"
+    },
+    {
+      "id": "6df0ab4c-8518-4efb-98d5-e1bd172b5a35",
+      "syllogism": "Some creatures that can fly are birds. It is true that some sparrows are flying creatures. For this reason, every single sparrow is a bird.",
+      "true": false,
+      "pred": false,
+      "plaus": true,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2203x (F(x) \u2227 B(x))\n    *   Premise 2: \u2203x (S(x) \u2227 F(x))\n    *   Conclusion: \u2200x (S(x) \u2192 B(x))\n\nFinal Answer: INVALID",
+      "source": "official_test"
+    },
+    {
+      "id": "f91a4b0c-fc65-4d9d-9aa6-20e11f95b5a8",
+      "syllogism": "Anything with an internal combustion engine needs fuel. Some cars possess an internal combustion engine. From this, it follows that some cars need fuel.",
+      "true": true,
+      "pred": true,
+      "plaus": true,
+      "response": "<think>\n\n</think>\n\n2.  **Logical Formulation:** Premise 1: \u2200x (A(x) \u2192 B(x)). Premise 2: \u2203x (C(x) \u2227 A(x)). Conclusion: \u2203x (C(x) \u2227 B(x))\n\nFinal Answer: VALID",
+      "source": "official_test"
+    },
+    {
+      "id": "9898c43c-c5d9-4c03-aa4f-46e30e136037",
+      "syllogism": "There are no fruits that are things that grow on trees. Every single apple is a thing that grows on a tree. Consequently, it can be said that some apples are not fruits.",
+      "true": true,
+      "pred": true,
+      "plaus": false,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: There are no fruits that are things that grow on trees.\n        *   \u2200x (F(x) \u2192 \u00acT(x))\n    *   Premise 2: Every single apple is a thing that grows on a tree.\n\nFinal Answer: VALID",
+      "source": "official_test"
+    },
+    {
+      "id": "18ca9b49-d0cf-44f4-83bf-eb4739bc9317",
+      "syllogism": "Nothing that is a square is a circle. There are some shapes that are circles. It must be the case that every single shape is not a square.",
+      "true": false,
+      "pred": false,
+      "plaus": false,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (S(x) \u2192 \u00acC(x))\n    *   Premise 2: \u2203x (C(x) \u2227 T(x))\n    *   Conclusion: \u2200x (T(x) \u2192 \u00acS(x))\n\nFinal Answer: INVALID",
+      "source": "official_test"
+    },
+    {
+      "id": "89cbc28f-fbfa-46fd-849a-14aaaf90eece",
+      "syllogism": "There is no book that is an electronic device. All electronic devices are items. This proves that some items are books.",
+      "true": false,
+      "pred": false,
+      "plaus": true,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (B(x) \u2192 \u00acE(x)) (or equivalently, \u00ac\u2203x (B(x) \u2227 E(x)))\n    *   Premise 2: \u2200x (E(x) \u2192 I(x))\n    *   Conclusion: \u2203x (I(x) \u2227 B(x))\n\nFinal Answer: INVALID",
+      "source": "official_test"
+    },
+    {
+      "id": "5cb83caf-678a-43b8-a8d7-beedd3b39f55",
+      "syllogism": "Some of the felines in the world are lions. Every single feline is a mammal. Consequently, some mammals are found to be lions.",
+      "true": true,
+      "pred": true,
+      "plaus": true,
+      "response": "<think>\n\n</think>\n\n2.  **Logical Formulation:** Premise 1: \u2203x (F(x) \u2227 L(x)). Premise 2: \u2200x (F(x) \u2192 M(x)). Conclusion: \u2203x (M(x) \u2227 L(x))\n\nFinal Answer: VALID",
+      "source": "official_test"
+    },
+    {
+      "id": "cd8078e7-ae64-45ec-bd51-3c3b06dcd739",
+      "syllogism": "Every single car is an emotion. Every single car is a musical instrument. Therefore, there are musical instruments that are emotions.",
+      "true": true,
+      "pred": true,
+      "plaus": false,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (C(x) \u2192 E(x))\n    *   Premise 2: \u2200x (C(x) \u2192 M(x))\n    *   Conclusion: \u2203x (M(x) \u2227 E(x))\n\nFinal Answer: VALID",
+      "source": "official_test"
+    },
+    {
+      "id": "c4526195-4ffd-4b73-b37b-e7fcc91d6812",
+      "syllogism": "Nothing that is a liquid is a solid. It is the case that some water is not a solid. The only conclusion is that some water is not a liquid.",
+      "true": false,
+      "pred": false,
+      "plaus": false,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (L(x) \u2192 \u00acS(x))\n    *   Premise 2: \u2203x (W(x) \u2227 \u00acS(x))\n    *   Conclusion: \u2203x (W(x) \u2227 \u00acL(x))\n\nFinal Answer: INVALID",
+      "source": "official_test"
+    },
+    {
+      "id": "e364a21e-cecb-4050-818a-20c1195a0f9b",
+      "syllogism": "There is not a single item that is both a color and red. Of the items that are hues, a portion of them are red. It must be the case that some hues are not colors.",
+      "true": true,
+      "pred": true,
+      "plaus": false,
+      "response": "<think>\n\n</think>\n\n    *   **Premise 1:** \"There is not a single item that is both a color and red.\"\n        *   \u2200x (C(x) \u2192 \u00acR(x))\n        *   (This is equivalent to \u00ac\u2203x (C(x) \u2227 R(x)))\n\nFinal Answer: VALID",
+      "source": "official_test"
+    },
+    {
+      "id": "963d5e8c-7bbc-4b94-9e38-bba3f6e14854",
+      "syllogism": "None of the things that are birds are insects. Every sparrow is a bird. Therefore, it is the case that some sparrows are not insects.",
+      "true": true,
+      "pred": true,
+      "plaus": true,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (B(x) \u2192 \u00acI(x))\n    *   Premise 2: \u2200x (S(x) \u2192 B(x))\n    *   Conclusion: \u2203x (S(x) \u2227 \u00acI(x))\n\nFinal Answer: VALID",
+      "source": "official_test"
+    },
+    {
+      "id": "ad3f9d03-8ff5-4351-be16-ff960693bd50",
+      "syllogism": "Every person who is a professional cook is a person who can cook. A portion of professional cooks are chefs. Thus, it is the case that some chefs are people who can cook.",
+      "true": true,
+      "pred": true,
+      "plaus": true,
+      "response": "<think>\n\n</think>\n\n2. Logical Formulation: Premise 1: \u2200x (A(x) \u2192 B(x)). Premise 2: \u2203x (A(x) \u2227 C(x)). Conclusion: \u2203x (C(x) \u2227 B(x))\n\nFinal Answer: VALID",
+      "source": "official_test"
+    },
+    {
+      "id": "4780354b-3991-4ce8-9981-23d4f3030141",
+      "syllogism": "There are no stones that are alive. There are no trees that are stones. Therefore, no trees are alive.",
+      "true": false,
+      "pred": false,
+      "plaus": false,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (S(x) \u2192 \u00acA(x))\n    *   Premise 2: \u2200x (T(x) \u2192 \u00acS(x))\n    *   Conclusion: \u2200x (T(x) \u2192 \u00acA(x))\n\nFinal Answer: INVALID",
+      "source": "official_test"
+    },
+    {
+      "id": "f2a9e4e1-a969-436f-877c-bb605fb7c62e",
+      "syllogism": "It is not the case that every huma is a man. Every single man is a human. From this, it follows that some humans are living beings.",
+      "true": false,
+      "pred": false,
+      "plaus": true,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u00ac\u2200x (H(x) \u2192 M(x))  (It is not the case that every human is a man)\n    *   Premise 2: \u2200x (M(x) \u2192 H(x))   (Every single man is a human)\n    *   Conclusion: \u2203x (H(x) \u2227 L(x))   (Some humans are living beings)\n\nFinal Answer: INVALID",
+      "source": "official_test"
+    },
+    {
+      "id": "93bed46d-aedf-4815-89b1-472bcdc8be3e",
+      "syllogism": "Anything that is a bird is not an animal. Of the items that are sparrows, some are animals. It must be the case that some sparrows are not birds.",
+      "true": true,
+      "pred": true,
+      "plaus": false,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (B(x) \u2192 \u00acA(x))\n    *   Premise 2: \u2203x (S(x) \u2227 A(x))\n    *   Conclusion: \u2203x (S(x) \u2227 \u00acB(x))\n\nFinal Answer: VALID",
+      "source": "official_test"
+    },
+    {
+      "id": "bec15083-5e98-4b5b-87ff-39ccbd7c708c",
+      "syllogism": "Every city is a location. Anything that is a location is a capital city. Therefore, every capital city is a city.",
+      "true": false,
+      "pred": false,
+      "plaus": true,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (C(x) \u2192 L(x))\n    *   Premise 2: \u2200x (L(x) \u2192 K(x))\n    *   Conclusion: \u2200x (K(x) \u2192 C(x))\n\nFinal Answer: INVALID",
+      "source": "official_test"
+    },
+    {
+      "id": "9117126d-5160-40c0-81c1-3f784d8f8cef",
+      "syllogism": "Everything that is a fish is a vertebrate. A portion of vertebrates are sharks. A subset of sharks are fish.",
+      "true": false,
+      "pred": false,
+      "plaus": false,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (F(x) \u2192 V(x))\n    *   Premise 2: \u2203x (V(x) \u2227 S(x))\n    *   Conclusion: \u2203x (S(x) \u2227 F(x))\n\nFinal Answer: INVALID",
+      "source": "official_test"
+    },
+    {
+      "id": "dc5e8a17-f9ee-4f1c-a6e1-e55e3893609d",
+      "syllogism": "All things which are ghosts are scientific facts. All things which are ghosts are mythical beings. It follows that some mythical beings are scientific facts.",
+      "true": true,
+      "pred": false,
+      "plaus": false,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (G(x) \u2192 S(x))\n    *   Premise 2: \u2200x (G(x) \u2192 M(x))\n    *   Conclusion: \u2203x (M(x) \u2227 S(x))\n\nFinal Answer: INVALID",
+      "source": "official_test"
+    },
+    {
+      "id": "0cb166c1-cc61-4585-bf4b-baad5b3028a2",
+      "syllogism": "Every single liquid is a fluid. There are some water bodies which are liquid. Water is in no way a fluid.",
+      "true": false,
+      "pred": false,
+      "plaus": false,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (L(x) \u2192 F(x))\n    *   Premise 2: \u2203x (W(x) \u2227 L(x))\n    *   Conclusion: \u2200x (W(x) \u2192 \u00acF(x))\n\nFinal Answer: INVALID",
+      "source": "official_test"
+    },
+    {
+      "id": "a30e07d5-0fb3-4097-9892-4b145b0c54f5",
+      "syllogism": "Every cat is an invisible creature. A number of cats are animals. Consequently, a portion of animals are invisible.",
+      "true": true,
+      "pred": true,
+      "plaus": false,
+      "response": "<think>\n\n</think>\n\n2. Logical Formulation: Premise 1: \u2200x (C(x) \u2192 I(x)). Premise 2: \u2203x (C(x) \u2227 A(x)). Conclusion: \u2203x (A(x) \u2227 I(x))\n\nFinal Answer: VALID",
+      "source": "official_test"
+    },
+    {
+      "id": "5f1077d7-b61a-47a2-82ba-edae062acd77",
+      "syllogism": "Anything which is a rock is heavy. It is the case that some heavy things are not clouds. Therefore, this implies that all clouds are rocks.",
+      "true": false,
+      "pred": false,
+      "plaus": false,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (R(x) \u2192 H(x))\n    *   Premise 2: \u2203x (H(x) \u2227 \u00acC(x))\n    *   Conclusion: \u2200x (C(x) \u2192 R(x))\n\nFinal Answer: INVALID",
+      "source": "official_test"
+    },
+    {
+      "id": "dae7557a-fcc6-473b-892f-211012df55af",
+      "syllogism": "Not a single mammal is an object that can think. The entire group of objects that can think is a subset of people. It is a logical consequence that some people are not mammals.",
+      "true": true,
+      "pred": true,
+      "plaus": false,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (M(x) \u2192 \u00acT(x)) (or equivalently, \u00ac\u2203x (M(x) \u2227 T(x)))\n    *   Premise 2: \u2200x (T(x) \u2192 P(x))\n    *   Conclusion: \u2203x (P(x) \u2227 \u00acM(x))\n\nFinal Answer: VALID",
+      "source": "official_test"
+    },
+    {
+      "id": "ad6117fb-795b-4d97-80a3-1f17c770ee50",
+      "syllogism": "Any and all reptiles are lizards. There are reptiles that are mammals. It must follow that all mammals are lizards.",
+      "true": false,
+      "pred": false,
+      "plaus": false,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (R(x) \u2192 L(x))\n    *   Premise 2: \u2203x (R(x) \u2227 M(x))\n    *   Conclusion: \u2200x (M(x) \u2192 L(x))\n\nFinal Answer: INVALID",
+      "source": "official_test"
+    },
+    {
+      "id": "0c04a1b5-b1bc-4e24-bac7-ae6083b0b922",
+      "syllogism": "Anything that is a solid is also an animal. There exist some rocks that are not animals. This logically entails that some rocks are not solid.",
+      "true": true,
+      "pred": true,
+      "plaus": false,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (S(x) \u2192 A(x))\n    *   Premise 2: \u2203x (R(x) \u2227 \u00acA(x))\n    *   Conclusion: \u2203x (R(x) \u2227 \u00acS(x))\n\nFinal Answer: VALID",
+      "source": "official_test"
+    },
+    {
+      "id": "077078f3-93b5-4e7d-8376-66acd052c2c0",
+      "syllogism": "Every doctor is a professional. The set of children does not contain professionals. At least one child is not a doctor.",
+      "true": true,
+      "pred": true,
+      "plaus": true,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (D(x) \u2192 P(x))\n    *   Premise 2: \u2200x (C(x) \u2192 \u00acP(x))\n    *   Conclusion: \u2203x (C(x) \u2227 \u00acD(x))\n\nFinal Answer: VALID",
+      "source": "official_test"
+    },
+    {
+      "id": "0bafb494-84dd-4bab-9e35-4ee2c22d7f73",
+      "syllogism": "Any golden retriever is a mammal. It is the case that some golden retrievers are dogs. This means that a few dogs are mammals.",
+      "true": true,
+      "pred": true,
+      "plaus": true,
+      "response": "<think>\n\n</think>\n\n2.  **Logical Formulation:** Premise 1: \u2200x (G(x) \u2192 M(x)). Premise 2: \u2203x (G(x) \u2227 D(x)). Conclusion: \u2203x (D(x) \u2227 M(x))\n\nFinal Answer: VALID",
+      "source": "official_test"
+    },
+    {
+      "id": "fbff2acc-3c75-4e1e-9ee6-57534e7b958b",
+      "syllogism": "Not a single human is a tree. The entire set of trees is composed of women. It logically follows that some women are not human.",
+      "true": true,
+      "pred": true,
+      "plaus": false,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (H(x) \u2192 \u00acT(x)) (or equivalently, \u00ac\u2203x (H(x) \u2227 T(x)))\n    *   Premise 2: \u2200x (T(x) \u2192 W(x))\n    *   Conclusion: \u2203x (W(x) \u2227 \u00acH(x))\n\nFinal Answer: VALID",
+      "source": "official_test"
+    },
+    {
+      "id": "dd900a56-5956-4be4-aacd-69f465bf602f",
+      "syllogism": "Not a single man is a woman. It is also true that no adult is a man. It follows that no adult is a woman.",
+      "true": false,
+      "pred": false,
+      "plaus": false,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (M(x) \u2192 \u00acW(x))\n    *   Premise 2: \u2200x (A(x) \u2192 \u00acM(x))\n    *   Conclusion: \u2200x (A(x) \u2192 \u00acW(x))\n\nFinal Answer: INVALID",
+      "source": "unused_train"
+    },
+    {
+      "id": "7bd2fd32-89de-4452-9e86-6a8dc57ef575",
+      "syllogism": "Every object that is a table is a type of furniture. There exist no pieces of furniture that are cars. From this, we must conclude that some cars are not tables.",
+      "true": true,
+      "pred": true,
+      "plaus": true,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (T(x) \u2192 F(x))\n    *   Premise 2: \u2200x (F(x) \u2192 \u00acC(x))\n    *   Conclusion: \u2203x (C(x) \u2227 \u00acT(x))\n\nFinal Answer: VALID",
+      "source": "unused_train"
+    },
+    {
+      "id": "6904b1e8-8a48-4ef1-b450-d8f54773bf96",
+      "syllogism": "It is not true that any flower is a plant. All things that are roses are flowers. Thus, some roses are not plants.",
+      "true": true,
+      "pred": true,
+      "plaus": false,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \"It is not true that any flower is a plant.\"\n        *   \u2200x (F(x) \u2192 \u00acP(x))\n    *   Premise 2: \"All things that are roses are flowers.\"\n\nFinal Answer: VALID",
+      "source": "unused_train"
+    },
+    {
+      "id": "0f476f71-6f8c-4780-8ce3-1f00300227e1",
+      "syllogism": "Every piece of furniture that is a chair is made of liquid. Any object that is a bench is a chair. Consequently, all benches are pieces of furniture that are made of liquid.",
+      "true": true,
+      "pred": true,
+      "plaus": false,
+      "response": "<think>\n\n</think>\n\n2. Logical Formulation: Premise 1: \u2200x (C(x) \u2192 L(x)). Premise 2: \u2200x (B(x) \u2192 C(x)). Conclusion: \u2200x (B(x) \u2192 L(x))\n\nFinal Answer: VALID",
+      "source": "unused_train"
+    },
+    {
+      "id": "72fa74c7-77a1-492e-b3ca-50f86c8c0ae4",
+      "syllogism": "Anything that is cutlery is furniture. There are no pieces of cutlery which are also spoons. It is the case that some cutlery is not a spoon.",
+      "true": true,
+      "pred": true,
+      "plaus": false,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: Anything that is cutlery is furniture. (If something is cutlery, then it is furniture.)\n        \u2200x (C(x) \u2192 F(x))\n    *   Premise 2: There are no pieces of cutlery which are also spoons. (If something is a spoon, it is not cutlery.)\n\nFinal Answer: VALID",
+      "source": "unused_train"
+    },
+    {
+      "id": "2f97c41c-4b5a-407a-a57c-95fa1ea134f6",
+      "syllogism": "Not one single rectangle is a four-sided polygon. Everything that is a square is a four-sided polygon. The implication is that a portion of squares are not rectangles.",
+      "true": true,
+      "pred": true,
+      "plaus": false,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (R(x) \u2192 \u00acP(x))\n    *   Premise 2: \u2200x (S(x) \u2192 P(x))\n    *   Conclusion: \u2203x (S(x) \u2227 \u00acR(x))\n\nFinal Answer: VALID",
+      "source": "unused_train"
+    },
+    {
+      "id": "892da397-cedc-4341-b9d1-d59eb6ed7865",
+      "syllogism": "There are no amphibians that do not live on both land and in water. Every single frog is an amphibian. There exists at least one frog that lives on land and in water.",
+      "true": true,
+      "pred": true,
+      "plaus": true,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: There are no amphibians that do not live on both land and in water.\n        *   \u2200x (A(x) \u2192 B(x))\n        *   (This is equivalent to: \u00ac\u2203x (A(x) \u2227 \u00acB(x)))\n\nFinal Answer: VALID",
+      "source": "unused_train"
+    },
+    {
+      "id": "7c03f7df-2432-474c-b889-72c099494fbb",
+      "syllogism": "Every spoon is a planet. All planets are singing lessons. It can be logically concluded that some singing lessons are spoons.",
+      "true": true,
+      "pred": true,
+      "plaus": false,
+      "response": "<think>\n\n</think>\n\n2.  **Logical Formulation:** Premise 1: \u2200x (S(x) \u2192 P(x)). Premise 2: \u2200x (P(x) \u2192 L(x)). Conclusion: \u2203x (L(x) \u2227 S(x))\n\nFinal Answer: VALID",
+      "source": "unused_train"
+    },
+    {
+      "id": "893389ed-b336-4b90-9b1c-9f6bcc595862",
+      "syllogism": "None of the things that are cats are aquatic animals. All tigers are things that are cats. It follows logically that some tigers are not aquatic animals.",
+      "true": true,
+      "pred": true,
+      "plaus": true,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (C(x) \u2192 \u00acA(x))\n    *   Premise 2: \u2200x (T(x) \u2192 C(x))\n    *   Conclusion: \u2203x (T(x) \u2227 \u00acA(x))\n\nFinal Answer: VALID",
+      "source": "unused_train"
+    },
+    {
+      "id": "c0895494-c8b9-49b8-ae50-85e05a9c2bad",
+      "syllogism": "Cats are in no way mammals. Every single cat is a feline. It is the case that some felines fail to be mammals.",
+      "true": true,
+      "pred": true,
+      "plaus": false,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (C(x) \u2192 \u00acM(x))\n    *   Premise 2: \u2200x (C(x) \u2192 F(x))\n    *   Conclusion: \u2203x (F(x) \u2227 \u00acM(x))\n\nFinal Answer: VALID",
+      "source": "unused_train"
+    },
+    {
+      "id": "d6419856-fddb-4f1b-b11a-9121c08dd577",
+      "syllogism": "It is true that anything that is a rose is a flower. Every single flower is a plant. Therefore, it is a fact that some plants are roses.",
+      "true": true,
+      "pred": true,
+      "plaus": true,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (R(x) \u2192 F(x))\n    *   Premise 2: \u2200x (F(x) \u2192 P(x))\n    *   Conclusion: \u2203x (P(x) \u2227 R(x))\n\nFinal Answer: VALID",
+      "source": "unused_train"
+    },
+    {
+      "id": "af0270f5-da4b-45f3-8677-9ff69a4c55fa",
+      "syllogism": "There are no mammals that are birds. Every single thing that is a mammal is an animal. It is the case that some animals fail to be birds.",
+      "true": true,
+      "pred": true,
+      "plaus": true,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: There are no mammals that are birds. (Equivalent to: For all x, if x is a mammal, then x is not a bird.)\n        \u2200x (M(x) \u2192 \u00acB(x))\n    *   Premise 2: Every single thing that is a mammal is an animal. (Equivalent to: For all x, if x is a mammal, then x is an animal.)\n\nFinal Answer: VALID",
+      "source": "unused_train"
+    },
+    {
+      "id": "1b777e34-ed5d-4ffe-9de6-43a33229f1ab",
+      "syllogism": "Anything that is a fruit is a feeling. There are no feelings which are apples. As a result, we can conclude that some apples are not fruits.",
+      "true": true,
+      "pred": true,
+      "plaus": false,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (F(x) \u2192 G(x))\n    *   Premise 2: \u2200x (G(x) \u2192 \u00acA(x))\n    *   Conclusion: \u2203x (A(x) \u2227 \u00acF(x))\n\nFinal Answer: VALID",
+      "source": "unused_train"
+    },
+    {
+      "id": "3576315f-5476-4468-8a99-94e2afb295f1",
+      "syllogism": "Anything that is a spoon is a form of cutlery. No cutlery items are books. This logically entails that some books are not spoons.",
+      "true": true,
+      "pred": false,
+      "plaus": true,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (S(x) \u2192 C(x))\n    *   Premise 2: \u2200x (C(x) \u2192 \u00acB(x))\n    *   Conclusion: \u2203x (B(x) \u2227 \u00acS(x))\n\nFinal Answer: INVALID",
+      "source": "unused_train"
+    },
+    {
+      "id": "fdfe04da-1f41-4062-9295-cc599cfae310",
+      "syllogism": "Everything that is a song is also a mountain. Everything that is a song is also made of water. Hence, some things made of water are mountains.",
+      "true": true,
+      "pred": true,
+      "plaus": false,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (S(x) \u2192 M(x))\n    *   Premise 2: \u2200x (S(x) \u2192 W(x))\n    *   Conclusion: \u2203x (W(x) \u2227 M(x))\n\nFinal Answer: VALID",
+      "source": "unused_train"
+    },
+    {
+      "id": "0403d922-4237-409b-9817-9ea3d0b266c1",
+      "syllogism": "It is completely false that any person who is a scientist is an artist. There exists a group of scientists who are also physicists. A valid inference is that some physicists are not artists.",
+      "true": true,
+      "pred": false,
+      "plaus": true,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \"It is completely false that any person who is a scientist is an artist.\"\n        *   Logical interpretation: \u2200x (S(x) \u2192 \u00acA(x))\n\nFinal Answer: VALID",
+      "source": "unused_train"
+    },
+    {
+      "id": "6174dafb-949c-4bfa-8056-f3ba35a3a47f",
+      "syllogism": "Nothing that is a liquid is H2O. All water is H2O. It can be deduced that some water is not liquid.",
+      "true": true,
+      "pred": true,
+      "plaus": false,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (L(x) \u2192 \u00acH(x))\n    *   Premise 2: \u2200x (W(x) \u2192 H(x))\n    *   Conclusion: \u2203x (W(x) \u2227 \u00acL(x))\n\nFinal Answer: VALID",
+      "source": "unused_train"
+    },
+    {
+      "id": "38d07379-8307-4a7f-a73d-731ed989dc84",
+      "syllogism": "The group of birds is a subset of the group of creatures with feathers. At least one insect is not a creature with feathers. Not every insect is a bird.",
+      "true": false,
+      "pred": true,
+      "plaus": false,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (B(x) \u2192 F(x))\n    *   Premise 2: \u2203x (I(x) \u2227 \u00acF(x))\n    *   Conclusion: \u2203x (I(x) \u2227 \u00acB(x))\n\nFinal Answer: VALID",
+      "source": "unused_train"
+    },
+    {
+      "id": "c8a91594-47cb-47e7-829a-a3e094917c92",
+      "syllogism": "There are no animals that are flying vehicles and are also canines. All flying vehicles are dogs. It is necessarily true that a portion of dogs is not canines.",
+      "true": true,
+      "pred": false,
+      "plaus": false,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: There are no animals that are flying vehicles and are also canines.\n        *   \u2200x (F(x) \u2227 C(x) \u2192 \u00acA(x))\n    *   Premise 2: All flying vehicles are dogs.\n\nFinal Answer: INVALID",
+      "source": "unused_train"
+    },
+    {
+      "id": "5b7d32a6-8a3c-41a1-ab3f-03143d574cbd",
+      "syllogism": "Every human is an animal that is a primate. No animals that are primates are also fish. Therefore, it is the case that some fish are not humans.",
+      "true": true,
+      "pred": false,
+      "plaus": true,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (H(x) \u2192 P(x))\n    *   Premise 2: \u2200x (P(x) \u2192 \u00acF(x))\n    *   Conclusion: \u2203x (F(x) \u2227 \u00acH(x))\n\nFinal Answer: INVALID",
+      "source": "unused_train"
+    },
+    {
+      "id": "f6b85a4a-31b9-4180-b404-3890742180a2",
+      "syllogism": "There is no square that is a circle. Some of the shapes are squares. Therefore, it is the case that some shapes are circles.",
+      "true": false,
+      "pred": false,
+      "plaus": true,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (S(x) \u2192 \u00acC(x)) (No square is a circle)\n    *   Premise 2: \u2203x (S(x) \u2227 T(x)) (Some shapes are squares)\n    *   Conclusion: \u2203x (T(x) \u2227 C(x)) (Some shapes are circles)\n\nFinal Answer: INVALID",
+      "source": "unused_train"
+    },
+    {
+      "id": "dfd5eb0f-1457-4e71-b1d9-60dd75ce5ebb",
+      "syllogism": "It is true that every single vehicle is a cloud. No clouds are cars. Based on this information, it is logically necessary that some cars are not vehicles.",
+      "true": true,
+      "pred": true,
+      "plaus": false,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (V(x) \u2192 C(x))\n    *   Premise 2: \u2200x (C(x) \u2192 \u00acA(x))\n    *   Conclusion: \u2203x (A(x) \u2227 \u00acV(x))\n\nFinal Answer: VALID",
+      "source": "unused_train"
+    },
+    {
+      "id": "002a6051-f7b3-4040-b571-50cfea46aaff",
+      "syllogism": "Every item that is a rose is also a flower. Every item that is a rose is also a plant with thorns. Hence, some plants that have thorns are flowers.",
+      "true": true,
+      "pred": true,
+      "plaus": true,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (R(x) \u2192 F(x))\n    *   Premise 2: \u2200x (R(x) \u2192 T(x))\n    *   Conclusion: \u2203x (T(x) \u2227 F(x))\n\nFinal Answer: VALID",
+      "source": "unused_train"
+    },
+    {
+      "id": "c5d0501c-c25b-40c1-91c0-603b613de0cf",
+      "syllogism": "Not one single doctor is a person who performs on stage. Every single musician is considered a person who performs on stage. Consequently, there exist some musicians who are not doctors.",
+      "true": true,
+      "pred": true,
+      "plaus": true,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (D(x) \u2192 \u00acS(x)) (or equivalently, \u00ac\u2203x (D(x) \u2227 S(x)))\n    *   Premise 2: \u2200x (M(x) \u2192 S(x))\n    *   Conclusion: \u2203x (M(x) \u2227 \u00acD(x))\n\nFinal Answer: VALID",
+      "source": "unused_train"
+    },
+    {
+      "id": "b46a6c4b-d833-453c-9718-023a87186adc",
+      "syllogism": "Anything that is a primate has a thumb. All monkeys are, by definition, primates. We can conclude that some monkeys have a thumb.",
+      "true": true,
+      "pred": true,
+      "plaus": true,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (P(x) \u2192 T(x))\n    *   Premise 2: \u2200x (M(x) \u2192 P(x))\n    *   Conclusion: \u2203x (M(x) \u2227 T(x))\n\nFinal Answer: VALID",
+      "source": "unused_train"
+    },
+    {
+      "id": "7258b953-a6a7-46f3-8c1b-04322353da9f",
+      "syllogism": "The set of humans is a subset of the set of mortals. At least one robot is not a mortal. There is at least one robot who is not a human.",
+      "true": false,
+      "pred": true,
+      "plaus": true,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (H(x) \u2192 M(x))\n    *   Premise 2: \u2203x (R(x) \u2227 \u00acM(x))\n    *   Conclusion: \u2203x (R(x) \u2227 \u00acH(x))\n\nFinal Answer: VALID",
+      "source": "unused_train"
+    },
+    {
+      "id": "9283054f-e98c-4299-b6e7-8dd6f7a081d5",
+      "syllogism": "Every single polygon is a square. No triangles are included in the category of squares. Some triangles are not polygons.",
+      "true": true,
+      "pred": true,
+      "plaus": false,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (P(x) \u2192 S(x))\n    *   Premise 2: \u2200x (T(x) \u2192 \u00acS(x))\n    *   Conclusion: \u2203x (T(x) \u2227 \u00acP(x))\n\nFinal Answer: VALID",
+      "source": "unused_train"
+    },
+    {
+      "id": "ace56295-ca7c-490f-b69b-8f1293edeede",
+      "syllogism": "Everything that is a car is a sentient cloud. All sentient clouds are plants. This means that some plants are cars.",
+      "true": true,
+      "pred": true,
+      "plaus": false,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (C(x) \u2192 S(x))\n    *   Premise 2: \u2200x (S(x) \u2192 P(x))\n    *   Conclusion: \u2203x (P(x) \u2227 C(x))\n\nFinal Answer: VALID",
+      "source": "unused_train"
+    },
+    {
+      "id": "1645c4b0-8647-41e2-be04-11e6354dbd90",
+      "syllogism": "Every single animal is capable of breathing underwater. There are no horses that are not animals. A number of horses are able to breathe underwater.",
+      "true": true,
+      "pred": false,
+      "plaus": false,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (A(x) \u2192 B(x))\n    *   Premise 2: \u2200x (H(x) \u2192 \u00acA(x))\n    *   Conclusion: \u2203x (H(x) \u2227 B(x))\n\nFinal Answer: INVALID",
+      "source": "unused_train"
+    },
+    {
+      "id": "a907b7ac-65e7-4dbf-83db-21957c0c2a8f",
+      "syllogism": "Every sport requires physical activity. There is no such thing as soccer that isn't a sport. At least some soccer is a thing that requires physical activity.",
+      "true": true,
+      "pred": false,
+      "plaus": true,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (S(x) \u2192 P(x))\n    *   Premise 2: \u2200x (F(x) \u2192 \u00acS(x))\n    *   Conclusion: \u2203x (F(x) \u2227 P(x))\n\nFinal Answer: INVALID",
+      "source": "unused_train"
+    },
+    {
+      "id": "0c5bbda6-c0e7-42ac-943a-b09a2dcea726",
+      "syllogism": "Not a single object that is a car is a boat. A group of cars can be described as vehicles. It is a logical consequence that some vehicles are not boats.",
+      "true": true,
+      "pred": true,
+      "plaus": true,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (C(x) \u2192 \u00acB(x))\n    *   Premise 2: \u2203x (C(x) \u2227 V(x))\n    *   Conclusion: \u2203x (V(x) \u2227 \u00acB(x))\n\nFinal Answer: VALID",
+      "source": "unused_train"
+    },
+    {
+      "id": "0ca27016-be9b-4156-9e2a-509010ee8b89",
+      "syllogism": "Drums are completely separate from trumpets. A trumpet is, without exception, a musical instrument. Some musical instruments cannot be classified as drums.",
+      "true": true,
+      "pred": true,
+      "plaus": true,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (D(x) \u2192 \u00acT(x)) (Drums are completely separate from trumpets)\n    *   Premise 2: \u2200x (T(x) \u2192 M(x)) (A trumpet is, without exception, a musical instrument)\n    *   Conclusion: \u2203x (M(x) \u2227 \u00acD(x)) (Some musical instruments cannot be classified as drums)\n\nFinal Answer: VALID",
+      "source": "unused_train"
+    },
+    {
+      "id": "5e7507ca-56d4-4de4-907f-8f0b1e17ac18",
+      "syllogism": "Anything that is a bird is a mammal. No parrots are included in the category of mammals. It is the case that some parrots are not birds.",
+      "true": true,
+      "pred": true,
+      "plaus": false,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (B(x) \u2192 M(x))\n    *   Premise 2: \u2200x (P(x) \u2192 \u00acM(x))\n    *   Conclusion: \u2203x (P(x) \u2227 \u00acB(x))\n\nFinal Answer: VALID",
+      "source": "unused_train"
+    },
+    {
+      "id": "19e7c1c2-9130-43bd-abfc-f7cbaf4c2a6b",
+      "syllogism": "Anything that is a planet is secretly a robot. Every single thing that is secretly a robot is a living thing. From these facts, it is clear that a few living things are planets.",
+      "true": true,
+      "pred": true,
+      "plaus": false,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (P(x) \u2192 R(x))\n    *   Premise 2: \u2200x (R(x) \u2192 L(x))\n    *   Conclusion: \u2203x (L(x) \u2227 P(x))\n\nFinal Answer: VALID",
+      "source": "unused_train"
+    },
+    {
+      "id": "2b14c9c4-7150-4fcc-afdf-274eefa46c96",
+      "syllogism": "No spoons are forks. All things that are ladles are spoons. Therefore, some things that are ladles are not forks.",
+      "true": true,
+      "pred": true,
+      "plaus": true,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (S(x) \u2192 \u00acF(x))\n    *   Premise 2: \u2200x (L(x) \u2192 S(x))\n    *   Conclusion: \u2203x (L(x) \u2227 \u00acF(x))\n\nFinal Answer: VALID",
+      "source": "unused_train"
+    },
+    {
+      "id": "ec7a26c0-9309-4abc-9e9a-c1d472b2260c",
+      "syllogism": "It is the case that no numbers are concepts. Everything that is an integer is a number. Consequently, it must be true that some integers are not concepts.",
+      "true": true,
+      "pred": true,
+      "plaus": false,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (N(x) \u2192 \u00acC(x))\n    *   Premise 2: \u2200x (I(x) \u2192 N(x))\n    *   Conclusion: \u2203x (I(x) \u2227 \u00acC(x))\n\nFinal Answer: VALID",
+      "source": "unused_train"
+    },
+    {
+      "id": "35ecf751-bb19-4329-ad37-1087d9fe2a0a",
+      "syllogism": "Every car is a motorized vehicle. At least one bicycle is not a motorized vehicle. Not all bicycles can be considered cars.",
+      "true": false,
+      "pred": true,
+      "plaus": true,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (C(x) \u2192 M(x))\n    *   Premise 2: \u2203x (B(x) \u2227 \u00acM(x))\n    *   Conclusion: \u2203x (B(x) \u2227 \u00acC(x))\n\nFinal Answer: VALID",
+      "source": "unused_train"
+    },
+    {
+      "id": "67c048fb-e79b-4267-b6cc-5605a1b92810",
+      "syllogism": "Every single book is a planet. Every single book is furniture. Therefore, there are pieces of furniture that are planets.",
+      "true": true,
+      "pred": false,
+      "plaus": false,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (B(x) \u2192 P(x))\n    *   Premise 2: \u2200x (B(x) \u2192 F(x))\n    *   Conclusion: \u2203x (F(x) \u2227 P(x))\n\nFinal Answer: INVALID",
+      "source": "unused_train"
+    },
+    {
+      "id": "a23659e2-d0fc-4b82-b5a5-a526c9c22dda",
+      "syllogism": "The category of non-living things and the category of computers have no members in common. At least one human is a computer. At least one human is a non-living thing.",
+      "true": false,
+      "pred": false,
+      "plaus": false,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (\u00acL(x) \u2192 \u00acC(x)) (or equivalently, \u00ac\u2203x (\u00acL(x) \u2227 C(x)))\n    *   Premise 2: \u2203x (H(x) \u2227 C(x))\n    *   Conclusion: \u2203x (H(x) \u2227 \u00acL(x))\n\nFinal Answer: INVALID",
+      "source": "unused_train"
+    },
+    {
+      "id": "496112d9-7a6c-4572-9956-21b646a5d0d7",
+      "syllogism": "Not one single insect is a six-legged arthropod. Every single item that is a bug is a six-legged arthropod. It follows from this that a portion of bugs are not insects.",
+      "true": true,
+      "pred": true,
+      "plaus": false,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (I(x) \u2192 \u00acS(x))\n    *   Premise 2: \u2200x (B(x) \u2192 S(x))\n    *   Conclusion: \u2203x (B(x) \u2227 \u00acI(x))\n\nFinal Answer: VALID",
+      "source": "unused_train"
+    },
+    {
+      "id": "8e758feb-cf87-4301-893d-6d70aaa8976e",
+      "syllogism": "Every single idea is a tree. Every single idea is an animal. Therefore, there are animals that are trees.",
+      "true": true,
+      "pred": false,
+      "plaus": false,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (A(x) \u2192 B(x))\n    *   Premise 2: \u2200x (A(x) \u2192 C(x))\n    *   Conclusion: \u2203x (C(x) \u2227 B(x))\n\nFinal Answer: INVALID",
+      "source": "unused_train"
+    },
+    {
+      "id": "80d2725e-50ab-4668-81c2-5d009dab1bec",
+      "syllogism": "Liquids are in no way substances. Anything that is a liquid is a fluid. It's the case that some fluids are not substances.",
+      "true": true,
+      "pred": false,
+      "plaus": false,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: Liquids are in no way substances. (No liquids are substances)\n        *   \u2200x (L(x) \u2192 \u00acS(x))\n    *   Premise 2: Anything that is a liquid is a fluid. (All liquids are fluids)\n\nFinal Answer: INVALID",
+      "source": "unused_train"
+    },
+    {
+      "id": "abe7856c-6d01-4804-8925-024dc21d11d9",
+      "syllogism": "There are no animals that are living creatures. Every single mammal is a living creature. Consequently, there exist some mammals which are not animals.",
+      "true": true,
+      "pred": false,
+      "plaus": false,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: There are no animals that are living creatures.\n        *   \u2200x (A(x) \u2192 \u00acL(x))\n    *   Premise 2: Every single mammal is a living creature.\n\nFinal Answer: INVALID",
+      "source": "unused_train"
+    },
+    {
+      "id": "dc619e1d-03de-41c4-9639-d01e174c5284",
+      "syllogism": "Each bird is a vertebrate. Each bird is an animal that has wings. So, some animals with wings must be vertebrates.",
+      "true": true,
+      "pred": true,
+      "plaus": true,
+      "response": "<think>\n\n</think>\n\n2.  **Logical Formulation:** Premise 1: \u2200x (B(x) \u2192 V(x)). Premise 2: \u2200x (B(x) \u2192 W(x)). Conclusion: \u2203x (W(x) \u2192 V(x))\n\nFinal Answer: VALID",
+      "source": "unused_train"
+    },
+    {
+      "id": "61f8ac6f-5f91-4904-8e41-22bd80f2b1ae",
+      "syllogism": "Anything that is a song is also a composition. No composition is an animal. Thus, we can validly conclude that some animals are not songs.",
+      "true": true,
+      "pred": false,
+      "plaus": true,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (S(x) \u2192 C(x))\n    *   Premise 2: \u2200x (C(x) \u2192 \u00acA(x))\n    *   Conclusion: \u2203x (A(x) \u2227 \u00acS(x))\n\nFinal Answer: INVALID",
+      "source": "unused_train"
+    },
+    {
+      "id": "d33723e6-311d-4079-9752-a198fcfb0180",
+      "syllogism": "There are no polygons that are shapes with three sides. All triangles are shapes with three sides. The implication is that some triangles are not polygons.",
+      "true": true,
+      "pred": true,
+      "plaus": false,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (P(x) \u2192 \u00acS(x))\n    *   Premise 2: \u2200x (T(x) \u2192 S(x))\n    *   Conclusion: \u2203x (T(x) \u2227 \u00acP(x))\n\nFinal Answer: VALID",
+      "source": "unused_train"
+    },
+    {
+      "id": "def100cc-5fa6-4026-bf80-73c1534c3728",
+      "syllogism": "Every fish can be seen to write novels. Anything that can write novels has feathers. It follows that a few things with feathers are fish.",
+      "true": true,
+      "pred": true,
+      "plaus": false,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (F(x) \u2192 W(x))\n    *   Premise 2: \u2200x (W(x) \u2192 H(x))\n    *   Conclusion: \u2203x (H(x) \u2227 F(x))\n\nFinal Answer: VALID",
+      "source": "unused_train"
+    },
+    {
+      "id": "9f443de1-8727-4b33-9dcc-20936c3cdb7e",
+      "syllogism": "It is not true that any ocean is a continent. Every single thing that is an ocean named Pacific is an ocean. This means some oceans named Pacific are not continents.",
+      "true": true,
+      "pred": true,
+      "plaus": true,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \"It is not true that any ocean is a continent.\"\n        *   \u2200x (O(x) \u2192 \u00acC(x))\n    *   Premise 2: \"Every single thing that is an ocean named Pacific is an ocean.\"\n\nFinal Answer: VALID",
+      "source": "unused_train"
+    },
+    {
+      "id": "66621d65-5d64-4e5e-90a2-fd1eea48d437",
+      "syllogism": "There are no vegetables that are not poisonous. Anything that is a carrot is a vegetable. It follows that a number of carrots are poisonous.",
+      "true": true,
+      "pred": false,
+      "plaus": false,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (\u00acV(x) \u2192 P(x)) (or equivalently, \u2200x (V(x) \u2228 P(x)))\n    *   Premise 2: \u2200x (C(x) \u2192 V(x))\n    *   Conclusion: \u2203x (C(x) \u2227 P(x))\n\nFinal Answer: INVALID",
+      "source": "unused_train"
+    },
+    {
+      "id": "982c7ee4-d97d-4ff7-927b-351beb3c89e9",
+      "syllogism": "All things which are oceans are computers. All things which are oceans are made of silk. It follows that some things made of silk are computers.",
+      "true": true,
+      "pred": true,
+      "plaus": false,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (O(x) \u2192 C(x))\n    *   Premise 2: \u2200x (O(x) \u2192 S(x))\n    *   Conclusion: \u2203x (S(x) \u2227 C(x))\n\nFinal Answer: VALID",
+      "source": "unused_train"
+    },
+    {
+      "id": "857910a3-46a9-4278-9d37-739de49debd6",
+      "syllogism": "There are no humans that are not made of glass. Every single thing made of glass is indestructible. From this, it can be derived that some indestructible things are humans.",
+      "true": true,
+      "pred": false,
+      "plaus": false,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: There are no humans that are not made of glass.\n        *   \u2200x (H(x) \u2192 G(x))\n    *   Premise 2: Every single thing made of glass is indestructible.\n\nFinal Answer: INVALID",
+      "source": "unused_train"
+    },
+    {
+      "id": "bdce56a3-a9d8-476a-a050-d6c653a79061",
+      "syllogism": "Not a single house is a stadium. Every single stadium is a building. It is therefore the case that some buildings are not houses.",
+      "true": true,
+      "pred": false,
+      "plaus": true,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: Not a single house is a stadium. (Equivalent to: For all x, if x is a house, then x is not a stadium.)\n        \u2200x (H(x) \u2192 \u00acS(x))\n    *   Premise 2: Every single stadium is a building. (Equivalent to: For all x, if x is a stadium, then x is a building.)\n\nFinal Answer: INVALID",
+      "source": "unused_train"
+    },
+    {
+      "id": "dbf38723-5390-4452-b85b-19499e555bba",
+      "syllogism": "It is true that everything that is an animal is a mammal. It is also true that no reptiles are animals. Thus, it is concluded that no reptiles are animals.",
+      "true": false,
+      "pred": true,
+      "plaus": false,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (A(x) \u2192 B(x))\n    *   Premise 2: \u2200x (C(x) \u2192 \u00acA(x))\n    *   Conclusion: \u2200x (C(x) \u2192 \u00acA(x))\n\nFinal Answer: VALID",
+      "source": "unused_train"
+    },
+    {
+      "id": "664267a1-59e1-481f-a04a-191ed6ed7a83",
+      "syllogism": "No fish are creatures with fur. All of the animals that are considered mammals are creatures with fur. Consequently, it can be said that some mammals are not fish.",
+      "true": true,
+      "pred": true,
+      "plaus": true,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: No fish are creatures with fur. (Equivalent to: For all x, if x is a fish, then x is not a creature with fur.)\n        *   \u2200x (F(x) \u2192 \u00acH(x))\n    *   Premise 2: All of the animals that are considered mammals are creatures with fur.\n\nFinal Answer: VALID",
+      "source": "unused_train"
+    },
+    {
+      "id": "38d3e6e5-e550-4d91-8d3c-c79d2f803f12",
+      "syllogism": "There are no books that are fiction and also non-fiction. Every single fiction book is a story. It follows that some stories fail to be non-fiction.",
+      "true": true,
+      "pred": true,
+      "plaus": true,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (F(x) \u2192 \u00acN(x))\n    *   Premise 2: \u2200x (F(x) \u2192 S(x))\n    *   Conclusion: \u2203x (S(x) \u2227 \u00acN(x))\n\nFinal Answer: VALID",
+      "source": "unused_train"
+    },
+    {
+      "id": "ea4ed2ab-8c5b-43f2-b726-218533f2939f",
+      "syllogism": "Every single vegetable is a planet. Anything that is a planet is a musical instrument. It is a logical necessity that some musical instruments are vegetables.",
+      "true": true,
+      "pred": true,
+      "plaus": false,
+      "response": "<think>\n\n</think>\n\n2. Logical Formulation: Premise 1: \u2200x (V(x) \u2192 P(x)). Premise 2: \u2200x (P(x) \u2192 M(x)). Conclusion: \u2203x (M(x) \u2227 V(x))\n\nFinal Answer: VALID",
+      "source": "unused_train"
+    },
+    {
+      "id": "ef765642-a09f-49b2-9336-a2b8bd4bb7c8",
+      "syllogism": "Nothing that is a chair is a piece of furniture. A thing that is a table is never a chair. It follows that a table is never a piece of furniture.",
+      "true": false,
+      "pred": false,
+      "plaus": false,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (C(x) \u2192 \u00acF(x))\n    *   Premise 2: \u2200x (T(x) \u2192 \u00acC(x))\n    *   Conclusion: \u2200x (T(x) \u2192 \u00acF(x))\n\nFinal Answer: INVALID",
+      "source": "unused_train"
+    },
+    {
+      "id": "331bc8f9-e5c1-40f3-ace4-77fbe5ad4719",
+      "syllogism": "Lions are not gazelles. All African lions are things that are lions. It follows that there are some African lions that are not gazelles.",
+      "true": true,
+      "pred": true,
+      "plaus": true,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (L(x) \u2192 \u00acG(x))\n    *   Premise 2: \u2200x (A(x) \u2192 L(x))\n    *   Conclusion: \u2203x (A(x) \u2227 \u00acG(x))\n\nFinal Answer: VALID",
+      "source": "unused_train"
+    },
+    {
+      "id": "a938e32a-2811-4406-8d78-092fc55e1eb5",
+      "syllogism": "Stars are in no way celestial bodies. Anything that is a star is a planet. It's the case that some planets are not celestial bodies.",
+      "true": true,
+      "pred": true,
+      "plaus": false,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: Stars are in no way celestial bodies.\n        *   \u2200x (S(x) \u2192 \u00acC(x))\n    *   Premise 2: Anything that is a star is a planet.\n\nFinal Answer: VALID",
+      "source": "unused_train"
+    },
+    {
+      "id": "7c1ad437-c35c-456c-a34c-087eec67ee7a",
+      "syllogism": "There is no overlap between even numbers and words. All words are numbers that can be divided by two. Therefore, some numbers divisible by two are not even.",
+      "true": true,
+      "pred": false,
+      "plaus": false,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: There is no overlap between even numbers and words.\n        *   \u2200x (E(x) \u2192 \u00acW(x))\n    *   Premise 2: All words are numbers that can be divided by two.\n\nFinal Answer: INVALID",
+      "source": "unused_train"
+    },
+    {
+      "id": "81346be1-76d7-4051-b57c-05f0145dcd9c",
+      "syllogism": "There is no overlap between living things that can breathe oxygen and rocks. All things that are rocks are animals. Certain animals are not living things that can breathe oxygen.",
+      "true": true,
+      "pred": true,
+      "plaus": false,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: There is no overlap between living things that can breathe oxygen and rocks.\n        *   \u2200x (A(x) \u2192 \u00acB(x))\n        *   (This is equivalent to: \u00ac\u2203x (A(x) \u2227 B(x)))\n\nFinal Answer: VALID",
+      "source": "unused_train"
+    },
+    {
+      "id": "494c1ed1-4d99-4018-b050-35170f6165b2",
+      "syllogism": "Anything that is a technology is a piece of furniture. No furniture is a phone. It is therefore a sound deduction that some phones is not technology.",
+      "true": true,
+      "pred": true,
+      "plaus": false,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (T(x) \u2192 F(x))\n    *   Premise 2: \u2200x (F(x) \u2192 \u00acP(x))\n    *   Conclusion: \u2203x (P(x) \u2227 \u00acT(x))\n\nFinal Answer: VALID",
+      "source": "unused_train"
+    },
+    {
+      "id": "075ee36a-6966-403e-b55e-288e2358c226",
+      "syllogism": "There are no eagles that are mammals. Every single eagle is a bird. It is implied that some birds are not mammals.",
+      "true": true,
+      "pred": true,
+      "plaus": true,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: There are no eagles that are mammals. (Equivalent to: For all x, if x is an eagle, then x is not a mammal.)\n        \u2200x (E(x) \u2192 \u00acM(x))\n    *   Premise 2: Every single eagle is a bird. (Equivalent to: For all x, if x is an eagle, then x is a bird.)\n\nFinal Answer: VALID",
+      "source": "unused_train"
+    },
+    {
+      "id": "d20244c4-f1d9-483d-9504-66e3a29118cc",
+      "syllogism": "There are no trees that cannot teleport. Every single thing that can teleport has gills. It is a logical consequence that some things with gills are trees.",
+      "true": true,
+      "pred": false,
+      "plaus": false,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: There are no trees that cannot teleport. (This means if something is a tree, it can teleport.)\n        *   \u2200x (T(x) \u2192 P(x))\n    *   Premise 2: Every single thing that can teleport has gills. (If something can teleport, it has gills.)\n\nFinal Answer: INVALID",
+      "source": "unused_train"
+    },
+    {
+      "id": "1be779ce-f518-4780-9c11-ddbdfb91a860",
+      "syllogism": "Fathers are in no way humans. Anything that is a father is a mother. There are some mothers that are not humans.",
+      "true": true,
+      "pred": true,
+      "plaus": false,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (F(x) \u2192 \u00acH(x))\n    *   Premise 2: \u2200x (F(x) \u2192 M(x))\n    *   Conclusion: \u2203x (M(x) \u2227 \u00acH(x))\n\nFinal Answer: VALID",
+      "source": "unused_train"
+    },
+    {
+      "id": "b0363392-5e97-4d9d-b9a5-6e3af4510d4e",
+      "syllogism": "Mountains cannot be oceans. Every mountain named Everest is a mountain. It must be that some mountains named Everest are not oceans.",
+      "true": true,
+      "pred": true,
+      "plaus": true,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: Mountains cannot be oceans. (No mountains are oceans.)\n        *   \u2200x (M(x) \u2192 \u00acO(x))\n    *   Premise 2: Every mountain named Everest is a mountain.\n\nFinal Answer: VALID",
+      "source": "unused_train"
+    },
+    {
+      "id": "3b7c4fd5-632a-4a84-b2c2-482b84cf6f45",
+      "syllogism": "There is nothing that is a vegetable that is also a fruit. Every single thing that is a carrot is a vegetable. As a result, at least one thing that is a carrot is not a fruit.",
+      "true": true,
+      "pred": true,
+      "plaus": true,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: There is nothing that is a vegetable that is also a fruit.\n        *   \u2200x (V(x) \u2192 \u00acF(x))\n    *   Premise 2: Every single thing that is a carrot is a vegetable.\n\nFinal Answer: VALID",
+      "source": "unused_train"
+    },
+    {
+      "id": "ae5332c8-e538-4acc-b93e-e1db2ba41d49",
+      "syllogism": "There are no parrots which are mammals. Some birds are parrots. This implies that some birds are mammals.",
+      "true": false,
+      "pred": false,
+      "plaus": true,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: There are no parrots which are mammals. (Equivalent to: For all x, if x is a parrot, then x is not a mammal.)\n        \u2200x (P(x) \u2192 \u00acM(x))\n    *   Premise 2: Some birds are parrots. (Equivalent to: There exists an x such that x is a bird and x is a parrot.)\n\nFinal Answer: INVALID",
+      "source": "unused_train"
+    },
+    {
+      "id": "1f6dfbc9-0387-40b0-88fa-e3205947edf3",
+      "syllogism": "It is true that all fish live in water. No birds are fish. Therefore, no bird lives in water.",
+      "true": false,
+      "pred": false,
+      "plaus": false,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (F(x) \u2192 W(x))\n    *   Premise 2: \u2200x (B(x) \u2192 \u00acF(x))\n    *   Conclusion: \u2200x (B(x) \u2192 \u00acW(x))\n\nFinal Answer: INVALID",
+      "source": "unused_train"
+    },
+    {
+      "id": "4d7b1239-23dc-46e3-bbfa-a455fde88d27",
+      "syllogism": "Dogs are in no way mammals. Anything that is a dog is a canine. There are some canines that are not mammals.",
+      "true": true,
+      "pred": true,
+      "plaus": false,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (D(x) \u2192 \u00acM(x))\n    *   Premise 2: \u2200x (D(x) \u2192 C(x))\n    *   Conclusion: \u2203x (C(x) \u2227 \u00acM(x))\n\nFinal Answer: VALID",
+      "source": "unused_train"
+    },
+    {
+      "id": "9c06e896-d5b8-47ed-875e-43c6fc526c44",
+      "syllogism": "Anything that is a animal is an idea. There are no ideas that are dogs. This necessarily suggests that some dogs are not animals.",
+      "true": true,
+      "pred": false,
+      "plaus": false,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (A(x) \u2192 B(x))\n    *   Premise 2: \u00ac\u2203x (B(x) \u2227 C(x)) (which is equivalent to \u2200x (B(x) \u2192 \u00acC(x)))\n    *   Conclusion: \u2203x (C(x) \u2227 \u00acA(x))\n\nFinal Answer: INVALID",
+      "source": "unused_train"
+    },
+    {
+      "id": "055f965a-33f5-4607-9c66-4aa40bec3f17",
+      "syllogism": "Anything that is a rose is a flower. Under no circumstances is a flower a tree. This leads to the conclusion that some trees are not roses.",
+      "true": true,
+      "pred": false,
+      "plaus": true,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (R(x) \u2192 F(x))\n    *   Premise 2: \u2200x (F(x) \u2192 \u00acT(x))\n    *   Conclusion: \u2203x (T(x) \u2227 \u00acR(x))\n\nFinal Answer: INVALID",
+      "source": "unused_train"
+    },
+    {
+      "id": "1677a357-b1cb-40ad-adce-909007c0bca3",
+      "syllogism": "Each and every kitchen is a room. Each and every kitchen is a place for cooking. This implies that some places for cooking are rooms.",
+      "true": true,
+      "pred": true,
+      "plaus": true,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (K(x) \u2192 R(x))\n    *   Premise 2: \u2200x (K(x) \u2192 C(x))\n    *   Conclusion: \u2203x (C(x) \u2227 R(x))\n\nFinal Answer: VALID",
+      "source": "unused_train"
+    },
+    {
+      "id": "eb34cdc4-fa19-4ddc-8cd2-6c8f13f1e7a5",
+      "syllogism": "Anything that is a scientist is a person who studies. Anything that is a scientist is a professional. Consequently, some professionals are people who study.",
+      "true": true,
+      "pred": true,
+      "plaus": true,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (S(x) \u2192 P(x))\n    *   Premise 2: \u2200x (S(x) \u2192 R(x))\n    *   Conclusion: \u2203x (R(x) \u2227 P(x))\n\nFinal Answer: VALID",
+      "source": "unused_train"
+    },
+    {
+      "id": "2ab78772-0f7f-4554-ab3a-8bd5d40b66e7",
+      "syllogism": "Every object that orbits a star is a planet. Anything that is a gas giant is an object that is a planet. Therefore, there are no gas giants that do not orbit a star.",
+      "true": true,
+      "pred": false,
+      "plaus": true,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (A(x) \u2192 B(x))\n    *   Premise 2: \u2200x (C(x) \u2192 B(x))\n    *   Conclusion: \u2200x (C(x) \u2192 A(x))\n\nFinal Answer: INVALID",
+      "source": "unused_train"
+    },
+    {
+      "id": "342ddbb4-d0f4-41d5-9fe8-b9cfa5414ee9",
+      "syllogism": "Every single human is an alien. Every single human is a reptile. Therefore, there are reptiles that are aliens.",
+      "true": true,
+      "pred": true,
+      "plaus": false,
+      "response": "<think>\n\n</think>\n\n2.  **Logical Formulation:** Premise 1: \u2200x (H(x) \u2192 A(x)). Premise 2: \u2200x (H(x) \u2192 R(x)). Conclusion: \u2203x (R(x) \u2227 A(x))\n\nFinal Answer: VALID",
+      "source": "unused_train"
+    },
+    {
+      "id": "6fc2d9ce-e18c-4433-97c7-9eef45031a43",
+      "syllogism": "All plants are in need of sunlight. All trees are, by definition, plants. At least one tree needs sunlight.",
+      "true": true,
+      "pred": true,
+      "plaus": true,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (P(x) \u2192 S(x))\n    *   Premise 2: \u2200x (T(x) \u2192 P(x))\n    *   Conclusion: \u2203x (T(x) \u2227 S(x))\n\nFinal Answer: VALID",
+      "source": "unused_train"
+    },
+    {
+      "id": "51fdf28a-0458-4d35-9d2b-9992fcb0a57e",
+      "syllogism": "There is no fire which is hot. All of the bonfires are fire. Thus, there exist some bonfires which are not hot.",
+      "true": true,
+      "pred": true,
+      "plaus": false,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (F(x) \u2192 \u00acH(x))\n    *   Premise 2: \u2200x (B(x) \u2192 F(x))\n    *   Conclusion: \u2203x (B(x) \u2227 \u00acH(x))\n\nFinal Answer: VALID",
+      "source": "unused_train"
+    },
+    {
+      "id": "44dc4bd3-0d89-4d86-94f8-775692c4125c",
+      "syllogism": "Every nurse is a healthcare professional. Not a single teacher is a healthcare professional. A part of the population of teachers are not nurses.",
+      "true": true,
+      "pred": true,
+      "plaus": true,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (N(x) \u2192 H(x))\n    *   Premise 2: \u2200x (T(x) \u2192 \u00acH(x))\n    *   Conclusion: \u2203x (T(x) \u2227 \u00acN(x))\n\nFinal Answer: VALID",
+      "source": "unused_train"
+    },
+    {
+      "id": "bab90238-8b28-4f96-b4a1-d60539f830cb",
+      "syllogism": "Every bicycle is a vehicle. Every bicycle is an item that has wheels. Therefore, this implies that some items with wheels are vehicles.",
+      "true": true,
+      "pred": true,
+      "plaus": true,
+      "response": "<think>\n\n</think>\n\n2.  **Logical Formulation:** Premise 1: \u2200x (B(x) \u2192 V(x)). Premise 2: \u2200x (B(x) \u2192 W(x)). Conclusion: \u2203x (W(x) \u2192 V(x))\n\nFinal Answer: VALID",
+      "source": "unused_train"
+    },
+    {
+      "id": "4d7aa5d5-4fdc-49d1-b879-1d6fca829c8e",
+      "syllogism": "Every single square is a polygon. There are no polygons which are circles. Thus, it can be concluded that some circles are not squares.",
+      "true": true,
+      "pred": false,
+      "plaus": true,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (S(x) \u2192 P(x))\n    *   Premise 2: \u2200x (P(x) \u2192 \u00acC(x))\n    *   Conclusion: \u2203x (C(x) \u2227 \u00acS(x))\n\nFinal Answer: INVALID",
+      "source": "unused_train"
+    },
+    {
+      "id": "484629f1-3062-4086-b455-4892eb08d4e6",
+      "syllogism": "Nothing that is a fruit is broccoli. All items of broccoli are vegetables. A subset of vegetables is not fruit.",
+      "true": true,
+      "pred": true,
+      "plaus": true,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (F(x) \u2192 \u00acB(x))\n    *   Premise 2: \u2200x (B(x) \u2192 V(x))\n    *   Conclusion: \u2203x (V(x) \u2227 \u00acF(x))\n\nFinal Answer: VALID",
+      "source": "unused_train"
+    },
+    {
+      "id": "31792188-56c1-4948-89de-1b72940f1e44",
+      "syllogism": "Every car is a vehicle. Nothing that is a building can be considered a vehicle. There are some buildings that do not fit the description of a car.",
+      "true": true,
+      "pred": true,
+      "plaus": true,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (C(x) \u2192 V(x))\n    *   Premise 2: \u2200x (B(x) \u2192 \u00acV(x))\n    *   Conclusion: \u2203x (B(x) \u2227 \u00acC(x))\n\nFinal Answer: VALID",
+      "source": "unused_train"
+    },
+    {
+      "id": "ce270103-67cc-4d82-a87e-901a04837037",
+      "syllogism": "Humans are in no way animals. Anything that is a human is a mammal. There are some mammals which are not animals.",
+      "true": true,
+      "pred": true,
+      "plaus": false,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (H(x) \u2192 \u00acA(x))\n    *   Premise 2: \u2200x (H(x) \u2192 M(x))\n    *   Conclusion: \u2203x (M(x) \u2227 \u00acA(x))\n\nFinal Answer: VALID",
+      "source": "unused_train"
+    },
+    {
+      "id": "fd7d1283-6217-4458-8f48-40968017069c",
+      "syllogism": "Every single vehicle is an animal. No cars are animals. A portion of modes of transportation are not vehicles.",
+      "true": true,
+      "pred": true,
+      "plaus": false,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (V(x) \u2192 A(x))\n    *   Premise 2: \u2200x (C(x) \u2192 \u00acA(x))\n    *   Conclusion: \u2203x (T(x) \u2227 \u00acV(x))\n\nFinal Answer: VALID",
+      "source": "unused_train"
+    },
+    {
+      "id": "0d670133-b450-4117-8cee-c7b73af9d8f5",
+      "syllogism": "There is nothing that is a planet that is not also a celestial body. It is the case that every celestial body is an object in space. Therefore, some objects in space are planets.",
+      "true": true,
+      "pred": false,
+      "plaus": true,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (P(x) \u2192 C(x)) (or equivalently, \u00ac\u2203x (P(x) \u2227 \u00acC(x)))\n    *   Premise 2: \u2200x (C(x) \u2192 S(x))\n    *   Conclusion: \u2203x (S(x) \u2227 P(x))\n\nFinal Answer: INVALID",
+      "source": "unused_train"
+    },
+    {
+      "id": "ef813b31-ae4f-4041-b9cc-b1d3378ba884",
+      "syllogism": "Every single fruit contains seeds. Anything that is an apple is a fruit. A number of apples contain seeds.",
+      "true": true,
+      "pred": true,
+      "plaus": true,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (F(x) \u2192 S(x))\n    *   Premise 2: \u2200x (A(x) \u2192 F(x))\n    *   Conclusion: \u2203x (A(x) \u2227 S(x))\n\nFinal Answer: VALID",
+      "source": "unused_train"
+    },
+    {
+      "id": "60f556a7-b0c7-4bde-82ce-e49b1cf72ec5",
+      "syllogism": "Spiders cannot be arachnids. It is a fact that all tarantulas are spiders. It must be concluded that some tarantulas are not arachnids.",
+      "true": true,
+      "pred": true,
+      "plaus": false,
+      "response": "<think>\n\n</think>\n\n2.  **Logical Formulation:** Premise 1: \u2200x (A(x) \u2192 \u00acB(x)). Premise 2: \u2200x (C(x) \u2192 A(x)). Conclusion: \u2203x (C(x) \u2227 \u00acB(x))\n\nFinal Answer: VALID",
+      "source": "unused_train"
+    },
+    {
+      "id": "425e7e61-535a-4719-bf90-fc33991b40ba",
+      "syllogism": "Anything that is a dog is a mammal. There are no sharks which are also dogs. It is the case that some sharks are not mammals.",
+      "true": true,
+      "pred": false,
+      "plaus": true,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (D(x) \u2192 M(x))\n    *   Premise 2: \u2200x (S(x) \u2192 \u00acD(x))\n    *   Conclusion: \u2203x (S(x) \u2227 \u00acM(x))\n\nFinal Answer: INVALID",
+      "source": "unused_train"
+    },
+    {
+      "id": "0a6a2c61-1d0e-47a6-8faa-5a5086a59dc9",
+      "syllogism": "Every single tree is a plant. There exist no stones which are also plants. There is at least one stone which is not a tree.",
+      "true": true,
+      "pred": true,
+      "plaus": true,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (T(x) \u2192 P(x))\n    *   Premise 2: \u2200x (S(x) \u2192 \u00acP(x))\n    *   Conclusion: \u2203x (S(x) \u2227 \u00acT(x))\n\nFinal Answer: VALID",
+      "source": "unused_train"
+    },
+    {
+      "id": "a3b7dea6-fa56-4175-ae3d-e4765d415033",
+      "syllogism": "The category of animals and the category of plants do not overlap. Every single plant is a mammal. It must be that a portion of mammals are not animals.",
+      "true": true,
+      "pred": true,
+      "plaus": false,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (A(x) \u2192 \u00acP(x)) (or equivalently, \u00ac\u2203x (A(x) \u2227 P(x)))\n    *   Premise 2: \u2200x (P(x) \u2192 M(x))\n    *   Conclusion: \u2203x (M(x) \u2227 \u00acA(x))\n\nFinal Answer: VALID",
+      "source": "unused_train"
+    },
+    {
+      "id": "f6b3b0ad-76d8-4628-94d1-1a7aedb82cb5",
+      "syllogism": "There are no triangles which are squares. Every single triangle is a polygon. It's the case that some polygons are not squares.",
+      "true": true,
+      "pred": true,
+      "plaus": true,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: There are no triangles which are squares.\n        *   \u2200x (T(x) \u2192 \u00acS(x))\n    *   Premise 2: Every single triangle is a polygon.\n\nFinal Answer: VALID",
+      "source": "unused_train"
+    },
+    {
+      "id": "f96c05f3-3cc5-465b-a17d-3b7d30e5607e",
+      "syllogism": "Every single building is made of candy. There are no houses that are not buildings. A certain number of houses are made of candy.",
+      "true": true,
+      "pred": true,
+      "plaus": false,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (B(x) \u2192 C(x))\n    *   Premise 2: \u2200x (H(x) \u2192 B(x))\n    *   Conclusion: \u2203x (H(x) \u2227 C(x))\n\nFinal Answer: VALID",
+      "source": "unused_train"
+    },
+    {
+      "id": "f3380f24-0f41-4d1f-a641-cbb86e5b8b08",
+      "syllogism": "There are no scientists that are authors of fantasy novels. All fantasy novelists are authors of fantasy novels. This proves that some fantasy novelists are not scientists.",
+      "true": true,
+      "pred": false,
+      "plaus": true,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (S(x) \u2192 \u00acA(x))\n    *   Premise 2: \u2200x (F(x) \u2192 A(x))\n    *   Conclusion: \u2203x (F(x) \u2227 \u00acS(x))\n\nFinal Answer: INVALID",
+      "source": "unused_train"
+    },
+    {
+      "id": "1f4cfe1c-bd8f-4c54-8c08-a8ee3ad42904",
+      "syllogism": "There are no animals that are fish that have beaks. All birds are animals that have beaks. Consequently, it can be said that some birds are not fish.",
+      "true": true,
+      "pred": false,
+      "plaus": true,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: There are no animals that are fish that have beaks.\n        *   \u2200x (F(x) \u2192 \u00acB(x))\n    *   Premise 2: All birds are animals that have beaks.\n\nFinal Answer: INVALID",
+      "source": "unused_train"
+    },
+    {
+      "id": "f859c7bc-5b00-483b-8ca7-5ca519182fe7",
+      "syllogism": "There are no cars which are motorcycles. Every single car is, in fact, a vehicle. It is the case that some vehicles are not motorcycles.",
+      "true": true,
+      "pred": true,
+      "plaus": true,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: There are no cars which are motorcycles. (Equivalent to: For all x, if x is a car, then x is not a motorcycle.)\n        \u2200x (C(x) \u2192 \u00acM(x))\n    *   Premise 2: Every single car is, in fact, a vehicle. (Equivalent to: For all x, if x is a car, then x is a vehicle.)\n\nFinal Answer: VALID",
+      "source": "unused_train"
+    },
+    {
+      "id": "9f087d4f-5b6f-4d89-b9a0-2ed39ea55950",
+      "syllogism": "It is the case that no circles are round shapes. All of the things that are rings are circles. Thus, some rings are not round shapes.",
+      "true": true,
+      "pred": false,
+      "plaus": false,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (C(x) \u2192 \u00acR(x))\n    *   Premise 2: \u2200x (A(x) \u2192 C(x))\n    *   Conclusion: \u2203x (A(x) \u2227 \u00acR(x))\n\nFinal Answer: INVALID",
+      "source": "unused_train"
+    },
+    {
+      "id": "2a533cd3-5dab-425d-9dca-9f2d6cfcb4c7",
+      "syllogism": "Chairs are in no way furniture. Everything that is a chair is an object. There are some objects that are not furniture.",
+      "true": true,
+      "pred": true,
+      "plaus": false,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (C(x) \u2192 \u00acF(x))\n    *   Premise 2: \u2200x (C(x) \u2192 O(x))\n    *   Conclusion: \u2203x (O(x) \u2227 \u00acF(x))\n\nFinal Answer: VALID",
+      "source": "unused_train"
+    },
+    {
+      "id": "d32207a5-ea82-4d7d-9a51-48f1b384dd8f",
+      "syllogism": "There is not a single sound that is a phenomenon that travels in waves. All of the things that are musical notes are sounds. Consequently, some musical notes are not phenomena that travel in waves.",
+      "true": true,
+      "pred": true,
+      "plaus": false,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (S(x) \u2192 \u00acW(x)) (or equivalently, \u00ac\u2203x (S(x) \u2227 W(x)))\n    *   Premise 2: \u2200x (M(x) \u2192 S(x))\n    *   Conclusion: \u2203x (M(x) \u2227 \u00acW(x))\n\nFinal Answer: VALID",
+      "source": "unused_train"
+    },
+    {
+      "id": "1f010b69-61c4-4d5b-8cca-ea37c60a9bf6",
+      "syllogism": "There are no liquids that are not solid. Anything that is water is a liquid. At least one quantity of water is solid.",
+      "true": true,
+      "pred": false,
+      "plaus": false,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: There are no liquids that are not solid. (This means if something is a liquid, it is a solid.)\n        *   \u2200x (L(x) \u2192 S(x))\n    *   Premise 2: Anything that is water is a liquid. (This means if something is water, it is a liquid.)\n\nFinal Answer: INVALID",
+      "source": "unused_train"
+    },
+    {
+      "id": "49eaeadb-ba70-4eca-be9a-3aaa24144cee",
+      "syllogism": "It is not true that any vehicle is a bicycle. There are a few bicycles that are also automobiles. There are some automobiles that are not vehicles.",
+      "true": true,
+      "pred": false,
+      "plaus": false,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \"It is not true that any vehicle is a bicycle.\" \u2192 \u2200x (V(x) \u2192 \u00acB(x))\n    *   Premise 2: \"There are a few bicycles that are also automobiles.\" \u2192 \u2203x (B(x) \u2227 A(x))\n    *   Conclusion: \"There are some automobiles that are not vehicles.\" \u2192 \u2203x (A(x) \u2227 \u00acV(x))\n\nFinal Answer: INVALID",
+      "source": "unused_train"
+    },
+    {
+      "id": "53331624-13d7-4d3d-b3d7-3c5cb0aff3d2",
+      "syllogism": "Anything that is a fruit is not a baked good. All of the things that are apples are fruits. Thus, some of the things that are apples are not baked goods.",
+      "true": true,
+      "pred": true,
+      "plaus": true,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (F(x) \u2192 \u00acB(x))\n    *   Premise 2: \u2200x (A(x) \u2192 F(x))\n    *   Conclusion: \u2203x (A(x) \u2227 \u00acB(x))\n\nFinal Answer: VALID",
+      "source": "unused_train"
+    },
+    {
+      "id": "2bf18e1f-3d35-4725-a6a0-73bcf655c976",
+      "syllogism": "The class of birds and the class of cars do not overlap. The entire set of cars is composed of sparrows. It is a logical consequence that some sparrows are not birds.",
+      "true": true,
+      "pred": true,
+      "plaus": false,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (B(x) \u2192 \u00acC(x)) (or equivalently, \u00ac\u2203x (B(x) \u2227 C(x)))\n    *   Premise 2: \u2200x (S(x) \u2192 C(x))\n    *   Conclusion: \u2203x (S(x) \u2227 \u00acB(x))\n\nFinal Answer: VALID",
+      "source": "unused_train"
+    },
+    {
+      "id": "f6b34421-9ef7-42fc-b441-393edd441d41",
+      "syllogism": "It is not true that any stationery item can be used for writing. All pencils are items of stationery. Therefore, no pencil is able to be used for writing.",
+      "true": true,
+      "pred": true,
+      "plaus": false,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \"It is not true that any stationery item can be used for writing.\"\n        *   \u2200x (S(x) \u2192 \u00acW(x))\n    *   Premise 2: \"All pencils are items of stationery.\"\n\nFinal Answer: VALID",
+      "source": "unused_train"
+    },
+    {
+      "id": "55f37da9-53b1-41bd-8f9c-59909de052fd",
+      "syllogism": "Every single chef is a culinary expert. No pilots are included in the category of culinary experts. A certain number of pilots are not chefs.",
+      "true": true,
+      "pred": true,
+      "plaus": true,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (C(x) \u2192 E(x))\n    *   Premise 2: \u2200x (P(x) \u2192 \u00acE(x))\n    *   Conclusion: \u2203x (P(x) \u2227 \u00acC(x))\n\nFinal Answer: VALID",
+      "source": "unused_train"
+    },
+    {
+      "id": "091c270b-32c3-44b5-ac07-f147bfe049fd",
+      "syllogism": "There are no trees that are also animals. Every single tree is a plant. It is the case that some plants fail to be animals.",
+      "true": true,
+      "pred": true,
+      "plaus": true,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: There are no trees that are also animals. (Equivalent to: For all x, if x is a tree, then x is not an animal.)\n        \u2200x (T(x) \u2192 \u00acA(x))\n    *   Premise 2: Every single tree is a plant. (Equivalent to: For all x, if x is a tree, then x is a plant.)\n\nFinal Answer: VALID",
+      "source": "unused_train"
+    },
+    {
+      "id": "7e33d84f-4a3e-4ec4-a5ad-df409ed4bbd7",
+      "syllogism": "Every single bird is an animal. There are no animals that are minerals. This proves that some minerals are not birds.",
+      "true": true,
+      "pred": false,
+      "plaus": true,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (B(x) \u2192 A(x))\n    *   Premise 2: \u2200x (A(x) \u2192 \u00acM(x))\n    *   Conclusion: \u2203x (M(x) \u2227 \u00acB(x))\n\nFinal Answer: INVALID",
+      "source": "unused_train"
+    },
+    {
+      "id": "98252dfa-fc4f-4882-b126-5929bce03dad",
+      "syllogism": "There is not a single item that is a car and also a truck. A subset of vehicles consists of trucks. It can be deduced that some vehicles are not cars.",
+      "true": true,
+      "pred": true,
+      "plaus": true,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (C(x) \u2192 \u00acT(x)) (or equivalently, \u00ac\u2203x (C(x) \u2227 T(x)))\n    *   Premise 2: \u2203x (V(x) \u2227 T(x))\n    *   Conclusion: \u2203x (V(x) \u2227 \u00acC(x))\n\nFinal Answer: VALID",
+      "source": "unused_train"
+    },
+    {
+      "id": "8c0b8a2d-6338-4d41-9d69-ca633163341a",
+      "syllogism": "The group of furniture is a subset of the group of chairs. At least one sofa is not a chair. Not every sofa is a furntiture.",
+      "true": false,
+      "pred": true,
+      "plaus": false,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (F(x) \u2192 C(x))\n    *   Premise 2: \u2203x (S(x) \u2227 \u00acC(x))\n    *   Conclusion: \u2203x (S(x) \u2227 \u00acF(x))\n\nFinal Answer: VALID",
+      "source": "unused_train"
+    },
+    {
+      "id": "442ed46c-5aa5-445f-9ac3-4bf910bc7b3a",
+      "syllogism": "Anything that is a unit of time is a liquid. No weeks can be called liquids. A portion of weeks are not units of time.",
+      "true": true,
+      "pred": true,
+      "plaus": false,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (T(x) \u2192 L(x))\n    *   Premise 2: \u2200x (W(x) \u2192 \u00acL(x))\n    *   Conclusion: \u2203x (W(x) \u2227 \u00acT(x))\n\nFinal Answer: VALID",
+      "source": "unused_train"
+    },
+    {
+      "id": "5580c76a-7c97-4b7a-a43d-d12866c99ae2",
+      "syllogism": "Everything that is a planet is a celestial body. There are no things that are Earth that are not planets. Therefore, at least some Earth is a celestial body.",
+      "true": true,
+      "pred": true,
+      "plaus": true,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (P(x) \u2192 C(x))\n    *   Premise 2: \u2200x (E(x) \u2192 P(x))\n    *   Conclusion: \u2203x (E(x) \u2227 C(x))\n\nFinal Answer: VALID",
+      "source": "unused_train"
+    },
+    {
+      "id": "172f9030-2726-49a1-8acf-40c8d9661aab",
+      "syllogism": "Any object that is a shape is an animal. There are no circles that are also animals. A portion of shapes are not circles.",
+      "true": true,
+      "pred": true,
+      "plaus": false,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (S(x) \u2192 A(x))\n    *   Premise 2: \u2200x (C(x) \u2192 \u00acA(x))\n    *   Conclusion: \u2203x (S(x) \u2227 \u00acC(x))\n\nFinal Answer: VALID",
+      "source": "unused_train"
+    },
+    {
+      "id": "da3044ed-e1a7-40a7-8bd2-cdeb09f5dbdb",
+      "syllogism": "No animal that is an invertebrate is a vertebrate. Among the things that are spiders, a few are invertebrates. Thus, some spiders are vertebrates.",
+      "true": false,
+      "pred": false,
+      "plaus": false,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (I(x) \u2192 \u00acV(x))\n    *   Premise 2: \u2203x (S(x) \u2227 I(x))\n    *   Conclusion: \u2203x (S(x) \u2227 V(x))\n\nFinal Answer: INVALID",
+      "source": "unused_train"
+    },
+    {
+      "id": "940e3b1d-dd3d-4119-a379-178a8b6f8397",
+      "syllogism": "Every single mammal is an insect. There are no insects which are dogs. Based on this, it must be the case that some dogs are not mammals.",
+      "true": true,
+      "pred": true,
+      "plaus": false,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (M(x) \u2192 I(x))\n    *   Premise 2: \u2200x (I(x) \u2192 \u00acD(x))\n    *   Conclusion: \u2203x (D(x) \u2227 \u00acM(x))\n\nFinal Answer: VALID",
+      "source": "unused_train"
+    },
+    {
+      "id": "1567c398-05f8-425d-8d0f-3fc7c7327cf0",
+      "syllogism": "Every single shirt is a piece of clothing. No articles of clothing are ever beverages. This implies that some beverages are not shirts.",
+      "true": true,
+      "pred": false,
+      "plaus": true,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (S(x) \u2192 C(x))\n    *   Premise 2: \u2200x (C(x) \u2192 \u00acB(x))\n    *   Conclusion: \u2203x (B(x) \u2227 \u00acS(x))\n\nFinal Answer: INVALID",
+      "source": "unused_train"
+    },
+    {
+      "id": "d1335273-381d-48fd-b681-e32114f7cf90",
+      "syllogism": "Every single triangle is a polygon. It is not the case that some lines are polygons. Therefore, it follows that some lines are not triangles.",
+      "true": true,
+      "pred": true,
+      "plaus": true,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (T(x) \u2192 P(x))\n    *   Premise 2: \u00ac\u2203x (L(x) \u2227 P(x))\n    *   Conclusion: \u2203x (L(x) \u2227 \u00acT(x))\n\nFinal Answer: VALID",
+      "source": "unused_train"
+    },
+    {
+      "id": "99e780ef-b889-4429-a5fe-22a193b9681e",
+      "syllogism": "Every single geometric figure is an emotion. It is not the case that some circles are emotions. Therefore, it is possible to conclude that some circles are not geometric figures.",
+      "true": true,
+      "pred": true,
+      "plaus": false,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (G(x) \u2192 E(x))\n    *   Premise 2: \u00ac\u2203x (C(x) \u2227 E(x))\n    *   Conclusion: \u2203x (C(x) \u2227 \u00acG(x))\n\nFinal Answer: VALID",
+      "source": "unused_train"
+    },
+    {
+      "id": "176e3ca1-2c5c-4500-8b42-792ce58d4098",
+      "syllogism": "Everything that is a fish is also an insect. Everything that is a fish is also made of fire. Hence, some things that are made of fire are insects.",
+      "true": true,
+      "pred": true,
+      "plaus": false,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (F(x) \u2192 I(x))\n    *   Premise 2: \u2200x (F(x) \u2192 M(x))\n    *   Conclusion: \u2203x (M(x) \u2227 I(x))\n\nFinal Answer: VALID",
+      "source": "unused_train"
+    },
+    {
+      "id": "9b4f2ed1-786d-4b4f-a076-2c5dcfdc637b",
+      "syllogism": "Anything that is a flower is made of metal. Every single rose is a flower. At least one rose is made of metal.",
+      "true": true,
+      "pred": true,
+      "plaus": false,
+      "response": "<think>\n\n</think>\n\n2.  **Logical Formulation:** Premise 1: \u2200x (F(x) \u2192 M(x)). Premise 2: \u2200x (R(x) \u2192 F(x)). Conclusion: \u2203x (R(x) \u2227 M(x))\n\nFinal Answer: VALID",
+      "source": "unused_train"
+    },
+    {
+      "id": "3e50a21d-a81c-4c71-82b5-4c5a94dcd47c",
+      "syllogism": "It is not true that any car is a train. There are a few trains that are also types of transportation. There are some types of transportation that are not cars.",
+      "true": true,
+      "pred": false,
+      "plaus": true,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \"It is not true that any car is a train.\"\n        *   \u2200x (C(x) \u2192 \u00acT(x))\n    *   Premise 2: \"There are a few trains that are also types of transportation.\"\n\nFinal Answer: INVALID",
+      "source": "unused_train"
+    },
+    {
+      "id": "8fad6fdb-f462-4147-9b0f-28b1343200b8",
+      "syllogism": "Anything that is a planet is considered a celestial body. It is impossible for a bridge to be a celestial body. Some bridges can be found that are not planets.",
+      "true": true,
+      "pred": true,
+      "plaus": true,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (P(x) \u2192 C(x))\n    *   Premise 2: \u2200x (B(x) \u2192 \u00acC(x))\n    *   Conclusion: \u2203x (B(x) \u2227 \u00acP(x))\n\nFinal Answer: VALID",
+      "source": "unused_train"
+    },
+    {
+      "id": "a6abf627-c349-4eff-9138-1989a2c50491",
+      "syllogism": "The group of creatures that have eight legs does not intersect with the group of arachnids. All of the arachnids are spiders. It must be the case that a portion of spiders are not creatures that have eight legs.",
+      "true": true,
+      "pred": true,
+      "plaus": false,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (A(x) \u2192 \u00acB(x))\n    *   Premise 2: \u2200x (B(x) \u2192 C(x))\n    *   Conclusion: \u2203x (C(x) \u2227 \u00acA(x))\n\nFinal Answer: VALID",
+      "source": "unused_train"
+    },
+    {
+      "id": "cc170ddf-ad97-48d0-aa6f-ec21373c1c9c",
+      "syllogism": "There are no things which are animals that are plants. Everything that is a tree is a plant. Consequently, there exist some trees which are not animals.",
+      "true": true,
+      "pred": false,
+      "plaus": true,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: There are no things which are animals that are plants.\n        *   \u2200x (A(x) \u2192 \u00acP(x))\n    *   Premise 2: Everything that is a tree is a plant.\n\nFinal Answer: INVALID",
+      "source": "unused_train"
+    },
+    {
+      "id": "84bd592a-b425-4b83-a3f1-7ea71c85910e",
+      "syllogism": "Flowers are in no way organisms. Anything that is a flower is a plant. It's the case that some plants are not organisms.",
+      "true": true,
+      "pred": true,
+      "plaus": false,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (F(x) \u2192 \u00acO(x))\n    *   Premise 2: \u2200x (F(x) \u2192 P(x))\n    *   Conclusion: \u2203x (P(x) \u2227 \u00acO(x))\n\nFinal Answer: VALID",
+      "source": "unused_train"
+    },
+    {
+      "id": "9207083f-0077-4ac2-a8c1-be3e589f559e",
+      "syllogism": "There are no squares which are circles. All squares are, in fact, shapes. It's the case that some shapes are not circles.",
+      "true": true,
+      "pred": true,
+      "plaus": true,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: There are no squares which are circles. (Equivalent to: For all x, if x is a square, then x is not a circle.)\n        \u2200x (S(x) \u2192 \u00acC(x))\n    *   Premise 2: All squares are, in fact, shapes. (Equivalent to: For all x, if x is a square, then x is a shape.)\n\nFinal Answer: VALID",
+      "source": "unused_train"
+    },
+    {
+      "id": "f82be88d-5ec5-48f2-98ed-84893e692052",
+      "syllogism": "Nothing that is a vehicle is a building. All buildings in existence are cars. A certain portion of cars are not vehicles.",
+      "true": true,
+      "pred": true,
+      "plaus": false,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (V(x) \u2192 \u00acB(x)) (or equivalently, \u00ac\u2203x (V(x) \u2227 B(x)))\n    *   Premise 2: \u2200x (B(x) \u2192 C(x))\n    *   Conclusion: \u2203x (C(x) \u2227 \u00acV(x))\n\nFinal Answer: VALID",
+      "source": "unused_train"
+    },
+    {
+      "id": "c645579b-f3ec-4448-b51d-6ac03b047bd0",
+      "syllogism": "There are no doctors who are not medical professionals. There are no doctors who are not people with medical degrees. Therefore, some people with medical degrees are medical professionals.",
+      "true": true,
+      "pred": false,
+      "plaus": true,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (D(x) \u2192 M(x)) (or equivalently, \u00ac\u2203x (D(x) \u2227 \u00acM(x)))\n    *   Premise 2: \u2200x (D(x) \u2192 G(x)) (or equivalently, \u00ac\u2203x (D(x) \u2227 \u00acG(x)))\n    *   Conclusion: \u2203x (G(x) \u2227 M(x))\n\nFinal Answer: INVALID",
+      "source": "unused_train"
+    },
+    {
+      "id": "be226ccb-e7b4-4f8c-b7d0-ef9640c705cb",
+      "syllogism": "Anything which is an animal is a flightless thing. Every single bird is an animal. There are no birds that are not flightless.",
+      "true": false,
+      "pred": true,
+      "plaus": false,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (A(x) \u2192 B(x))\n    *   Premise 2: \u2200x (C(x) \u2192 A(x))\n    *   Conclusion: \u2200x (C(x) \u2192 B(x))\n\nFinal Answer: VALID",
+      "source": "unused_train"
+    },
+    {
+      "id": "1e137e72-636d-4cc6-9547-2266ee83ed53",
+      "syllogism": "There are no moons that are also planets. Everything that is a planet is also a celestial body. Some celestial bodies are not moons.",
+      "true": true,
+      "pred": true,
+      "plaus": true,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: There are no moons that are also planets. (Equivalent to: For all x, if x is a moon, then x is not a planet.)\n        \u2200x (M(x) \u2192 \u00acP(x))\n    *   Premise 2: Everything that is a planet is also a celestial body. (Equivalent to: For all x, if x is a planet, then x is a celestial body.)\n\nFinal Answer: VALID",
+      "source": "unused_train"
+    },
+    {
+      "id": "d7f88cf8-7e75-4e88-a1e5-4f8ee0f7df4f",
+      "syllogism": "It is true that every human being is a vegetable. There are no vegetables that can be classified as teachers. As a result, it must be that some teachers are not people.",
+      "true": true,
+      "pred": false,
+      "plaus": false,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (H(x) \u2192 V(x))\n    *   Premise 2: \u2200x (V(x) \u2192 \u00acT(x))\n    *   Conclusion: \u2203x (T(x) \u2227 \u00acH(x))\n\nFinal Answer: INVALID",
+      "source": "unused_train"
+    },
+    {
+      "id": "ff2717d7-987b-4b07-b9a8-a228207e5ffa",
+      "syllogism": "The set of stars and the set of celestial bodies that orbit other celestial bodies are mutually exclusive. Nothing that is a planet is a celestial body that orbits another celestial body. The entire group of planets consists of stars.",
+      "true": false,
+      "pred": false,
+      "plaus": false,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (S(x) \u2192 \u00acO(x))\n    *   Premise 2: \u2200x (P(x) \u2192 \u00acO(x))\n    *   Conclusion: \u2200x (P(x) \u2192 S(x))\n\nFinal Answer: INVALID",
+      "source": "unused_train"
+    },
+    {
+      "id": "e7ceac1a-9b69-4033-b75a-7784340595b6",
+      "syllogism": "There are no dogs that are felines. Every single cat is a feline. Consequently, there are some cats who are not dogs.",
+      "true": true,
+      "pred": false,
+      "plaus": true,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: There are no dogs that are felines.\n        *   \u2200x (D(x) \u2192 \u00acF(x))\n    *   Premise 2: Every single cat is a feline.\n\nFinal Answer: INVALID",
+      "source": "unused_train"
+    },
+    {
+      "id": "bac14978-b426-42f3-830e-d222127e8425",
+      "syllogism": "No relatives are considered family members. Everything that is a sibling is a family member. It can be deduced that a part of siblings are not relatives.",
+      "true": true,
+      "pred": true,
+      "plaus": false,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (R(x) \u2192 \u00acF(x))\n    *   Premise 2: \u2200x (S(x) \u2192 F(x))\n    *   Conclusion: \u2203x (S(x) \u2227 \u00acR(x))\n\nFinal Answer: VALID",
+      "source": "unused_train"
+    },
+    {
+      "id": "8fdb598b-6ead-4c42-8de3-b075661b2942",
+      "syllogism": "Everything that is a pencil is a writing instrument. Nothing that is an eraser is a writing instrument. There exists at least one eraser which is not a pencil.",
+      "true": true,
+      "pred": true,
+      "plaus": true,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (P(x) \u2192 W(x))\n    *   Premise 2: \u2200x (E(x) \u2192 \u00acW(x))\n    *   Conclusion: \u2203x (E(x) \u2227 \u00acP(x))\n\nFinal Answer: VALID",
+      "source": "unused_train"
+    },
+    {
+      "id": "ceded7c3-ea95-4f1f-8706-8797294b5a4a",
+      "syllogism": "There is no ice that is frozen water. All things that are glaciers are ice. It follows that some glaciers are not frozen water.",
+      "true": true,
+      "pred": true,
+      "plaus": false,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (I(x) \u2192 \u00acF(x))\n    *   Premise 2: \u2200x (G(x) \u2192 I(x))\n    *   Conclusion: \u2203x (G(x) \u2227 \u00acF(x))\n\nFinal Answer: VALID",
+      "source": "unused_train"
+    },
+    {
+      "id": "f5cb79a6-006c-4630-a820-e5b7cf16671d",
+      "syllogism": "It is a fact that all shirts are garments. Every single garment is an article of clothing. Therefore, we can conclude that a few articles of clothing are shirts.",
+      "true": true,
+      "pred": true,
+      "plaus": true,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (S(x) \u2192 G(x))\n    *   Premise 2: \u2200x (G(x) \u2192 C(x))\n    *   Conclusion: \u2203x (C(x) \u2227 S(x))\n\nFinal Answer: VALID",
+      "source": "unused_train"
+    },
+    {
+      "id": "cc362ec8-4aca-4868-acb7-c4b193c9dd20",
+      "syllogism": "There are no chairs that are not furniture. All furniture are items found in a household. It follows that some items found in a household are chairs.",
+      "true": true,
+      "pred": false,
+      "plaus": true,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (\u00acC(x) \u2192 \u00acF(x)) (or equivalently, \u2200x (F(x) \u2192 C(x)))\n    *   Premise 2: \u2200x (F(x) \u2192 H(x))\n    *   Conclusion: \u2203x (H(x) \u2227 C(x))\n\nFinal Answer: INVALID",
+      "source": "unused_train"
+    },
+    {
+      "id": "1dad7389-e8ab-4962-8d10-83b42c2fa4fe",
+      "syllogism": "Every single banana is a type of fruit. There are no fruits that are rocks. Therefore, it necessarily follows that some of the objects that are rocks are not bananas.",
+      "true": true,
+      "pred": false,
+      "plaus": true,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (B(x) \u2192 F(x))\n    *   Premise 2: \u2200x (F(x) \u2192 \u00acR(x))\n    *   Conclusion: \u2203x (R(x) \u2227 \u00acB(x))\n\nFinal Answer: INVALID",
+      "source": "unused_train"
+    },
+    {
+      "id": "7365d303-9046-46f0-8fdc-d668a2845007",
+      "syllogism": "There are no parrots which are mammals. Some birds are parrots. This implies that no birds are mammals.",
+      "true": false,
+      "pred": false,
+      "plaus": true,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: \u2200x (P(x) \u2192 \u00acM(x)) (or equivalently, \u00ac\u2203x (P(x) \u2227 M(x)))\n    *   Premise 2: \u2203x (B(x) \u2227 P(x))\n    *   Conclusion: \u2200x (B(x) \u2192 \u00acM(x)) (or equivalently, \u00ac\u2203x (B(x) \u2227 M(x)))\n\nFinal Answer: INVALID",
+      "source": "unused_train"
+    },
+    {
+      "id": "c72ea95e-851f-4e43-af9d-17d7ecc26a0d",
+      "syllogism": "Wives are not people. Anything that is a wife is a husband. It's the case that some husbands are not people.",
+      "true": true,
+      "pred": false,
+      "plaus": false,
+      "response": "<think>\n\n</think>\n\n    *   Premise 1: Wives are not people. (No wives are people)\n        *   \u2200x (W(x) \u2192 \u00acP(x))\n    *   Premise 2: Anything that is a wife is a husband. (All wives are husbands)\n\nFinal Answer: INVALID",
+      "source": "unused_train"
+    }
+  ]
+}
